@@ -1,0 +1,362 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     12948,        354]
+NotebookOptionsPosition[     12154,        332]
+NotebookOutlinePosition[     12544,        348]
+CellTagsIndexPosition[     12501,        345]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{"\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"ClearAll", "[", 
+        RowBox[{"func", ",", "a", ",", "x", ",", "y", ",", "z"}], "]"}], 
+       ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"func", "[", 
+         RowBox[{
+         "x_", ",", "y_", ",", "z_", ",", "\[Alpha]_", ",", " ", "\[Beta]_", ",",
+           " ", "\[Gamma]_"}], "]"}], ":=", 
+        RowBox[{"1", "/", 
+         RowBox[{"Sqrt", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"x", "-", "\[Alpha]"}], ")"}], "^", "2"}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"y", "-", "\[Beta]"}], ")"}], "^", "2"}], "+", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"z", "-", "\[Gamma]"}], ")"}], "^", "2"}]}], "]"}]}]}], 
+       ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"a", "=", 
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{"func", "[", 
+           RowBox[{
+           "x", ",", " ", "y", ",", "z", ",", " ", "\[Alpha]", ",", " ", 
+            "\[Beta]", ",", " ", "\[Gamma]"}], "]"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", " ", "2"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"b", "=", 
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{"func", "[", 
+           RowBox[{
+           "x", ",", " ", "y", ",", " ", "z", ",", " ", "\[Alpha]", ",", " ", 
+            "\[Beta]", ",", " ", "\[Gamma]"}], "]"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"y", ",", " ", "2"}], "}"}]}], "]"}]}], ";"}], "\n", 
+      RowBox[{
+       RowBox[{"c", "=", 
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{"func", "[", 
+           RowBox[{
+           "x", ",", " ", "y", ",", " ", "z", ",", " ", "\[Alpha]", ",", 
+            "\[Beta]", ",", " ", "\[Gamma]"}], "]"}], ",", " ", 
+          RowBox[{"{", 
+           RowBox[{"z", ",", " ", "2"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{
+         "OutputForm", 
+          "[", "\"\<\[PartialD]^2f/\[PartialD]x^2 \[EGrave]: \>\"", "]"}], ",",
+          "a"}], "]"}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{
+         "OutputForm", 
+          "[", "\"\<\[PartialD]^2 f/\[PartialD]y^2 \[EGrave]: \>\"", "]"}], ",",
+          " ", "b"}], "]"}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{
+         RowBox[{
+         "OutputForm", 
+          "[", "\"\<\[PartialD]^2 f/\[PartialD]z^2 \[EGrave]: \>\"", "]"}], ",",
+          " ", "c"}], "]"}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{
+        RowBox[{
+        "OutputForm", "[", "\"\<Il laplaciano di 1/|x| \[EGrave]: \>\"", 
+         "]"}], ",", 
+        RowBox[{"FullSimplify", "[", " ", 
+         RowBox[{"a", "+", "b", "+", "c"}], "]"}]}], "]"}]}]}]},
+   {"\[Placeholder]"}
+  }]], "Input",
+ CellChangeTimes->{{3.985404295444252*^9, 3.985404301556787*^9}, {
+  3.9854043385609207`*^9, 3.985404461000121*^9}, {3.985405107027738*^9, 
+  3.985405122106687*^9}, {3.9854052748098583`*^9, 3.985405357110817*^9}, {
+  3.9854054123480873`*^9, 3.985405417293828*^9}, {3.985405608249009*^9, 
+  3.985405619894021*^9}, {3.9854056826808033`*^9, 3.9854056888555517`*^9}, {
+  3.985405748798374*^9, 3.9854057564251328`*^9}, {3.985406269067237*^9, 
+  3.985406382914669*^9}, {3.985406418644495*^9, 3.985406431047419*^9}, {
+  3.98540692426987*^9, 3.985406956839731*^9}, {3.985407056967697*^9, 
+  3.985407100529174*^9}, {3.9854071429454727`*^9, 3.985407233510125*^9}, {
+  3.985407283441297*^9, 3.985407299156146*^9}, {3.9854073426591663`*^9, 
+  3.985407562144672*^9}, {3.98542329947059*^9, 3.985423408744416*^9}, {
+  3.9935467537281103`*^9, 
+  3.993546766018442*^9}},ExpressionUUID->"d58a388a-5ad1-4838-ae02-\
+782c548afd8e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    PaneBox["\<\"\[PartialD]^2f/\[PartialD]x^2 \[EGrave]: \"\>",
+     BaselinePosition->Baseline],
+    OutputForm["\[PartialD]^2f/\[PartialD]x^2 \[EGrave]: "],
+    Editable->False], "\[InvisibleSpace]", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"3", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"x", "-", "\[Alpha]"}], ")"}], "2"]}], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"x", "-", "\[Alpha]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"y", "-", "\[Beta]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"z", "-", "\[Gamma]"}], ")"}], "2"]}], ")"}], 
+      RowBox[{"5", "/", "2"}]]], "-", 
+    FractionBox["1", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"x", "-", "\[Alpha]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"y", "-", "\[Beta]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"z", "-", "\[Gamma]"}], ")"}], "2"]}], ")"}], 
+      RowBox[{"3", "/", "2"}]]]}]}],
+  SequenceForm[
+   OutputForm["\[PartialD]^2f/\[PartialD]x^2 \[EGrave]: "], 
+   3 ($CellContext`x - $CellContext`\[Alpha])^2 (($CellContext`x - \
+$CellContext`\[Alpha])^2 + ($CellContext`y - $CellContext`\[Beta])^2 + \
+($CellContext`z - $CellContext`\[Gamma])^2)^
+     Rational[-5, 
+       2] - (($CellContext`x - $CellContext`\[Alpha])^2 + ($CellContext`y - \
+$CellContext`\[Beta])^2 + ($CellContext`z - $CellContext`\[Gamma])^2)^
+   Rational[-3, 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.985407163658126*^9, {3.985407204219746*^9, 3.985407233987431*^9}, {
+   3.9854072904229507`*^9, 3.985407300094563*^9}, 3.985407348642407*^9, {
+   3.985407383955344*^9, 3.985407397942079*^9}, 3.9854074621900043`*^9, 
+   3.9854074972756977`*^9, 3.9854075645069523`*^9, {3.985423365331233*^9, 
+   3.985423409289777*^9}},
+ CellLabel->
+  "During evaluation of \
+In[168]:=",ExpressionUUID->"2e175d82-ac82-42e6-afad-2589552a43e0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    PaneBox["\<\"\[PartialD]^2 f/\[PartialD]y^2 \[EGrave]: \"\>",
+     BaselinePosition->Baseline],
+    OutputForm["\[PartialD]^2 f/\[PartialD]y^2 \[EGrave]: "],
+    Editable->False], "\[InvisibleSpace]", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"3", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"y", "-", "\[Beta]"}], ")"}], "2"]}], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"x", "-", "\[Alpha]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"y", "-", "\[Beta]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"z", "-", "\[Gamma]"}], ")"}], "2"]}], ")"}], 
+      RowBox[{"5", "/", "2"}]]], "-", 
+    FractionBox["1", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"x", "-", "\[Alpha]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"y", "-", "\[Beta]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"z", "-", "\[Gamma]"}], ")"}], "2"]}], ")"}], 
+      RowBox[{"3", "/", "2"}]]]}]}],
+  SequenceForm[
+   OutputForm["\[PartialD]^2 f/\[PartialD]y^2 \[EGrave]: "], 
+   3 ($CellContext`y - $CellContext`\[Beta])^2 (($CellContext`x - \
+$CellContext`\[Alpha])^2 + ($CellContext`y - $CellContext`\[Beta])^2 + \
+($CellContext`z - $CellContext`\[Gamma])^2)^
+     Rational[-5, 
+       2] - (($CellContext`x - $CellContext`\[Alpha])^2 + ($CellContext`y - \
+$CellContext`\[Beta])^2 + ($CellContext`z - $CellContext`\[Gamma])^2)^
+   Rational[-3, 2]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.985407163658126*^9, {3.985407204219746*^9, 3.985407233987431*^9}, {
+   3.9854072904229507`*^9, 3.985407300094563*^9}, 3.985407348642407*^9, {
+   3.985407383955344*^9, 3.985407397942079*^9}, 3.9854074621900043`*^9, 
+   3.9854074972756977`*^9, 3.9854075645069523`*^9, {3.985423365331233*^9, 
+   3.98542340929215*^9}},
+ CellLabel->
+  "During evaluation of \
+In[168]:=",ExpressionUUID->"b847416c-ebca-4716-a068-d1c556cda12b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    PaneBox["\<\"\[PartialD]^2 f/\[PartialD]z^2 \[EGrave]: \"\>",
+     BaselinePosition->Baseline],
+    OutputForm["\[PartialD]^2 f/\[PartialD]z^2 \[EGrave]: "],
+    Editable->False], "\[InvisibleSpace]", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"x", "-", "\[Alpha]"}], ")"}], "2"], "+", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"y", "-", "\[Beta]"}], ")"}], "2"], "+", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"z", "-", "\[Gamma]"}], ")"}], "2"]}], ")"}], 
+       RowBox[{"3", "/", "2"}]]]}], "+", 
+    FractionBox[
+     RowBox[{"3", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"z", "-", "\[Gamma]"}], ")"}], "2"]}], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"x", "-", "\[Alpha]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"y", "-", "\[Beta]"}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"z", "-", "\[Gamma]"}], ")"}], "2"]}], ")"}], 
+      RowBox[{"5", "/", "2"}]]]}]}],
+  SequenceForm[
+   OutputForm[
+   "\[PartialD]^2 f/\[PartialD]z^2 \[EGrave]: "], -(($CellContext`x - \
+$CellContext`\[Alpha])^2 + ($CellContext`y - $CellContext`\[Beta])^2 + \
+($CellContext`z - $CellContext`\[Gamma])^2)^Rational[-3, 2] + 
+   3 (($CellContext`x - $CellContext`\[Alpha])^2 + ($CellContext`y - \
+$CellContext`\[Beta])^2 + ($CellContext`z - $CellContext`\[Gamma])^2)^
+     Rational[-5, 2] ($CellContext`z - $CellContext`\[Gamma])^2],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.985407163658126*^9, {3.985407204219746*^9, 3.985407233987431*^9}, {
+   3.9854072904229507`*^9, 3.985407300094563*^9}, 3.985407348642407*^9, {
+   3.985407383955344*^9, 3.985407397942079*^9}, 3.9854074621900043`*^9, 
+   3.9854074972756977`*^9, 3.9854075645069523`*^9, {3.985423365331233*^9, 
+   3.9854234092945967`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[168]:=",ExpressionUUID->"95dba729-3649-433f-85bb-846cb7d185f4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   InterpretationBox[
+    PaneBox["\<\"Il laplaciano di 1/|x| \[EGrave]: \"\>",
+     BaselinePosition->Baseline],
+    OutputForm["Il laplaciano di 1/|x| \[EGrave]: "],
+    Editable->False], "\[InvisibleSpace]", "0"}],
+  SequenceForm[
+   OutputForm["Il laplaciano di 1/|x| \[EGrave]: "], 0],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.985407163658126*^9, {3.985407204219746*^9, 3.985407233987431*^9}, {
+   3.9854072904229507`*^9, 3.985407300094563*^9}, 3.985407348642407*^9, {
+   3.985407383955344*^9, 3.985407397942079*^9}, 3.9854074621900043`*^9, 
+   3.9854074972756977`*^9, 3.9854075645069523`*^9, {3.985423365331233*^9, 
+   3.985423409340351*^9}},
+ CellLabel->
+  "During evaluation of \
+In[168]:=",ExpressionUUID->"62c35c3f-aafe-4ec3-91d2-f1c8a74acae9"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{606, 683.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.3 for Linux x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"33b239a8-36ae-4dee-b020-22603c403cbb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 4018, 100, 244, "Input",ExpressionUUID->"d58a388a-5ad1-4838-ae02-782c548afd8e"],
+Cell[CellGroupData[{
+Cell[4619, 126, 2218, 59, 67, "Print",ExpressionUUID->"2e175d82-ac82-42e6-afad-2589552a43e0"],
+Cell[6840, 187, 2218, 59, 67, "Print",ExpressionUUID->"b847416c-ebca-4716-a068-d1c556cda12b"],
+Cell[9061, 248, 2250, 59, 67, "Print",ExpressionUUID->"95dba729-3649-433f-85bb-846cb7d185f4"],
+Cell[11314, 309, 812, 19, 23, "Print",ExpressionUUID->"62c35c3f-aafe-4ec3-91d2-f1c8a74acae9"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,216 @@
+\chapter{Introduzione}
+Il campo gravitazionale generato da un corpo racchiude informazioni fondamentali sulla sua struttura interna. Risulta quindi essenziale studiare i contributi derivanti dalle deviazioni dalla simmetria sferica, i quali permettono di rispondere a numerosi interrogativi sulle caratteristiche del pianeta osservato. In questa breve dissertazione descriveremo l'espansione in multipoli nella gravità newtoniana, strumento cardine per lo studio di tali perturbazioni, applicandone i risultati a un sistema soggetto a interazioni mareali. Illustreremo infine come queste stesse configurazioni vengano modellate nel formalismo della Relatività Generale, in cui la gravità perde lo status di forza per divenire espressione della curvatura dello spaziotempo. 
+È lecito domandarsi perché affrontare l'argomento in regime newtoniano. Sebbene da un secolo sia noto che non rappresenti la teoria definitiva della gravità, essa costituisce ancora oggi un'approssimazione eccellente in una grande varietà di contesti pratici e astrofisici. Descrive con accuratezza la struttura terrestre e le maree provocate dal Sole e dalla Luna; persino le simulazioni numeriche che tracciano l'evoluzione degli ammassi galattica,la cui formazione è dominata dall'influenza della materia oscura, si basano sulla gravitazione newtoniana. I limiti di questo approccio classico emergono solo quando ci si scontra con la sua incapacità di spiegare la precessione del perielio di Mercurio o la deflessione della luce, fenomeni confermati sperimentalmente e perfettamente coerenti con le previsioni della Relatività Generale. Il criterio fondamentale per stabilire quando sia valido ricorrere all'approssimazione newtoniana è dettato dal fattore di correzione relativistico:
+\begin{align}
+    \epsilon \sim \frac{GM}{rc^2} \sim \frac{v^2}{c^2},
+\end{align}
+dove $G$ è la costante gravitazionale universale, $c$ è la velocità della luce, mentre $M$, $r$ e $v$ rappresentano rispettivamente la massa caratteristica, la dimensione (o distanza di separazione) e la velocità del sistema studiato.
+
+\section{Gravitazione newtoniana}
+
+Cominciamo a trarre i nostri primi passi nella teoria newtoniana della gravitazione partendo dalla celeberrima legge di Newton e la legge di gravitazione universale:
+\begin{align}
+    &m_I \vec{a} = \vec{F} \label{eq:inertial_mass_motion_law}, \\
+    &F = - Gm_G M \frac{\vec{r}(t)}{|r(t)|^3}.
+\end{align}
+Nella prima equazione, $\vec{F}$ è la forza che agisce sul corpo con massa inerziale $m_I$ situato in posizione $\vec{r}(t)$ e $\vec{a} = \frac{d^2\vec{r}}{dt^2}$ la sua accelerazione; mentre nella seconda
+equazione la forza $\vec{F}$ è considerata di natura \emph{gravitazionale} ed è orientata nella retta che congiunge i due corpi. Queste equazioni rappresentano le equazioni del moto di un corpo situato in $\vec{r}(t)$ e soggetto alla forza gravitazionale di un'altra massa posta all'origine del nostro sistema di coordinate. La quantità $G$ è detta \emph{costante di gravitazione universale} e, ad oggi, sappiamo che
+il suo valore è circa
+\begin{align}
+    G = (6.6738 \pm 0.0008) \times 10^{-11} \text{m}^2 \text{kg}^{-1} \text{s}^{-2}.
+\end{align}
+Si noti, innanzitutto, come questa forza dipenda inversamento dal quadrato della distanza fra i due corpi e punti in direzione opposta al versore che punta all'altro corpo. 
+
+Una forma perfettamente equivalente di esprimere queste leggi è ottenuta scrivendo la forza come gradiente di una funzione potenziale, che indicheremo all'interno di questa dissertazione come \emph{potenziale newtoniano}, da cui risulta che
+\begin{align}
+    U = \frac{GM}{r},
+\end{align}
+da cui risulta facilmente che
+\begin{align}
+    (\nabla U)_i &= \frac{\partial U}{\partial x^i} = \frac{\partial U}{\partial r} \frac{\partial r}{\partial x^i} = \nonumber \\
+    &= - \frac{GM}{r^2} \frac{1}{2} \frac{1}{\sqrt{\sum\limits_{\substack{j=1 \\ k=1}}^3 x_j x_k \delta_{jk}}} \left( \sum_{\substack{j=1 \\ k=1}}^3 x_k \delta_{ik} + \sum_{\substack{j=1 \\ k=1}}^3 x_j \delta_{ji} \right) = \nonumber \\
+    &= - \frac{GM}{r^2} \frac{1}{\cancel{2}} \frac{1}{\sqrt{\sum\limits_{\substack{j=1 \\ k=1}}^3 x_j x_k \delta_{jk}}} \left( \cancel{2} x_i^2 \right) = - \frac{GM}{r^2} \frac{(\vec{r})_i}{|\vec{r}|} = - \frac{GM}{r^3} (\vec{r})_i = (\vec{F})_i.
+\end{align}
+Riscrivendo in forma vettoriale si ha che
+\begin{align}
+    \vec{F} = m_G \nabla U,
+\end{align}
+da cui usando la \eqref{eq:inertial_mass_motion_law}, si ottiene che
+\begin{align}
+    m_I \vec{a} = m_G \nabla U,
+\end{align}
+e, nel caso in cui $m_I = m_G$, allora risulta che
+\begin{align}
+    \label{eq:acc_gravity}
+    \vec{a} = \nabla U.
+\end{align}
+
+L'assunzione che la massa gravitazione e la massa inerziale sia la stessa è noto come \emph{principio di equivalenza debole}: come conseguenza diretta di questa assunzione, si vede dalla \eqref{eq:acc_gravity} che l'accelerazione a cui è soggetto un corpo
+soggetto ad un campo gravitazionale è indipendente dalla massa del corpo stesso. Nel corso della trattazione supporremo che questo principio sia valido\footnote{molti esperimenti, di cui discuterò in appendice, mostrano che la massa inerziale e gravitazionale coincidano a meno di un parte su $1$ triliardo}, e tale principio è anche alla base del ragionamento che
+ha condotto Einstein alla Relatività Generale.
+
+Per adesso, come conseguenza dell'assunzione appena esposta e tramite l'introduzione del potenziale newtoniano, le leggi che governano il moto di un corpo soggetto ad un campo gravitazionale sono le seguenti
+\begin{align}
+    &\vec{a} = \nabla U, \\
+    &U = \frac{GM}{r},
+\end{align}
+tuttavia queste equazioni sono abbastanza limitate per i nostri scopi, in quanto sono valide esclusivamente per un punto materiale situato in $\vec{r}(t)$ soggetto al campo gravitazionale di un'altro corpo situato nell'origine del nostro sistema delle coordinate: 
+vorremmo studiare delle situazioni molto più generali, in cui i nostri corpi sono \emph{estesi}; fatti di materia \emph{continua} (solidi, fluidi o gassosi), quindi possono avere una forma e delle dimensioni che sono completamente arbitrari, oltre a poter evolvere in base alla loro
+dinamica interna; e, inoltre, vorremmo persino considerare un numero arbitrario di corpi. E' possibile generalizzare queste equazioni, considerando dei sistemi in cui la descrizione della materia è data da un campo di densità di massa $\rho(\vec{x}, t)$, un campo della pressione $p(\vec{x}, t)$ e un campo di velocità
+$\vec{v}(\vec{x}, t)$ che, come si vede qua sopra, sono funzioni dello spazio e del tempo e legate fra loro dalle seguenti equazioni
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+    \item $\frac{\partial \rho}{\partial t} + \vec{\nabla} \cdot (\rho \vec{v}) = 0$ (equazione di continuità);
+    \item $\rho \frac{\mathrm{d} \vec{v}}{\mathrm{d}t} = \rho \vec{\nabla} U - \vec{\nabla} p$ (legge di Eulero);
+\end{enumerate}
+L'equazione che invece lega il comportamento del campo gravitazionale alla distribuzione spaziale della massa è l'equazione di Poisson
+\begin{align}
+    \nabla^2 U = - 4 \pi G \rho,
+\end{align}
+dove $\nabla^2 = \sum\limits_{i=1}^3 \frac{\partial^2}{\partial x_i^2}$.
+
+Le equazioni di continuità e di Eulero non saranno ricavate all'interno di questa dissertazione, sebbene discendano, rispettivamente, dalla conservazione del numero di molecole all'interno di ogni elemento di fluido nel suo moto e dalla seconda equazione di Newton scritta per l'elemento infinitesimo di fluido: ci concentreremo, invece, nella derivazione
+dell'equazione di Poisson, pertanto nel resto di questa dissertazione, supporremo di lavorare con una data $\rho(\vec{x}, t)$ che abbia fisicamente senso, ovvero soddisfi l'equazione di continuità e di Eulero.
+
+\subsection{Deduzione dell'equazione di Poisson}
+
+Uno dei principi fondamentali su cui si basa la meccanica newtoniana è quello di sovrapposizione delle forze: appare quindi ragionevole suppore che il campo gravitazionale, almeno nell'ottica newtoniana, sia soggetto a tale principio. Assumendo questo, si deve avere che se consideriamo
+$N$ corpi di punti materiali che indicheremo con $1, \ldots, N$, allora il campo gravitazionale in un punto $\vec{x}$ sarà dato dalla somma di tutti i singoli potenziali generati da ogni singolo corpo:
+\begin{align}
+    U(\vec{x}) = \sum_{i=1}^N U_i = G \sum_{i=1}^N \frac{M_i}{|\vec{x} - \vec{x_i}|},
+\end{align}
+dove con $\vec{x_i}$ indichiamo la posizione dell'$i-$esimo corpo. La generalizzazione alla materia continua di questa equazione è straightforward: supponiamo di avere un sistema descritto da una certa $\rho(t, x')$, ovvero la distribuzione in funzione del tempo e della posizione della massa del sistema studiato:
+abbiamo, allora, che il frammento infinitesimo di massa $\mathrm{d} m$ produrrà il campo gravitazionale di un corpo puntiforme, ovvero
+\begin{align}
+    \mathrm{d}U(\vec{x}, t) = G \frac{\mathrm{d}m}{|\vec{x}-\vec{x}'|},
+\end{align} 
+dunque, ricordando che la massa infinitesima è data semplicemente dal prodotto del volume infinitesimo $d^3 x'$ con la densità volumica di massa $\rho(\vec{x'}, t)$, possiamo riscrivere l'equazione sopra ottenuta, ricavando che
+\begin{align}
+    \mathrm{d}U(\vec{x}, t) = G \frac{\rho(\vec{x}', t)}{|\vec{x}-\vec{x}'|} d^3 x',
+\end{align}
+da cui, integrando, si ottiene che
+\begin{align} \label{eq:pot_convolution}
+    U(\vec{x}, t) = G \int \frac{\rho(\vec{x'}, t)}{|\vec{x}-\vec{x'}|} d^3 x'.
+\end{align}
+
+La \eqref{eq:pot_convolution} mette il potenziale newtoniano $U$ come funzionale di un'arbitraria $\rho$: questo integrale può essere computato, analiticamente o numericamente, data un'arbitraria e generica $\rho$, tuttavia è bene avere presente che, consequenzialmente, la $U$ avrà significato fisico solo se $\rho$ ha significato fisico, ovvero rispetta l'equazione di continuità e la legge di Eulero. La \eqref{eq:pot_convolution}, nonostante ciò, è scritta sotto forma di equazione integrale,
+il che non la rende facilmente usufruibile per trovare il potenziale in una data regione dello spazio: possiamo, però, trasformare questa equazione integrale in una differenziale usando la seguente uguaglianza in senso distribuzionale
+\begin{align}
+        \nabla^2 \frac{1}{|\vec{x}-\vec{x'}|} = -4 \pi \delta^3(\vec{x} - \vec{x'}) \label{eq:green_delta},
+\end{align}
+che ci accingiamo a dimostrare: prima di farlo, tuttavia, osserviamo che questo risultato ci permette di derivare perfettamente l'equazione di Poisson per la \eqref{eq:pot_convolution}, in quanto
+\begin{align}
+    \nabla^2 U = G \int \rho(\vec{x}', t) \nabla^2 \frac{1}{|\vec{x}-\vec{x}'|} d^3 x' = G \int \rho(\vec{x}', t) (-4 \pi \delta^3 (\vec{x}-\vec{x}')) d^3 x' = -4 \pi G \rho(\vec{x}, t).
+\end{align} 
+Si potrebbe anche mostrare che la \eqref{eq:pot_convolution} è soluzione dell'equazione di Poisson: per farlo, osserviamo che l'equazione
+\begin{align}
+    \nabla^2 U = -4 \pi G \rho,
+\end{align}
+può essere risolta, usando il formalismo delle funzione di Green, da
+\begin{align}
+    U(\vec{x}, t) = \int \mathcal{G}(\vec{x}-\vec{x}') \rho(\vec{x}') d^3 x',
+\end{align}
+con $\mathcal{G}(\vec{x})$ quella distribuzione tale per cui
+\begin{align}
+    \nabla^2 \mathcal{G}(\vec{x}-\vec{x}') = - 4 \pi G \delta^3(\vec{x}-\vec{x}'),
+\end{align}
+dunque si vede, confrontando con la \eqref{eq:green_delta}, che
+\begin{align}
+    \mathcal{G}(\vec{x}-\vec{x}')=\frac{1}{|\vec{x}-\vec{x}'|}.
+\end{align}
+
+\subsubsection{Dimostrazione della \eqref{eq:green_delta}}
+Ci accingiamo, in questa sezione, di dimostrare la \eqref{eq:green_delta}. Per farlo, è necessario mostrare le due identità di Green:
+\begin{lemma}[identità di Green] \hspace{1cm} \\
+    Sia $U \in \mathfrak{m}(\mathbb{R}^3)$ e sia $\varphi \in C^2(U), \psi \in C^1(U)$, allora  
+    \begin{enumerate}[label=\protect\circled{\arabic*}]
+        \item \begin{align}
+            \int_U (\psi \nabla^2 \varphi + \nabla \varphi \cdot \nabla \psi)dV = \oint_{\partial U} \psi \frac{\partial \varphi}{\partial n} dS,
+        \end{align}
+        dove $\hat{n}$ è il versore normale uscente all'elemento di superfice $dS$ e $\partial U$ è il bordo della frontiera;
+        \item \begin{align}
+            \int_U \left[ \psi \nabla \cdot (\nabla \varphi) - \varphi \nabla \cdot (\nabla \psi)\right]dV = \oint_{\partial U} \left(\psi \frac{\partial \varphi}{\partial n} - \varphi \frac{\partial \psi}{\partial n}\right) dS.
+        \end{align} 
+    \end{enumerate}
+\end{lemma}
+\begin{proof} \hspace{1cm} \\
+    \circled{1}: si parte ponendo il campo vettoriale $\vec{F} = \psi \nabla \varphi$ e sappiamo che possiamo usare il teorema della divergenza, dunque
+    \begin{align}
+            \int_U \nabla \cdot \vec{F} d^3 x &= \int_{U} \nabla \cdot \vec{F} d^3 x = \int_U \nabla \cdot (\psi \nabla \varphi) d^3 x = \\
+            &= \int_U (\nabla \psi \cdot \nabla \varphi + \psi \nabla^2 \varphi) d^3 x = \int_{\partial U} \vec{F} \cdot \hat{n} dS = \int_{\partial U} \psi \nabla \varphi \cdot \hat{n} dS,
+    \end{align}
+    ma per definizione di derivata direzionale segue che $\nabla \varphi \cdot \hat{n} = \frac{\partial \varphi}{\partial n}$, dunque
+    \begin{align} \label{eq:green_first_id}
+        \int_U (\psi \nabla^2 \varphi + \nabla \varphi \cdot \nabla \psi) d^3 x = \oint_{\partial U} \psi (\nabla \varphi \cdot \hat{n}) dS.
+    \end{align}
+    \circled{2}: si considera l'espressione della prima identità di Green ottenuta per $\vec{F} = \psi \nabla \varphi$ presente in \eqref{eq:green_first_id} e quella per il campo $\vec{F}' = \varphi \nabla \psi$ (ottenuta considerando la \eqref{eq:green_first_id} e scambiando $\varphi \leftrightarrow \psi$), da cui prendendo 
+    la differenza fra le due si ottiene, siccome $\nabla \psi \cdot \nabla \varphi = \nabla \varphi \cdot \nabla \psi$, che
+    \begin{align}
+        \int_U \left[ \psi \nabla \cdot (\nabla \varphi) - \varphi \nabla \cdot (\nabla \psi)\right]dV = \oint_{\partial U} \left(\psi \frac{\partial \varphi}{\partial n} - \varphi \frac{\partial \psi}{\partial n}\right) dS.
+    \end{align} 
+\end{proof}
+\begin{proof}[Dimostrazione della \eqref{eq:green_delta}]
+    Si osserva che $\forall \vec{x}, \vec{x'} \in \mathbb{R}^3, \vec{x} \neq \vec{x'} \implies |\vec{x} - \vec{x'}| \neq 0$, il che implica naturalmente che il gradiente è ben definito per quei punti, dunque
+    \begin{align}
+        \nabla \frac{1}{|\vec{x}-\vec{x'}|} = \left( -\frac{x_i - x'_i}{|\vec{x}-\vec{x'}|^3} \right)_i,
+    \end{align}
+    da cui si ricava facilmente, sempre perché $|\vec{x}-\vec{x'}| \neq 0$, che
+    \begin{align}
+        \nabla \cdot \left( \nabla \frac{1}{|\vec{x}-\vec{x'}|} \right) = \nabla^2 \frac{1}{|\vec{x}-\vec{x'}|},
+    \end{align}
+    e osserviamo che $\partial_i (\nabla \frac{1}{|\vec{x}-\vec{x'}|})_i = \partial_i \frac{x_i}{|\vec{x}-\vec{x'}|^3} = -\frac{1}{|\vec{x} - \vec{x'}|^3} + \frac{3(x_i-x'_i)^2}{|\vec{x}-\vec{x'}|^5}$, da cui è chiaro che
+    \begin{align}
+        \nabla^2 \frac{1}{|\vec{x}-\vec{x'}|} &= \sum_{i=1}^3 \partial_i^2 \frac{1}{|\vec{x}-\vec{x'}|} = \sum_{i=1}^3 \left[ \frac{3(x_i - x_i')^2}{|\vec{x}-\vec{x'}|^5} - \frac{1}{|\vec{x}-\vec{x'}|^3} \right] = \nonumber \\
+        &= \frac{3}{|\vec{x}-\vec{x'}|^5} \sum_{i=1}^3 [(x_i - x_i')^2] - \frac{3}{|\vec{x}-\vec{x'}|^3} = \frac{3}{|\vec{x} - \vec{x'}|^{\cancel{5} \, 3}} \cancel{|\vec{x}-\vec{x'}|^2} - \frac{3}{|\vec{x} - \vec{x'}|^3} = 0.
+    \end{align}
+    Osserviamo, tuttavia, che il laplaciano di questa funzione è ben definito se e solo se $|\vec{x} - \vec{x'}| = 0 \iff \vec{x} = \vec{x'}$, come atteso dal breve commento a inizio dimostrazione, pertanto non è possibile concludere la dimostrazione usando la continuità dell'operazione di derivata nello spazio delle distribuzioni. Si procede, quindi, in maniera differente, osservando che possiamo approssimare la funzione $\nabla^2 \frac{1}{|\vec{x} - \vec{x'}|}$ con la funzione così definita
+    \begin{align}
+            u_{\varepsilon, R} = \begin{cases} 
+                \frac{1}{|\vec{x} - \vec{x}'|} & \varepsilon \leq |\vec{x}-\vec{x'}| \leq R, \\
+                0 & \text{ altrimenti },
+            \end{cases},
+    \end{align}
+    da cui si ha che usando la seconda identità di Green
+    \begin{align}
+        \int_{\mathbb{R}^3} (\nabla^2 u_{\varepsilon, R}) \phi(x) d^3 x = \int_{V_{\varepsilon, R}} (\nabla^2 \phi(\vec{x})) - \oint_{\partial V_{\varepsilon, R}} \phi(\vec{x}) \frac{\partial}{\partial n} \left( \frac{1}{|\vec{x}-\vec{x'}|} \right) - \frac{\partial \phi(\vec{x})}{\partial n} \frac{1}{|\vec{x}-\vec{x'}|}dS,
+    \end{align}
+    tuttavia osserviamo che il bordo dell'insieme $V_{\varepsilon, R}$ è costituito dalla sfera $S_\varepsilon$ di raggio $\varepsilon$ e dalla sfera $S_R$ di raggio $R$ centrate in $|\vec{x}-\vec{x'}|$ e, per il buon andamento delle funzioni di test, si conclude che, nel limite di $R \to +\infty$, l'integrale sulla sfera $S_R$ deve necessariamente fare zero, mentre nel volume $V_{\varepsilon, R}$ si ha che $\nabla^2 \frac{1}{|\vec{x} - \vec{x'}|}$ è ben definito, dunque $\nabla^2 \frac{1}{|\vec{x} - \vec{x'}|} = 0$. Si ha quindi che
+    \begin{align}
+        \lim_{\substack{R \to +\infty, \\ \varepsilon \to 0}} \int_{\mathbb{R}^3} (\nabla^2 u_{\varepsilon, R}) \phi(\vec{x}) \, d^3x = \lim_{\substack{R \to +\infty \\ \varepsilon \to 0}} \oint_{\partial S_\varepsilon} \left[ \phi(\vec{x}) \frac{\partial}{\partial n} \left( \frac{1}{|\vec{x}-\vec{x'}|} \right) - \frac{\partial \phi(\vec{x})}{\partial n} \frac{1}{|\vec{x}-\vec{x'}|} \right] dS.
+    \end{align}
+    Definiamo il vettore distanza $\vec{r} = \vec{x} - \vec{x'}$ e il suo modulo $r = |\vec{r}|$. Sulla superficie della sfera interna $\partial S_\varepsilon$, si ha $r = \varepsilon$.
+
+È fondamentale prestare attenzione al versore normale $\hat{n}$: affinché valga la seconda identità di Green, $\hat{n}$ deve essere uscente dal volume $V_{\varepsilon, R}$. Sulla frontiera interna $\partial S_\varepsilon$, tale normale punta dunque verso l'origine delle coordinate sferiche (cioè verso $\vec{x'}$). Si ha quindi $\hat{n} = -\hat{r}$, dove $\hat{r} = \frac{\vec{r}}{r}$ è il versore radiale.
+
+Calcoliamo la derivata direzionale normale della funzione $\frac{1}{|\vec{x}-\vec{x'}|}$:
+\begin{align}
+    \frac{\partial}{\partial n} \left( \frac{1}{r} \right) = \nabla \left( \frac{1}{r} \right) \cdot \hat{n} = \left( -\frac{1}{r^2} \hat{r} \right) \cdot (-\hat{r}) = \frac{1}{r^2}.
+\end{align}
+Valutando questa espressione su $\partial S_\varepsilon$ (dove $r = \varepsilon$), essa vale semplicemente $\frac{1}{\varepsilon^2}$. Il secondo termine dell'integranda contiene invece la funzione non derivata, che su $\partial S_\varepsilon$ è $\frac{1}{\varepsilon}$.
+
+Ricordando che l'elemento di superficie in coordinate sferiche è $dS = \varepsilon^2 d\Omega$ (con $d\Omega = \sin\theta \, d\theta \, d\phi$ angolo solido infinitesimo), possiamo riscrivere l'integrale di superficie in questo modo:
+\begin{align}
+    \oint_{\partial S_\varepsilon} \left[ \phi(\vec{x}) \left( \frac{1}{\varepsilon^2} \right) - \frac{\partial \phi(\vec{x})}{\partial n} \left( \frac{1}{\varepsilon} \right) \right] \varepsilon^2 d\Omega = \oint_{\partial S_\varepsilon} \phi(\vec{x}) \, d\Omega - \varepsilon \oint_{\partial S_\varepsilon} \frac{\partial \phi(\vec{x})}{\partial n} \, d\Omega.
+\end{align}
+
+Prendendo ora il limite per $\varepsilon \to 0$, osserviamo che, essendo $\phi$ una funzione di test ($\phi \in \mathcal{S}$), le sue derivate sono ovunque limitate. Pertanto, il secondo integrale è moltiplicato per $\varepsilon$ e tende banalmente a zero:
+\begin{align}
+    \lim_{\varepsilon \to 0} \varepsilon \oint_{\partial S_\varepsilon} \frac{\partial \phi(\vec{x})}{\partial n} \, d\Omega = 0.
+\end{align}
+
+Per il primo termine, grazie alla continuità di $\phi$, al tendere di $\varepsilon \to 0$ la sfera collassa nel punto $\vec{x'}$, e $\phi(\vec{x}) \to \phi(\vec{x'})$. Poiché l'integrale dell'angolo solido su tutta la sfera restituisce $4\pi$, otteniamo:
+\begin{align}
+    \lim_{\varepsilon \to 0} \oint_{\partial S_\varepsilon} \phi(\vec{x}) \, d\Omega = \phi(\vec{x'}) \oint d\Omega = 4\pi \phi(\vec{x'}).
+\end{align}
+
+Infine, ricordando la definizione di derivata in senso distribuzionale e che $\nabla^2 (1/|\vec{x}-\vec{x'}|) = 0$ strettamente all'interno di $V_{\varepsilon, R}$, l'azione del Laplaciano sulla funzione di test si ricava dall'identità di Green portando i termini di superficie a membro opposto (da cui emerge un segno meno):
+\begin{align}
+    \left\langle \nabla^2 \frac{1}{|\vec{x}-\vec{x'}|}, \phi \right\rangle &= \int_{\mathbb{R}^3} \frac{1}{|\vec{x}-\vec{x'}|} \nabla^2 \phi(\vec{x}) \, d^3x = \nonumber \\
+    &= - \lim_{\varepsilon \to 0} \oint_{\partial S_\varepsilon} \left[ \phi(\vec{x}) \frac{\partial}{\partial n} \left( \frac{1}{|\vec{x}-\vec{x'}|} \right) - \frac{\partial \phi(\vec{x})}{\partial n} \frac{1}{|\vec{x}-\vec{x'}|} \right] dS = \nonumber \\
+    &= -4\pi \phi(\vec{x'}).
+\end{align}
+Poiché l'azione della delta di Dirac è definita da $\langle \delta^3(\vec{x} - \vec{x'}), \phi \rangle = \phi(\vec{x'})$, ne consegue la tesi del teorema:
+\begin{align}
+    \nabla^2 \frac{1}{|\vec{x}-\vec{x'}|} = -4\pi \delta^3(\vec{x} - \vec{x'}).
+\end{align}
+
+\end{proof}

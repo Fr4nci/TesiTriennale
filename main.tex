@@ -4,8 +4,6 @@
 \input{preamble/macros}
 \usepackage{fancyhdr}
 \usepackage{titlesec}  % Opzionale, per controllo avanzato sui titoli
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt}
 \pagestyle{fancy}
 
 % Definizione dell'intestazione per pagine dispari (Odd)
@@ -25,7 +23,7 @@
 \renewcommand{\footrulewidth}{0pt}
 
 \pgfplotsset{compat=newest}
-\title{Espansione in multipolo del campo gravitazionale newtoniano}
+\title{Espansione in multipoli della gravità}
 \author{Francesco Sermi}
 \date{\today}
 \pgfplotsset{
@@ -81,6 +79,8 @@
 	%\vfill	
 	%\end{titlepage}
     \maketitle
+    \thispagestyle{empty}
     \tableofcontents
+    \input{capitoli/introduction.tex}
     \input{capitoli/gravity.tex}
 \end{document}

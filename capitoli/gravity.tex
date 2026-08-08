@@ -1,42 +1,131 @@
-\chapter{Gravitazione newtoniana}
-La teoria della gravitazione universale è un'ottima approssimazione per un sacco di situazione di interesse pratico e astronomico, in quanto riesce a descrivere in maniera accurata
-la struttura della Terra e le maree dovute all'interazione gravitazione del Sole e della Terra e la maggior parte delle stelle presenti nel nostro
-universo possono essere descritte in maniera abbastanza accurata dalla teoria newtoniana. Tramite  una descrizione esatta delle leggi della gravitazione, \\
-Possiamo iniziare a trattare il trattamento della teoria newtoniana tramite la celeberrima legge di Newton e la legge di gravitazione universale:
-\begin{align}
-    &m_I \vec{a} = \vec{F} \label{eq:inertial_mass_motion_law}, \\
-    &F = - \frac{GmM}{|\vec{r_1}(t) - \vec{r_2}(t)|^3} \vec{r_1}(t) - \vec{r_2}(t). 
-\end{align}
-Nella prima equazione, $\vec{F}$ è la forza che agisce sul corpo con massa inerziale $m_I$ situato in posizione $\vec{r}(t)$ e $\vec{a} = \frac{d^2\vec{r}}{dt^2}$ la sua accelerazione; mentre nella seconda
-equazione la forza $\vec{F}$ è considerata di natura \emph{gravitazionale} ed è orientata nella retta che congiunge i due corpi. La quantità $G$ è detta \emph{costante di gravitazione universale} e, ad oggi, sappiamo che
-il suo valore è circa
-\begin{align}
-    G = (6.6738 \pm 0.0008) \times 10^{-11} \text{m}^2 \text{kg}^{-1} \text{s}^{-2}.
-\end{align}
-Si nota, innanzitutto, come questa forza dipenda inversamento dal quadrato della distanza fra i due corpi e punta in direzione opposta al versore che punta all'altro corpo. 
+\chapter{Corpi non sferici}
 
+Nello scorso capitolo, abbiamo visto che, preso un sistema caratterizzato da una certa $\rho(\vec{x}, t)$, abbiamo che questo soddisfa l'equazione di Poisson
+\begin{align}
+    \nabla^2 U(\vec{x}, t) = -4 \pi G \rho(\vec{x}, t)
+\end{align}
+che in questo capitolo ci prefiggiamo di risolvere nel caso di deviazioni sferiche. E' istruttivo, ovviamente, studiare inizialmente il caso di sistemi con simmetria sferica per poi spostarci
+verso il caso più generale.
 
-Una forma perfettamente equivalente di esprimere queste leggi è ottenuta scrivendo la forza come gradiente di una funzione potenziale, che indicheremo all'interno di questa dissertazione come \emph{potenziale newtoniano}, da cui risulta che
-\begin{align}
-    U = \frac{GM}{r},
-\end{align}
-da cui risulta facilmente che
-\begin{align}
-    (\nabla U)_i &= \frac{\partial U}{\partial x^i} = \frac{\partial U}{\partial r} \frac{\partial r}{\partial x^i} = \nonumber \\
-    &= - \frac{GM}{r^2} \frac{1}{2} \frac{1}{\sqrt{\sum\limits_{\substack{j=1 \\ k=1}}^3 x_j x_k \delta_{jk}}} \left( \sum_{\substack{j=1 \\ k=1}}^3 x_k \delta_{ik} + \sum_{\substack{j=1 \\ k=1}}^3 x_j \delta_{ji} \right) = \nonumber \\
-    &= - \frac{GM}{r^2} \frac{1}{\cancel{2}} \frac{1}{\sqrt{\sum\limits_{\substack{j=1 \\ k=1}}^3 x_j x_k \delta_{jk}}} \left( \cancel{2} x_i^2 \right) = - \frac{GM}{r^2} \frac{\vec{r_i}}{|\vec{r}|} = - \frac{GM}{r^3} (\vec{r})_i = (\vec{F})_i.
-\end{align}
-Riscrivendo in forma vettoriale si ha che
-\begin{align}
-    \vec{F} = m_G \nabla U,
-\end{align}
-da cui usando la \ref{eq:inertial_mass_motion_law}, si ottiene che
-\begin{align}
-    m_I \vec{a} = m_G \nabla U,
-\end{align}
-e, nel caso in cui $m_I = m_G$, allora risulta che
-\begin{align}
-    \vec{a} = \nabla U.
-\end{align}
+\section{Sistema a simmetria sferica}
 
-L'assunzione che la massa gravitazione e la massa inerziale sia la stessa è noto come \emph{principio di equivalenza semplice} e gioca un ruolo centrale nella teoria della relatività generale.
+Riscriviamo il laplaciano in coordinate sferiche e inseriamo nell'equazione di Poisson
+\begin{align}
+    \left[ \frac{1}{r^2} \frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r}) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}(\sin{\theta} \frac{\partial}{\partial \theta}) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] U = - 4 \pi G \rho,
+\end{align}
+e se abbiamo un sistema che gode di simmetria sferica, allora si ha che il potenziale può dipendere esclusivamente dalla coordinata radiale $r$, pertanto l'equazione si riduce a
+\begin{align}
+    \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial U}{\partial r} \right) = -4 \pi G \rho(r, t),
+\end{align}
+da cui si ha che
+\begin{align}
+    \frac{\partial U}{\partial r} = -\frac{4 \pi G}{r^2} \int_0^r \rho(r', t) (r')^2 dr' + \frac{C(t)}{r^2},
+\end{align}
+con $C(t)$ costante di integrazione, che va posta a $0$ per quanto richiesto dalla simmetria: avremmo, infatti, che per $r = 0$ il potenziale divergerebbe e, inoltre, dal punto di vista fisico ricordiamo che $\frac{\partial U}{\partial r}$ ha il significato di forza radiale, tuttavia per $r=0$ non è ben definito il concetto di direzione radiale, dunque se la forza radiale fosse diversa da $0$ e la presenza di una forza radiale diretta in una qualunque direzione andrebbe a rompere la simmetria sferica, pertanto la costante di integrazione va messa a zero. In definitiva, abbiamo che
+\begin{align}
+    \frac{\partial U}{\partial r} = - \frac{4 \pi G m(r, t)}{r^2},
+\end{align}
+dove abbiamo posto
+\begin{align}
+    m(r, t) = \int_0^r \rho(r', t) (r')^2 dr'.
+\end{align}
+Si osservi che, per la simmetria sferica, esiste un $R$ per cui $\forall r > R, \rho(r) = 0$, per cui abbiamo che
+\begin{align}
+    M \equiv m(R, t) = \int_0^R \rho(r', t) (r')^2 dr'
+\end{align}
+è una costante, in quanto
+\begin{align}
+    \frac{\mathrm{d} M}{\mathrm{d}t} = \int_0^R \frac{\partial \rho(r', t)}{\partial t} (r')^2 dr' = \int_0^R -\frac{1}{(r')^2} \nabla_r (\rho(r', t) v_r)(r')^2 dr' = 0,
+\end{align}
+dove abbiamo usato l'equazione di continuità riscritta in coordinate cilindriche e successivamente il fatto che la $\rho(r', t)$ e $v_r$ (velocità radiale) del fluido siano nulle sul bordo del volume in cui abbiamo integrato. Abbiamo, quindi, mostrato che in simmetria sferica la massa totale del sistema è una costante e, inoltre, visto che per $r > R$ la densità volumica di massa è nulla, allora il campo gravitazionale è semplicemente dato da
+\begin{align}
+    \frac{\partial U}{\partial r} = - \frac{4 \pi G M}{r^2} \implies U(r) = \frac{4 \pi G M}{r},
+\end{align}
+ovvero il potenziale gravitazionale all'esterno del corpo è pari a quello di una massa puntiforme di massa $M$ tutta concentrata nel centro del sistema: integrando l'equazione di Poisson abbiamo ottenuto una dimostrazione molto più semplice rispetto a quella proposta da Newton del teorema del \emph{guscio sferico}.
+
+\section{Deviazioni dalla simmetria sferica}
+
+La simmetria sferica, come si evince dalla precedente sezione, è una semplificazione molto conveniente, tuttavia è molto raro che i corpi siano perfettamente simmetrici, tuttavia le rotazioni di un corpo attorno ad un asse, l'interazione con altri corpi e le forze di stress (come negli stress delle stelle di neutroni) possono andare a causare delle deviazioni da questa simmetria, tuttavia, per questi corpi, queste deviazioni sono piccole e si può procedere
+tramite un'espansione in multipoli: solitamente, i contributi dati dai momenti di multipolo sempre più grandi diventano via via sempre più piccoli, dunque anche considerando un piccolo numero di multipoli possiamo ottenere una buona descrizione del campo gravitazionale per molti dei problemi di interesse in cui è utile questa espansione. Nel caso della Terra, la misurazione dei momenti di multipolo fino a $l = 360$, che quantificano le variazioni della gravità sulla superficie terreste sulle scale delle centinaia di kilometri,
+ha permesso di studiare fenomeni come la deriva dei continenti e del vulcanismo e così via; tuttavia, questo metodo funziona per piccole deviazioni dalla simmetria sferica: le galassie a spirale, purtroppo, non sono ``vicine'' all'essere sferiche, pertanto per studiare questi sistemi bisogna optare per vie analitiche diverse o procedere per via numerica per ricavare il campo gravitazionale da loro prodotto.
+
+\subsection{Decomposizione in armoniche sferiche}
+
+Ricordiamo che le armoniche sferiche sono la soluzione all'equazione agli autovalori
+\begin{align}
+    \left[ \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta} \left( \sin{\theta} \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] Y_{lm} = -l(l+1) Y_{lm},
+\end{align}
+con $l$ un parametro intero che va da $0$ a $+\infty$, mentre $m = -l, \ldots, l$. Riconosciamo, nel lato sinistro dell'equazione, la ``parte'' angolare del laplaciano. Dalla teoria di Sturm-Liouville, sappiamo che queste equazioni formano un insieme ortogonale e completo di $L^2(S^2)$, ovvero l'insieme delle funzioni $f: S^2 \to \mathbb{C}$, pertanto abbiamo che
+\begin{align}
+    \int_{S^2} Y_{lm}^*(\theta, \phi) Y_{l'm'}(\theta, \phi) \mathrm{d}\Omega = \delta_{ll'} \delta_{mm'},
+\end{align}
+e $\forall f \in L^2(S^2)$ abbiamo che
+\begin{align}
+    f(\theta, \phi) = \sum_{l=0}^{\infty} \sum_{m=-l}^l f_{lm} Y_{lm}(\theta, \phi),
+\end{align}
+con
+\begin{align}
+    f_{lm} = \int_{S^2} Y_{lm}^*(\theta, \phi) f(\theta, \phi) \mathrm{d}\Omega.
+\end{align}
+In virtù di questo, abbiamo che
+\begin{align}
+    &\rho(r, t) = \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm}(t, r) Y_{lm}(\theta, \phi),
+    &U(r, t) = \sum_{l=0}^{+\infty} \sum_{m=-l}^l U_{lm}(t, r) Y_{lm}(\theta, \phi)
+\end{align}
+con
+\begin{align}
+    &\rho_{lm}(r, t) = \int_{S^2} Y_{lm}^*(\theta, \phi) \rho(t, r, \theta, \phi) \mathrm{d}\Omega, \\
+    &U_{lm}(r, t) = \int_{S^2} Y_{lm}^* U(t, r, \theta, \phi) \mathrm{d}\Omega, 
+\end{align}
+dove i coefficienti, naturalmente, dipendono dal tempo $t$ e da $r$, in quanto, integrando su $S^2$, stiamo effettuando la decomposizione sulla base delle armoniche sferiche ad $r$ fissato. Inserendo tutto questo nell'equazione di Poisson, si ricava che
+\begin{align}
+    &\left[ \frac{1}{r^2} \frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r}) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}(\sin{\theta} \frac{\partial}{\partial \theta}) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] \sum_{l=0}^{+\infty} \sum_{m=-l}^l U_{lm} Y_{lm}(\theta, \phi) = \\
+    &= -4 \pi G \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm}(t, r) Y_{lm}(\theta, \phi),
+\end{align}
+dunque, sfruttando il fatto che questa base è completa, allora si deve avere che $\forall (l, m)$ il coefficiente che moltiplica l'armonica sferica $Y_{lm}$ a sinistra debba essere lo stesso che abbiamo a destra, pertanto
+\begin{align}
+    \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial}{\partial r} \right) - l(l+1) \right] U_{lm}(r, t) = - 4 \pi G r^2 \rho_{lm}(t, r).
+\end{align}
+Abbiamo, così, ridotto il problema di trovare la soluzione di un'equazione differenziale alle derivate parziali ad un numero infinito di equazioni differenziali ordinarie.
+
+Per risolvere queste equazioni, si sfrutta il formalismo delle funzioni di Green, che in questo caso devono soddisfare, ponendo l'operatore differenziale
+\begin{align}
+    \mathcal{L} = \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} - l(l+1),
+\end{align}
+l'equazione differenziale
+\begin{align}
+    \mathcal{L} g_l(r, r') = - 4 \pi \delta(r-r'),
+\end{align}
+da cui si ha che ogni $U_{lm}$ possa essere ottenuta computando l'integrale
+\begin{align}
+    U_{lm}(r, t) = G \int_{S^2} g_l(r, r') \rho_{lm}(t, r') (r')^2 dr'.
+\end{align}
+La funzione di Green dipende esclusivamente dal valore di $l$ e non da $m$, in quanto l'operatore differenziale $\mathcal{L}$ dipende solamente da $l$, pertanto è sufficiente andare a computarla al variare di $l$ e non di $m$. Per computarla, osserviamo che per $r \neq r'$ l'equazione si riduce a
+\begin{align}
+    \mathcal{L} g_l(r, r') = 0,
+\end{align}
+che possiamo risolvere provando con l'ansatz di $r^\gamma$: si ha che
+\begin{align}
+    \left[ \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} - l(l+1) \right] r^\gamma = 0,
+\end{align}
+da cui si ottiene che
+\begin{align}
+    \gamma(\gamma+1) r^\gamma - l(l+1) r^\gamma = 0,
+\end{align}
+pertanto, abbiamo due soluzioni linearmente indipendenti con
+\begin{align}
+    g_l(r, r') = A(r')r^l + B(r')r^{-(l+1)},
+\end{align}
+dove la dipendenza da $r'$ si deve avere totalmente nei coefficienti di questa equazione differenziale (infatti i termini dipendenti da $r'$ si comportano come costanti rispetto all'operatore differenziale $\mathcal{L}$). 
+Per $r < r'$, si deve considerare solamente la soluzione non divergente per $r=r'$, per cui imponiamo che $B=0$
+\begin{align}
+    g_<(r, r') = A(r')r^l,
+\end{align}
+mentre per $r > r'$ si deve considerare solamente la soluzione non divergente all'infinito, quindi imponiamo che per $A=0$, dunque la funzione di Green del sistema è data da
+\begin{align}
+    g(r, r') = A(r')r^l \theta(r'-r) + B(r')r^{-(l+1)}\theta(r-r'),
+\end{align}
+e imponendo la continuità della funzione di Green per $r = r'$, si ha che
+\begin{align}
+    A(r')r^l = B(r')r^{-(l+1)},
+\end{align}
