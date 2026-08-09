@@ -546,12 +546,6 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT /usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
-INPUT /usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
-INPUT /usr/share/texmf-dist/tex/latex/amsfonts/ueuf.fd
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
 INPUT ./capitoli/gravity.tex
 INPUT ./capitoli/gravity.tex
 INPUT capitoli/gravity.tex
@@ -572,7 +566,5 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
-INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

@@ -1,131 +1,135 @@
 \chapter{Corpi non sferici}
-
-Nello scorso capitolo, abbiamo visto che, preso un sistema caratterizzato da una certa $\rho(\vec{x}, t)$, abbiamo che questo soddisfa l'equazione di Poisson
-\begin{align}
-    \nabla^2 U(\vec{x}, t) = -4 \pi G \rho(\vec{x}, t)
+Nel capitolo precedente abbiamo visto che un sistema caratterizzato da una densità $\rho(\vec{x}, t)$ soddisfa l'equazione di Poisson
+\begin{align}\nabla^2 U(\vec{x}, t) = -4 \pi G \rho(\vec{x}, t)
 \end{align}
-che in questo capitolo ci prefiggiamo di risolvere nel caso di deviazioni sferiche. E' istruttivo, ovviamente, studiare inizialmente il caso di sistemi con simmetria sferica per poi spostarci
-verso il caso più generale.
-
+che in questo capitolo ci prefiggiamo di risolvere nel caso in cui vi siano deviazioni dalla simmetria sferica. È istruttivo studiare inizialmente il caso con simmetria sferica perfetta per poi passare al caso più generale.
 \section{Sistema a simmetria sferica}
-
-Riscriviamo il laplaciano in coordinate sferiche e inseriamo nell'equazione di Poisson
-\begin{align}
-    \left[ \frac{1}{r^2} \frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r}) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}(\sin{\theta} \frac{\partial}{\partial \theta}) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] U = - 4 \pi G \rho,
-\end{align}
-e se abbiamo un sistema che gode di simmetria sferica, allora si ha che il potenziale può dipendere esclusivamente dalla coordinata radiale $r$, pertanto l'equazione si riduce a
+Riscriviamo il laplaciano in coordinate sferiche e lo inseriamo nell'equazione di Poisson:
+\begin{align}\left[ \frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}\left(\sin{\theta} \frac{\partial}{\partial \theta}\right) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] U = - 4 \pi G \rho.\end{align}
+Se il sistema gode di simmetria sferica, il potenziale dipende esclusivamente dalla coordinata radiale $r$; pertanto l'equazione si riduce a
 \begin{align}
     \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial U}{\partial r} \right) = -4 \pi G \rho(r, t),
 \end{align}
-da cui si ha che
+da cui si ottiene
 \begin{align}
-    \frac{\partial U}{\partial r} = -\frac{4 \pi G}{r^2} \int_0^r \rho(r', t) (r')^2 dr' + \frac{C(t)}{r^2},
+    \frac{\partial U}{\partial r} = -\frac{4 \pi G}{r^2} \int_0^r \rho(r', t) (r')^2 dr' + \frac{C(t)}{r^2}.
 \end{align}
-con $C(t)$ costante di integrazione, che va posta a $0$ per quanto richiesto dalla simmetria: avremmo, infatti, che per $r = 0$ il potenziale divergerebbe e, inoltre, dal punto di vista fisico ricordiamo che $\frac{\partial U}{\partial r}$ ha il significato di forza radiale, tuttavia per $r=0$ non è ben definito il concetto di direzione radiale, dunque se la forza radiale fosse diversa da $0$ e la presenza di una forza radiale diretta in una qualunque direzione andrebbe a rompere la simmetria sferica, pertanto la costante di integrazione va messa a zero. In definitiva, abbiamo che
+La costante di integrazione $C(t)$ va posta a zero. Fisicamente, infatti, $\frac{\partial U}{\partial r}$ rappresenta il campo gravitazionale radiale. Nell'origine ($r=0$) la direzione radiale non è definita: una forza netta non nulla in quel punto punterebbe in una direzione preferenziale, rompendo la simmetria sferica del sistema. Inoltre, se $C(t)$ fosse diversa da zero, il termine divergerebbe. In definitiva si ha:
 \begin{align}
     \frac{\partial U}{\partial r} = - \frac{4 \pi G m(r, t)}{r^2},
 \end{align}
-dove abbiamo posto
-\begin{align}
-    m(r, t) = \int_0^r \rho(r', t) (r')^2 dr'.
-\end{align}
-Si osservi che, per la simmetria sferica, esiste un $R$ per cui $\forall r > R, \rho(r) = 0$, per cui abbiamo che
+dove abbiamo definito la massa contenuta entro il raggio $r$:\begin{align}m(r, t) = \int_0^r \rho(r', t) (r')^2 dr'.\end{align}
+Assumendo che il corpo sia confinato nello spazio, esiste un raggio $R$ tale per cui $\rho(r) = 0$ per ogni $r > R$. Pertanto, la massa totale
 \begin{align}
     M \equiv m(R, t) = \int_0^R \rho(r', t) (r')^2 dr'
 \end{align}
-è una costante, in quanto
+è una costante nel tempo. Lo si dimostra facilmente:
 \begin{align}
     \frac{\mathrm{d} M}{\mathrm{d}t} = \int_0^R \frac{\partial \rho(r', t)}{\partial t} (r')^2 dr' = \int_0^R -\frac{1}{(r')^2} \nabla_r (\rho(r', t) v_r)(r')^2 dr' = 0,
 \end{align}
-dove abbiamo usato l'equazione di continuità riscritta in coordinate cilindriche e successivamente il fatto che la $\rho(r', t)$ e $v_r$ (velocità radiale) del fluido siano nulle sul bordo del volume in cui abbiamo integrato. Abbiamo, quindi, mostrato che in simmetria sferica la massa totale del sistema è una costante e, inoltre, visto che per $r > R$ la densità volumica di massa è nulla, allora il campo gravitazionale è semplicemente dato da
+dove abbiamo usato l'equazione di continuità in coordinate sferiche e il fatto che la densità e la velocità radiale $v_r$ siano nulle sul bordo del volume di integrazione. 
+Abbiamo quindi mostrato che la massa totale del sistema si conserva. Inoltre, poiché per $r > R$ la densità si annulla, il campo gravitazionale all'esterno del corpo è dato da:
 \begin{align}
-    \frac{\partial U}{\partial r} = - \frac{4 \pi G M}{r^2} \implies U(r) = \frac{4 \pi G M}{r},
+    \frac{\partial U}{\partial r} = - \frac{4 \pi G M}{r^2} \implies U(r) = \frac{4 \pi G M}{r}.
 \end{align}
-ovvero il potenziale gravitazionale all'esterno del corpo è pari a quello di una massa puntiforme di massa $M$ tutta concentrata nel centro del sistema: integrando l'equazione di Poisson abbiamo ottenuto una dimostrazione molto più semplice rispetto a quella proposta da Newton del teorema del \emph{guscio sferico}.
+Il potenziale all'esterno coincide con quello generato da una massa puntiforme $M$ posta nel centro del sistema: integrando l'equazione di Poisson abbiamo ottenuto una dimostrazione molto più diretta del teorema del guscio sferico di Newton.
 
 \section{Deviazioni dalla simmetria sferica}
-
-La simmetria sferica, come si evince dalla precedente sezione, è una semplificazione molto conveniente, tuttavia è molto raro che i corpi siano perfettamente simmetrici, tuttavia le rotazioni di un corpo attorno ad un asse, l'interazione con altri corpi e le forze di stress (come negli stress delle stelle di neutroni) possono andare a causare delle deviazioni da questa simmetria, tuttavia, per questi corpi, queste deviazioni sono piccole e si può procedere
-tramite un'espansione in multipoli: solitamente, i contributi dati dai momenti di multipolo sempre più grandi diventano via via sempre più piccoli, dunque anche considerando un piccolo numero di multipoli possiamo ottenere una buona descrizione del campo gravitazionale per molti dei problemi di interesse in cui è utile questa espansione. Nel caso della Terra, la misurazione dei momenti di multipolo fino a $l = 360$, che quantificano le variazioni della gravità sulla superficie terreste sulle scale delle centinaia di kilometri,
-ha permesso di studiare fenomeni come la deriva dei continenti e del vulcanismo e così via; tuttavia, questo metodo funziona per piccole deviazioni dalla simmetria sferica: le galassie a spirale, purtroppo, non sono ``vicine'' all'essere sferiche, pertanto per studiare questi sistemi bisogna optare per vie analitiche diverse o procedere per via numerica per ricavare il campo gravitazionale da loro prodotto.
-
+La simmetria sferica è una semplificazione utile, ma è raro che i corpi celesti siano perfettamente simmetrici. La rotazione attorno a un asse, l'interazione con altri corpi e le tensioni interne (come gli stress crostali delle stelle di neutroni) causano deviazioni da questa configurazione ideale. Quando tali deviazioni sono piccole, si procede tramite un'espansione in multipoli. Poiché il contributo dei momenti di ordine superiore tende a decrescere rapidamente, un troncamento dello sviluppo ai primi termini offre una buona descrizione del potenziale gravitazionale per la maggior parte dei problemi di interesse.
+Nel caso della Terra, la misurazione dei momenti di multipolo fino a $l = 360$ (che quantificano le variazioni del campo gravitazionale su scale di centinaia di chilometri) ha permesso di studiare fenomeni come la deriva dei continenti, il vulcanismo e la struttura interna del pianeta. Questo approccio analitico, tuttavia, è limitato a sistemi approssimativamente sferici: le galassie a spirale, ad esempio, si discostano marcatamente da tale geometria, obbligando a ricorrere a metodi analitici differenti o a simulazioni numeriche per ricavarne il potenziale.
 \subsection{Decomposizione in armoniche sferiche}
-
-Ricordiamo che le armoniche sferiche sono la soluzione all'equazione agli autovalori
+Ricordiamo che le armoniche sferiche $Y_{lm}$ sono autofunzioni dell'operatore differenziale angolare:
 \begin{align}
     \left[ \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta} \left( \sin{\theta} \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] Y_{lm} = -l(l+1) Y_{lm},
-\end{align}
-con $l$ un parametro intero che va da $0$ a $+\infty$, mentre $m = -l, \ldots, l$. Riconosciamo, nel lato sinistro dell'equazione, la ``parte'' angolare del laplaciano. Dalla teoria di Sturm-Liouville, sappiamo che queste equazioni formano un insieme ortogonale e completo di $L^2(S^2)$, ovvero l'insieme delle funzioni $f: S^2 \to \mathbb{C}$, pertanto abbiamo che
+\end{align}con $l$ intero non negativo e $m \in \{-l, \dots, l\}$ e riconosciamo, nel termine a sinistra, la parte angolare del laplaciano.
+Dalla teoria di Sturm-Liouville sappiamo che queste funzioni costituiscono una base ortogonale e completa per lo spazio $L^2(S^2)$, ossia lo spazio delle funzioni a quadrato integrabile definite sulla sfera. Pertanto, vale la relazione di ortonormalità:
 \begin{align}
-    \int_{S^2} Y_{lm}^*(\theta, \phi) Y_{l'm'}(\theta, \phi) \mathrm{d}\Omega = \delta_{ll'} \delta_{mm'},
+    \int_{S^2} Y_{lm}^(\theta, \phi) Y_{l'm'}(\theta, \phi) \mathrm{d}\Omega = \delta_{ll'} \delta_{mm'},
 \end{align}
-e $\forall f \in L^2(S^2)$ abbiamo che
+e per ogni funzione $f \in L^2(S^2)$ si ha:
 \begin{align}
-    f(\theta, \phi) = \sum_{l=0}^{\infty} \sum_{m=-l}^l f_{lm} Y_{lm}(\theta, \phi),
+f(\theta, \phi) = \sum_{l=0}^{\infty} \sum_{m=-l}^l f_{lm} Y_{lm}(\theta, \phi),
 \end{align}
-con
+con i coefficienti dati da:
 \begin{align}
-    f_{lm} = \int_{S^2} Y_{lm}^*(\theta, \phi) f(\theta, \phi) \mathrm{d}\Omega.
+f_{lm} = \int_{S^2} Y_{lm}(\theta, \phi) f(\theta, \phi) \mathrm{d}\Omega.
 \end{align}
-In virtù di questo, abbiamo che
+Possiamo quindi sviluppare sia la densità che il potenziale in serie di armoniche sferiche, ottenendo
 \begin{align}
-    &\rho(r, t) = \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm}(t, r) Y_{lm}(\theta, \phi),
-    &U(r, t) = \sum_{l=0}^{+\infty} \sum_{m=-l}^l U_{lm}(t, r) Y_{lm}(\theta, \phi)
+    &\rho(r, \theta, \phi, t) = \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm}(r, t) Y_{lm}(\theta, \phi), & &U(r, \theta, \phi, t) = \sum_{l=0}^{+\infty} \sum_{m=-l}^l U_{lm}(r, t) Y_{lm}(\theta, \phi),
 \end{align}
-con
+dove i coefficienti dipendono da $r$ e $t$, poiché la proiezione viene effettuata su superfici sferiche a raggio e tempo fissati, e sono dati da
 \begin{align}
-    &\rho_{lm}(r, t) = \int_{S^2} Y_{lm}^*(\theta, \phi) \rho(t, r, \theta, \phi) \mathrm{d}\Omega, \\
-    &U_{lm}(r, t) = \int_{S^2} Y_{lm}^* U(t, r, \theta, \phi) \mathrm{d}\Omega, 
+    &\rho_{lm}(r, t) = \int_{S^2} Y_{lm}(\theta, \phi) \rho(r, \theta, \phi, t) \mathrm{d}\Omega, &
+    &U_{lm}(r, t) = \int_{S^2} Y_{lm}(\theta, \phi) U(r, \theta, \phi, t) \mathrm{d}\Omega.
 \end{align}
-dove i coefficienti, naturalmente, dipendono dal tempo $t$ e da $r$, in quanto, integrando su $S^2$, stiamo effettuando la decomposizione sulla base delle armoniche sferiche ad $r$ fissato. Inserendo tutto questo nell'equazione di Poisson, si ricava che
-\begin{align}
-    &\left[ \frac{1}{r^2} \frac{\partial}{\partial r}(r^2 \frac{\partial}{\partial r}) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}(\sin{\theta} \frac{\partial}{\partial \theta}) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] \sum_{l=0}^{+\infty} \sum_{m=-l}^l U_{lm} Y_{lm}(\theta, \phi) = \\
-    &= -4 \pi G \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm}(t, r) Y_{lm}(\theta, \phi),
-\end{align}
-dunque, sfruttando il fatto che questa base è completa, allora si deve avere che $\forall (l, m)$ il coefficiente che moltiplica l'armonica sferica $Y_{lm}$ a sinistra debba essere lo stesso che abbiamo a destra, pertanto
-\begin{align}
-    \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial}{\partial r} \right) - l(l+1) \right] U_{lm}(r, t) = - 4 \pi G r^2 \rho_{lm}(t, r).
-\end{align}
-Abbiamo, così, ridotto il problema di trovare la soluzione di un'equazione differenziale alle derivate parziali ad un numero infinito di equazioni differenziali ordinarie.
 
-Per risolvere queste equazioni, si sfrutta il formalismo delle funzioni di Green, che in questo caso devono soddisfare, ponendo l'operatore differenziale
+Inserendo questi sviluppi nell'equazione di Poisson si ottiene:
+\begin{align}
+    &\left[ \frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}\left(\sin{\theta} \frac{\partial}{\partial \theta}\right) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] \sum_{l=0}^{+\infty} \sum_{m=-l}^l U_{lm} Y_{lm} = \nonumber \\
+    &= -4 \pi G \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm} Y_{lm}.\end{align}
+Poiché le $Y_{lm}$ sono linearmente indipendenti, l'uguaglianza deve valere termine a termine per ogni coppia $(l, m)$, portando a:
+\begin{align}
+    \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial}{\partial r} \right) - l(l+1) \right] U_{lm}(r, t) = - 4 \pi G r^2 \rho_{lm}(r, t).
+\end{align}
+In questo modo abbiamo ricondotto un'equazione alle derivate parziali a un sistema infinito di equazioni differenziali ordinarie disaccoppiate. Per risolvere queste equazioni utilizziamo il metodo delle funzioni di Green, definendo l'operatore differenziale
 \begin{align}
     \mathcal{L} = \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} - l(l+1),
-\end{align}
-l'equazione differenziale
+\end{align}cerchiamo una funzione $g_l(r, r')$ che soddisfi
 \begin{align}
-    \mathcal{L} g_l(r, r') = - 4 \pi \delta(r-r'),
+    \mathcal{L} g_l(r, r') = - 4 \pi \delta(r-r').
 \end{align}
-da cui si ha che ogni $U_{lm}$ possa essere ottenuta computando l'integrale
+Una volta determinata $g_l$, ogni coefficiente $U_{lm}$ potrà essere calcolato come
+\begin{align} \label{eq:u_lm_green}
+    U_{lm}(r, t) = G \int_0^\infty g_l(r, r') \rho_{lm}(r', t) (r')^2 dr'.
+\end{align}
+L'operatore $\mathcal{L}$ e, di conseguenza, la funzione di Green dipendono dall'indice $l$ ma non da $m$. Per $r \neq r'$, l'equazione per $g_l$ si riduce a quella omogenea:
 \begin{align}
-    U_{lm}(r, t) = G \int_{S^2} g_l(r, r') \rho_{lm}(t, r') (r')^2 dr'.
+    \mathcal{L} g_l(r, r') = 0.
 \end{align}
-La funzione di Green dipende esclusivamente dal valore di $l$ e non da $m$, in quanto l'operatore differenziale $\mathcal{L}$ dipende solamente da $l$, pertanto è sufficiente andare a computarla al variare di $l$ e non di $m$. Per computarla, osserviamo che per $r \neq r'$ l'equazione si riduce a
+Cercando soluzioni della forma $r^\gamma$, si ha
 \begin{align}
-    \mathcal{L} g_l(r, r') = 0,
+    \left[ \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} - l(l+1) \right] r^\gamma = 0 \implies \gamma(\gamma+1) - l(l+1) = 0.
 \end{align}
-che possiamo risolvere provando con l'ansatz di $r^\gamma$: si ha che
+La combinazione lineare delle due radici indipendenti fornisce:\begin{align}g_l(r, r') = A(r')r^l + B(r')r^{-(l+1)}.\end{align}I coefficienti $A$ e $B$ dipendono da $r'$ poiché tale variabile gioca il ruolo di parametro per l'equazione differenziale in $r$. Affinché il potenziale sia fisicamente accettabile, non deve presentare divergenze spurie. Per $r < r'$, richiediamo che la soluzione sia regolare nell'origine ($r \to 0$); pertanto imponiamo $B = 0$:\begin{align}g_<(r, r') = A(r')r^l.\end{align}Analogamente, per $r > r'$, richiediamo che il potenziale si annulli all'infinito ($r \to \infty$); pertanto imponiamo $A = 0$:
 \begin{align}
-    \left[ \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} - l(l+1) \right] r^\gamma = 0,
+    g_>(r, r') = B(r')r^{-(l+1)}.
 \end{align}
-da cui si ottiene che
+Combinando i risultati mediante il gradino di Heaviside, si ottiene:
 \begin{align}
-    \gamma(\gamma+1) r^\gamma - l(l+1) r^\gamma = 0,
+    g_l(r, r') = A(r')r^l \theta(r'-r) + B(r')r^{-(l+1)}\theta(r-r').
 \end{align}
-pertanto, abbiamo due soluzioni linearmente indipendenti con
+Imponendo infine la continuità della funzione di Green in $r = r'$, si ricava la condizione
 \begin{align}
-    g_l(r, r') = A(r')r^l + B(r')r^{-(l+1)},
+    A(r')(r')^l = B(r')(r')^{-(l+1)},
 \end{align}
-dove la dipendenza da $r'$ si deve avere totalmente nei coefficienti di questa equazione differenziale (infatti i termini dipendenti da $r'$ si comportano come costanti rispetto all'operatore differenziale $\mathcal{L}$). 
-Per $r < r'$, si deve considerare solamente la soluzione non divergente per $r=r'$, per cui imponiamo che $B=0$
+dunque possiamo riscrivere nella seguente forma
 \begin{align}
-    g_<(r, r') = A(r')r^l,
+    g_l(r, r') = C(r') \left[ \frac{r^l}{(r')^l}\theta(r'-r) + \frac{r^{-(l+1)}}{(r')^{-(l+1)}}\theta(r-r') \right].
 \end{align}
-mentre per $r > r'$ si deve considerare solamente la soluzione non divergente all'infinito, quindi imponiamo che per $A=0$, dunque la funzione di Green del sistema è data da
+ed integrando l'equazione differenziale fra $[r'-\varepsilon, r'+\varepsilon]$ con $\varepsilon \to 0$ si ottiene che
 \begin{align}
-    g(r, r') = A(r')r^l \theta(r'-r) + B(r')r^{-(l+1)}\theta(r-r'),
-\end{align}
-e imponendo la continuità della funzione di Green per $r = r'$, si ha che
+    \int_{r'-\varepsilon}^{r'+\varepsilon} \left[ \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} \right] g_l(r, r') = - 4 \pi.
+\end{align} 
+Si noti che il termine proporzionale all'integrale di $g_l(r, r')$ si annulla per continuità nel limite di $\varepsilon \to 0$: rimane dunque
 \begin{align}
-    A(r')r^l = B(r')r^{-(l+1)},
+    \int_{r'-\varepsilon}^{r'+\varepsilon} \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial g_l(r, r')}{\partial r} \right) \right] = - 4 \pi,
 \end{align}
+in cui si ottiene che
+\begin{align}
+    C(r')[(-l+1)(r') - (l+2)(r')] = -4 \pi \implies C(r') = \frac{4 \pi}{2l+1} \frac{1}{r'}.
+\end{align}
+La funzione di Green dell'operatore $\mathcal{L}$ risulta, dunque, essere
+\begin{align}
+    g_l(r, r') = \frac{4 \pi}{2l+1} \left[ \frac{r^l}{(r')^{l+1}} \theta(r' - r) + \frac{(r')^{l}}{r^{l+1}} \theta(r-r') \right],
+\end{align}
+che può essere riscritta in forma più compatta introducendo $r_> = \max\{r, r'\}$ e $r_< = \min\{r, r'\}$, ottenendo
+\begin{align}
+    g_l(r, r') = \frac{4 \pi}{2l+1} \frac{r_<^l}{r_>^{l+1}}.
+\end{align}
+Sostituendo nella \eqref{eq:u_lm_green} si ottiene che
+\begin{align}
+    U_{lm}(r, t) &= \frac{4 \pi G}{2l+1} \int_{0}^{+\infty} \frac{r^l_<}{r_>^{l+1}} \rho_{lm}(r', t) \mathrm{d}r' = \nonumber \\
+    &= \frac{4 \pi G}{2l+1} \left[ r^l \int_r^{+\infty} \frac{\rho_{lm}(r', t)}{(r')^{l+1}} (r')^2 dr' + \frac{1}{r^{l+1}} \int_0^r (r')^l \rho_{lm}(r', t)(r')^2 \mathrm{d}r' \right].
+\end{align}
+
