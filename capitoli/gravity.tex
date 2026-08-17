@@ -199,6 +199,46 @@ da cui otteniamo che
 	\frac{1}{|\vec{x}-\vec{x}'|} = \sum_{l=0}^{\infty} \sum_{m=-l}^l \frac{4\pi}{2l+1} \frac{r_<^l}{r_>^{l+1}} Y^*_{lm}(\theta', \phi') Y_{lm}(\theta, \phi).
 \end{align}
 Sostituendo $\rho$ decomposta nelle armoniche sferiche, si riottiene esattamente la \eqref{eq:u_lm_sol}
+\subsubsection{Dimostrazione del teorema di addizione delle armoniche sferiche}
+
+Vogliamo adesso dimostrare formalmente che
+\begin{align}
+	P_l(\cos{\gamma}) = \frac{4 \pi}{2l+1} \sum_{m=-l}^l Y^*_{lm}(\theta', \phi') Y_{lm}(\theta, \phi),
+\end{align}
+dove ricordiamo che
+\begin{align}
+	\cos{\gamma} = \cos{\theta} \cos{\theta'} + \sin{\theta} \sin{\theta'} \cos{\phi - \phi'},
+\end{align}
+e rappresenta l'angolo fra il vettore $\vec{x}$ e il vettore $\vec{x}'$. \\
+Per fare questa dimostrazione supporremo che $\vec{x}'$ sia fissato nello spazio: vediamo che se tramite una rotazione andiamo ad allineare i nostri assi in maniera tale che $\vec{x}' \parallel \hat{z}$, allora abbiamo che $\gamma = \theta$, ovvero l'angolo $\gamma$ diventa semplicemente l'angolo polare a cui siamo abituati. 
+Conseguentemente, ricordando che $\nabla^2$ è invariante rispetto a rotazioni: si può vedere facilmente osservando che
+\begin{align}
+	\frac{\partial}{\partial x_i} = \sum_{j=1}^3 \frac{\partial}{\partial x_j'} \frac{\partial x_j'}{\partial x_i} = \sum_j (R)_{ji} \frac{\partial}{\partial x_j'},
+\end{align}
+pertanto
+\begin{align}
+	\nabla \cdot \nabla = \sum_j \sum_m (R)_{ji} (R)_{mi} \frac{\partial}{\partial x_j'} \frac{\partial}{\partial x_m'},
+\end{align}
+da cui, usando la relazione di ortogonalità che soddisfano le rotazioni, sappiamo che
+\begin{align}
+	R R^T = \mathbf{1} \iff (R)_{ij} (R^T)_{jl} = (R)_{ij} (R)_{lj} = \delta_{il},
+\end{align}
+permettendoci, così, di concludere, in quanto si ha che
+\begin{align}
+	\nabla \cdot \nabla = \sum_{j} \sum_m \delta_{jm} \frac{\partial^2}{\partial x_j'^2 \partial x_m'} = \sum_j \frac{\partial^2}{\partial x_j'^2} = \nabla' \cdot \nabla'.
+\end{align}
+Ne consegue, allora, che il polinomio di Legendre $P_l(\cos{\gamma})$ soddisfa la seguente equazione differenziale
+\begin{align}
+	(\nabla')^2 P_l(\cos{\gamma}) + \frac{l(l+1)}{r^2} P_l(\cos{\gamma}) = 0,
+\end{align}
+in quanto se prendiamo $\vec{x}' \parallel \hat{z}$ (con una rotazione), allora, nelle nuove coordinate, solamente il termine con le derivate in $\frac{\partial}{\partial \theta}$ andrà ad ``interagire'' con il polinomio di Legendre, ma in virtù dell'invarianza sotto rotazioni, questa equazione differenziale sarà vera anche se $\vec{x}' \not\parallel \hat{z}$. Supponendo, allora, che
+\begin{align}
+	P_l(\cos{\gamma}) = \sum_{l=0}^\infty \sum_{m=-l}^l A_{l' m}(\theta', \phi') Y_{l'm}(\theta, \phi),
+\end{align}
+si vede dall'equazione qua sopra che viene soddisfatta dai polinomi di Legendre che ciò è possibile se e solo se $\forall l \neq l'$, $A_{l'm} = 0$, dunque
+\begin{align}
+	P_l(\cos{\gamma}) = \sum_{m=-l}^l A_m(\theta', \phi') Y_{lm}(\theta, \phi).
+\end{align}
 
 \section{Momenti di multipolo}
 
@@ -230,3 +270,4 @@ Computando i momenti di dipolo, si ottiene che
 \end{align}
 come già annunciato. \\
 Per $l=2$ abbiamo i momenti di quadripolo, per $l=3$ quelli di ottopolo e così via: in generale, questi coefficienti che moltiplicano le armoniche sferiche corrispondono a delle configurazioni di massa abbastanza semplici, come il potenziale dovuto ad una singola massa, a due masse e così via. Fisicamente, stiamo vedendo il potenziale come sovrapposizione di potenziali di tante configurazioni di massa diverse: concettualmente, questi momenti di multipolo che abbiamo introdotto qua sono virtualmente equivalenti a quelli normalmente utilizzati in elettrodinamica, dove chiaramente al posto della densità di massa si parla di densità di carica in un dato volume. 
+

@@ -33,6 +33,7 @@
 	}
 \renewcommand{\appendixpage}{}
 \begin{document}
+\nocite{*}
 	%\begin{titlepage}
 	%\centering
 	%\vspace*{3cm}
@@ -92,4 +93,6 @@
     \tableofcontents
     \input{capitoli/introduction.tex}
     \input{capitoli/gravity.tex}
-\end{document}
+    \bibliographystyle{plain}
+    \bibliography{bibliography.bib}
+    \end{document}
