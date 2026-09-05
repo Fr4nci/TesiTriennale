@@ -239,6 +239,15 @@ si vede dall'equazione qua sopra che viene soddisfatta dai polinomi di Legendre 
 \begin{align}
 	P_l(\cos{\gamma}) = \sum_{m=-l}^l A_m(\theta', \phi') Y_{lm}(\theta, \phi).
 \end{align}
+I coefficienti $A_m$ sono, ovviamente, dati da
+\begin{align}
+	A_{lm} = \int_{S^2} Y^*_{lm}(\theta, \phi) P_l(\cos{\gamma}) \mathrm{d}\Omega,
+\end{align}
+tuttavia, ricordando che per $m=0$ si ha che
+\begin{align}
+	P_l(\cos{\gamma}) = \sqrt{\frac{4\pi}{2l+1}} Y_{l0},
+\end{align}
+possiamo vedere che i coefficienti altro non sono che lo sviluppo della funzione $\sqrt{\frac{4\pi}{2l+1}} Y_{lm}^*$ nella base delle armoniche sferiche con gli assi primati
 
 \section{Momenti di multipolo}
 
@@ -270,4 +279,73 @@ Computando i momenti di dipolo, si ottiene che
 \end{align}
 come già annunciato. \\
 Per $l=2$ abbiamo i momenti di quadripolo, per $l=3$ quelli di ottopolo e così via: in generale, questi coefficienti che moltiplicano le armoniche sferiche corrispondono a delle configurazioni di massa abbastanza semplici, come il potenziale dovuto ad una singola massa, a due masse e così via. Fisicamente, stiamo vedendo il potenziale come sovrapposizione di potenziali di tante configurazioni di massa diverse: concettualmente, questi momenti di multipolo che abbiamo introdotto qua sono virtualmente equivalenti a quelli normalmente utilizzati in elettrodinamica, dove chiaramente al posto della densità di massa si parla di densità di carica in un dato volume. 
+In generale, si osservi che i momenti di multipolo di ordine $l$ scalano come $MR^l$, dove con $R$ intendiamo la scala caratteristica del corpo.
 
+
+\subsection{Corpi assialmente simmetrici}
+Un caso di particolare interesse è quello dei corpi assialmente simmetrici, ossia quei corpi la cui distribuzione di massa è invariante rispetto a rotazioni attorno ad un asse, che diremo \emph{asse di simmetria}. In questo caso, prendendo l'asse $z$ allineato con l'asse di simmetria, vediamo che la densità non dipende dall'angolo azimutale $\phi$, ovvero $\rho(\vec{x}, t)=\rho(r, \theta, t)$. Si osservi che per $m \neq 0$ l'integrale su $\phi$ si annulla, in quanto sappiamo che
+\begin{align}
+	Y_{lm}(\theta, \phi) = \sqrt{\frac{2l+1}{4\pi} \frac{(l-m)!}{(l+m)!}} P_l^m(\cos{\theta}) e^{im\phi},
+\end{align}
+e poiché
+\begin{align}
+	\int_0^{2 \pi} e^{im \phi} \mathrm{d}\phi = \frac{1}{m} e^{im \phi} \Big|_0^{2 \pi} = 0,
+\end{align}
+si conclude che i momenti di multipolo di un corpo assialmente simmetrico sono tutti nulli per $m \neq 0$. In questo caso, il potenziale gravitazionale esterno si riduce a
+\begin{align}
+	U_{\text{ext}}(r, \theta) = G \sum_{l=0}^\infty \frac{4 \pi}{2l + 1} I_{l0} \frac{Y_{l0}(\theta)}{r^{l+1}}.
+\end{align}
+Oltre a questo, per i corpi a simmetria assiale, è conveniente introdurre le seguenti quantità adimensionali, dette \emph{momenti di multipolo adimensionali}, così definite:
+\begin{align}
+	\mathcal{J}_l \equiv -\sqrt{\frac{4 \pi}{2l+1}} \frac{I_{l0}}{M R^l},
+\end{align}
+In questo moto, possiamo riscrivere il potenziale osservando che per $l=1$, se posiziamo l'origine nel centro di massa, abbiamo che $I_{10} = 0$, quindi il primo termine non nullo dopo $l=0$ è ovviamente quello per $l=2$, dunque
+\begin{align}
+	U_{\text{ext}}(r, \theta) = -\frac{GM}{r} \left[ 1 - \sum_{l=2}^\infty \mathcal{J}_l \left( \frac{R}{r} \right)^l P_l(\cos{\theta}) \right].
+\end{align}
+Si osservi che il momento di multipolo adimensionale per $l=2$ può essere espresso in termini dei momenti principali di inerzia: prima di procedere a vedere come questo possa essere fatto, richiamiamo alcuni fatti sui momenti di ienrzia di un corpo. Ricordiamo che, in generale, i momenti di inerzia di un corpo rispetto al centro di massa sono dati da
+\begin{align}
+	I_{ij}(t) = \int_V \rho(\vec{x}', t)(\vec{r}^2 \delta_{ij} - x_i'x_j') d^3 x', 
+\end{align}
+dove con $\vec{r} \equiv \vec{x}_{CM} - \vec{x}'$ si intende la distanza del frammentino infinitesimo di massa dal centro di massa. Noi, per comodità, ci siamo già messi nel sistema di riferimento in cui $\vec{x}_{CM} = \vec{0}$, ovvero coincide con l'origine, dunque $\vec{r} = -\vec{x}'$. \\
+In generale, come si può vedere dalla definizione qua sopra, il tensore di inerzia è una matrice reale $3 \times 3$ simmetrica, dunque diagonalizzabile in virtù del teorema spettrale, i cui autovalori sono i momenti principali di inerzia: per un corpo assialmente simmetrico, prendendo l'asse $z$ allineato con l'asse di simmetria, si osserva che i termini fuori diagonale sono nulli, in quanto
+\begin{align}
+	&\int_V \rho(r', \theta', t) x'y' \mathrm{d}^3 x' \propto \int_0^{2\pi} \sin{(2 \phi')} \mathrm{d}\phi' = 0, \nonumber \\
+	&\int_V \rho(r', \theta', t) x'z' \mathrm{d}^3 x' \propto \int_0^{2 \pi} \cos{(\phi')} \mathrm{d}\phi' = 0, \\
+	&\int_V \rho(r', \theta', t) y'z' \mathrm{d}^3 x' \propto \int_0^{2 \pi} \sin{(\phi')} \mathrm{d}\phi' = 0. \nonumber
+\end{align}
+e in virtù della simmetria si conclude che la matrice di un corpo assialmente simmetrico è già diagonale, dunque gli autovalori sono semplicemente dati da
+\begin{align}
+	&I_{xx} = \int_V \rho(\vec{x}',t)((y')^2 + (z')^2) \mathrm{d}^3 x', \nonumber \\
+	&I_{yy} = \int_V \rho(\vec{x}', t)((x')^2 + (z')^2) \mathrm{d}^3 x', \\
+	&I_{zz} = \int_V \rho(\vec{x}', t)((x')^2 + (y')^2) \mathrm{d}^3 x'. \nonumber
+\end{align}
+Si osservi che $I_{xx} = I_{yy}$, in quanto
+\begin{align}
+	I_{xx} &= \int_V \rho(\vec{x}', t)((y')^2 + (z')^2) \mathrm{d}^3 x' = \nonumber \\
+	&= \int_V \rho(r', \theta', t)((r')^2 \sin^2{\theta'} \sin^2{\phi'} + (r')^2 \cos^2{\theta'}) (r')^2 \sin{\theta'} \mathrm{d}r' \mathrm{d} \theta' \mathrm{d} \phi' \nonumber \\
+	& \stackrel{\phi' \to \phi'+\frac{\pi}{2}}{=} \int_V \rho(r', \theta', t)((r')^2 \sin^2{\theta'} \cos^2{\phi'} + (r')^2 \cos^2{\theta'}) (r')^2 \sin{\theta'} \mathrm{d}r' \mathrm{d}\theta' \mathrm{d}\phi' = I_{yy}.
+\end{align}
+Dunque, ponendo $I_{xx} = I_{yy} = I$ il momento di inerzia è della forma
+\begin{align}
+	I = \begin{pmatrix} 
+		I & 0 & 0 \\
+		0 & I & 0 \\
+		0 & 0 & I_{zz}
+	\end{pmatrix}
+\end{align}
+A questo punto, si ricordi che
+\begin{align}
+	Y_{20} = \sqrt{\frac{5}{16 \pi}}(3 \cos^2{\theta} - 1),
+\end{align}
+dunque
+\begin{align}
+	\mathcal{J}_l &= - -\frac{1}{MR^2} \int_V \rho(r', \theta', t) (r')^2 \frac{3 \cos^2{\theta'} - 1}{2} \mathrm{d}^3 x' = \int_V \rho(r', \theta', t) \frac{(r')^2 - 3z^2}{2} \mathrm{d}^3 x' = \nonumber \\ &=\frac{1}{MR^2} \int_V \rho(r', \theta', t) \frac{\left[ x^2 + y^2 - 2z^2 \right]}{2} \mathrm{d}^3 x' = \nonumber \\
+	&=\frac{1}{MR^2} \int_V \rho(r', \theta', t) \left[ (x')^2 + (y')^2 - \frac{1}{2}((x')^2 + (z')^2) - \frac{1}{2}((y')^2 + (z')^2 \right] = \\
+	&=\frac{I_{zz} - I}{MR^2},
+\end{align}
+dove abbiamo usato il fatto che $I_{xx} = I_{yy} = I$.
+
+\subsection{Momenti di multipolo del campo gravitazionale terrestre}
+
+I momenti di multipolo della Terra possono essere misurati tramite l'orbita dei satelliti che gli gravitano attorno
