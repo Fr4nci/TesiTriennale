@@ -253,7 +253,7 @@ possiamo vedere che i coefficienti altro non sono che lo sviluppo della funzione
 
 Le quantità $q_{lm}(R,t)$ vengono chiamate \emph{momenti di multipolo} della distribuzione di massa: in virtù di quanto fatto nella precedente sezione, vediamo che questi sono dati da
 \begin{align}
-	I_{lm}(t) = \int_V \rho(\vec{x}, t) Y_{lm}^*(\theta, \phi) d^3 x, 
+	I_{lm}(t) = \int_V \rho(\vec{x}, t) r^l Y_{lm}^*(\theta, \phi) d^3 x, 
 \end{align}
 dove il volume di integrazione $V$ si estende oltre il volume occupato dalla materia. Abbiamo, dunque, che il potenziale fuori dalla distribuzione di massa è dunque dato da
 \begin{align}
@@ -340,12 +340,24 @@ A questo punto, si ricordi che
 \end{align}
 dunque
 \begin{align}
-	\mathcal{J}_l &= - -\frac{1}{MR^2} \int_V \rho(r', \theta', t) (r')^2 \frac{3 \cos^2{\theta'} - 1}{2} \mathrm{d}^3 x' = \int_V \rho(r', \theta', t) \frac{(r')^2 - 3z^2}{2} \mathrm{d}^3 x' = \nonumber \\ &=\frac{1}{MR^2} \int_V \rho(r', \theta', t) \frac{\left[ x^2 + y^2 - 2z^2 \right]}{2} \mathrm{d}^3 x' = \nonumber \\
-	&=\frac{1}{MR^2} \int_V \rho(r', \theta', t) \left[ (x')^2 + (y')^2 - \frac{1}{2}((x')^2 + (z')^2) - \frac{1}{2}((y')^2 + (z')^2 \right] = \\
-	&=\frac{I_{zz} - I}{MR^2},
+	\mathcal{J}_2 &= - -\frac{1}{MR^2} \int_V \rho(r', \theta', t) (r')^2 \frac{3 \cos^2{\theta'} - 1}{2} \mathrm{d}^3 x' = \int_V \rho(r', \theta', t) \frac{(r')^2 - 3z^2}{2} \mathrm{d}^3 x' = \nonumber \\ &=\frac{1}{MR^2} \int_V \rho(r', \theta', t) \frac{\left[ x^2 + y^2 - 2z^2 \right]}{2} \mathrm{d}^3 x' = \nonumber \\
+		      &=\frac{1}{MR^2} \int_V \rho(r', \theta', t) \left[ (x')^2 + (y')^2 - \frac{1}{2}((x')^2 + (z')^2) - \frac{1}{2}((y')^2 + (z')^2 \right] \mathrm{d}^3 x' = \nonumber \\
+	&= \frac{I_{zz} - \frac{1}{2}\left( I_{xx} + I_{yy} \right)}{MR^2} =\frac{I_{zz} - I}{MR^2},
 \end{align}
-dove abbiamo usato il fatto che $I_{xx} = I_{yy} = I$.
+dove abbiamo usato il fatto che $I_{xx} = I_{yy} = I$. Nel caso di un corpo non assialmente simmetrico, sebbene compaiano anche le armoniche sferiche con $m \neq 0$, il momento di multipolo adimensionale è comunqu
+
 
 \subsection{Momenti di multipolo del campo gravitazionale terrestre}
 
-I momenti di multipolo della Terra possono essere misurati tramite l'orbita dei satelliti che gli gravitano attorno
+I momenti di multipolo della Terra quantificano quanto questa devia dalla simmetria sferica. In maniera generale, i pianeti e le stelle ruotano così lentamente che le loro deviazioni sono molto piccole e, tendenzialmente, le altre sorgenti di asimmetria sono ancora più piccole. \\
+I momenti di multipolo della Terra sono stati determinati attraverso lo studio del modo dei satelliti che orbitano attorno ad essa: i coefficienti delle armoniche sferiche misurati indirettamente sono stati poi raccolti all'interno di un grandissimo \emph{dataset} con cui è possibile andare a ricostruire il campo gravitazionale della Terra: una raffigurazione di questo è dato nell'immagine \ref{fig:raf_earth_field}
+
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[width=0.60\textwidth]{Immagini/gravitational_field.jpg}
+	\caption{Raffigurazione del campo gravitazionale terrestre. Le differenze di esso fra le diverse regione del globo sono evidenziate tramite il colore e l'elevazione}
+	\label{fig:raf_earth_field}
+\end{figure}
+Si osserva che il momento adimensionale $\mathcal{J}_2 = 1.083 \times 10^{-3}$ e per $l>2$ i momenti adimensionali successivi sono ancora più piccoli, all'incirca $3$ ordini di grandezza più piccoli. Le deviazioni dalla simmetria assiale sono ancora più piccole: in buona approssimazione, dunque, la terra può essere quindi considerata come un corpo sferico per la maggior parte dei fenomeni studiati; tuttavia è bene tenere presente, in eventuali applicazioni in cui è richiesto un elevato grado di precisione, che la Terra non gode né di simmetria sferica né di simmetria assiale, sebbene, anche in quest'ultimo caso, i coefficienti delle armoniche sferiche con $m \neq 0$ sono ancora più piccoli di quelli relativi alle armoniche assialmente asimmetriche. \\
+L'immagine \ref{fig:raf_earth_field}, può essere ricreata, tramite il dataset, tenendo a mente che che è stato introdotto un fattore moltiplicativo di circa $10^4$ nei coefficienti delle armoniche sferiche per evidenziare ``visivamente'' il contributo date dalle armoniche per $m \neq 0$; inoltre, viene trascurato anche il termine di quadrupolo ($l=2$), che è dominante: questo corrisponderebbe al campo gravitazionale generato da due masse poste una di fronte all'altra (in piena analogia all'elettrostatica) con la congiungiunte ortogonale all'asse di simmetria (ovvero l'asse di rotazione della Terra), quindi visivamente, ci aspetterremo un'allargamento all'equatore e uno schiacciamento ai poli. \\
+Un problema che sorge, tuttavia, nel cercare di ricreare l'immagine \ref{fig:raf_earth_field} è la computazione delle armoniche sferiche di grado $l$ elevato, a causa delle grandissime variazioni che queste subiscono in corrispondenza di $\theta = 0$ e $\theta = \pi$, che eccedono di parecchio il formato di memorizzazione definito dalla standard \emph{IEEE 754}. Un modo per risolvere questo è l'implementazione algoritmica dovuta a S.A. Holmes e W.E. Featherstone della sommatoria di Clenshaw per la computazione delle armoniche sferiche, che rende il processo numericamente stabile fino a $l=2700$: una spiegazione dell'algoritmo viene fornito nelle appendici e i più interessati trovare maggiori informazioni in \cite{Holmes2002}.

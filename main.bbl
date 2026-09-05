@@ -1,5 +1,12 @@
 \begin{thebibliography}{1}
 
+\bibitem{Holmes2002}
+S.~A. Holmes and W.~E. Featherstone.
+\newblock A unified approach to the clenshaw summation and the recursive
+  computation of very high degree and order normalised associated legendre
+  functions.
+\newblock {\em Journal of Geodesy}, 76(5):279--299, May 2002.
+
 \bibitem{jackson}
 John~David Jackson.
 \newblock {\em Classical electrodynamics / John David Jackson}.
@@ -7,12 +14,15 @@ John~David Jackson.
 
 \bibitem{poisson}
 Eric Poisson and Clifford~M. Will.
-\newblock {\em Gravity : newtonian, post-newtonian, relativistic / Eric Poisson, Clifford M. Will}.
+\newblock {\em Gravity : newtonian, post-newtonian, relativistic / Eric
+  Poisson, Clifford M. Will}.
 \newblock Cambridge University press, Cambridge, ©2014.
 
 \bibitem{gualtieri}
 Paolo~Pani Valeria~Ferrari, Leonardo~Gualtieri.
-\newblock {\em General relativity and its applications : black holes, compact stars and gravitational waves / Valeria Ferrari, Leonardo Gualtieri, Paolo Pani}.
+\newblock {\em General relativity and its applications : black holes, compact
+  stars and gravitational waves / Valeria Ferrari, Leonardo Gualtieri, Paolo
+  Pani}.
 \newblock CRC Press, Boca Raton, 2 ed. edition, ©2026.
 
 \end{thebibliography}

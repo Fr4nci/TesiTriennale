@@ -82,10 +82,10 @@ GravityModel parse_gfc(const std::string& filepath, int target_max_degree) {
             iss >> L >> M >> C_val >> S_val;
             
             // Azzeramento forzato del quadrupolo se L=2, M=0 per esaltare le anomalie continentali
-            if (L == 2 && M == 0) {
+            /* if (L == 2 && M == 0) {
                 C_val = 0.0; 
                 S_val = 0.0;
-            }
+            } */
 
             if (L <= target_max_degree && M <= L) {
                 model.C[L][M] = C_val;
@@ -213,7 +213,7 @@ int main() {
         }
     }
 
-    std::ofstream file("geoide_risoluzione_alta.csv");
+    std::ofstream file("geoide_risoluzione_alta_quadrupolo.csv");
     for (int i = 0; i < n_punti; ++i) {
         for (int j = 0; j < n_punti; ++j) {
             file << std::fixed << std::setprecision(5) << ondulazioni[i][j];
