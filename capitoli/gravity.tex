@@ -1,4 +1,4 @@
-\chapter{Corpi non sferici}
+\chapter{Deviazioni dalla simmetria sferica}
 
 Nel capitolo precedente abbiamo visto che un sistema caratterizzato da una densità $\rho(\vec{x}, t)$ soddisfa l'equazione di Poisson
 \begin{align}
@@ -38,10 +38,11 @@ Abbiamo quindi mostrato che la massa totale del sistema si conserva. Inoltre, po
 \end{align}
 Il potenziale all'esterno coincide con quello generato da una massa puntiforme $M$ posta nel centro del sistema: integrando l'equazione di Poisson abbiamo ottenuto una dimostrazione molto più diretta del teorema del guscio sferico di Newton.
 
-\section{Deviazioni dalla simmetria sferica}
+\section{Decomposizione in armoniche sferiche}
 La simmetria sferica è una semplificazione utile, ma è raro che i corpi celesti siano perfettamente simmetrici. La rotazione attorno a un asse, l'interazione con altri corpi e le tensioni interne (come gli stress crostali delle stelle di neutroni) causano deviazioni da questa configurazione ideale. Quando tali deviazioni sono piccole, si procede tramite un'espansione in multipoli. Poiché il contributo dei momenti di ordine superiore tende a decrescere rapidamente, un troncamento dello sviluppo ai primi termini offre una buona descrizione del potenziale gravitazionale per la maggior parte dei problemi di interesse.
 Nel caso della Terra, la misurazione dei momenti di multipolo fino a $l = 360$ (che quantificano le variazioni del campo gravitazionale su scale di centinaia di chilometri) ha permesso di studiare fenomeni come la deriva dei continenti, il vulcanismo e la struttura interna del pianeta. Questo approccio analitico, tuttavia, è limitato a sistemi approssimativamente sferici: le galassie a spirale, ad esempio, si discostano marcatamente da tale geometria, obbligando a ricorrere a metodi analitici differenti o a simulazioni numeriche per ricavarne il potenziale.
-\subsection{Decomposizione in armoniche sferiche}
+
+
 Ricordiamo che le armoniche sferiche $Y_{lm}$ sono autofunzioni dell'operatore differenziale angolare:
 \begin{align}
     \left[ \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta} \left( \sin{\theta} \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] Y_{lm} = -l(l+1) Y_{lm},
@@ -249,7 +250,7 @@ tuttavia, ricordando che per $m=0$ si ha che
 \end{align}
 possiamo vedere che i coefficienti altro non sono che lo sviluppo della funzione $\sqrt{\frac{4\pi}{2l+1}} Y_{lm}^*$ nella base delle armoniche sferiche con gli assi primati
 
-\section{Momenti di multipolo}
+\subsection{Momenti di multipolo}
 
 Le quantità $q_{lm}(R,t)$ vengono chiamate \emph{momenti di multipolo} della distribuzione di massa: in virtù di quanto fatto nella precedente sezione, vediamo che questi sono dati da
 \begin{align}
@@ -347,7 +348,7 @@ dunque
 dove abbiamo usato il fatto che $I_{xx} = I_{yy} = I$. Nel caso di un corpo non assialmente simmetrico, sebbene compaiano anche le armoniche sferiche con $m \neq 0$, il momento di multipolo adimensionale è comunqu
 
 
-\subsection{Momenti di multipolo del campo gravitazionale terrestre}
+\subsubsection{Momenti di multipolo del campo gravitazionale terrestre}
 
 I momenti di multipolo della Terra quantificano quanto questa devia dalla simmetria sferica. In maniera generale, i pianeti e le stelle ruotano così lentamente che le loro deviazioni sono molto piccole e, tendenzialmente, le altre sorgenti di asimmetria sono ancora più piccole. \\
 I momenti di multipolo della Terra sono stati determinati attraverso lo studio del modo dei satelliti che orbitano attorno ad essa: i coefficienti delle armoniche sferiche misurati indirettamente sono stati poi raccolti all'interno di un grandissimo \emph{dataset} con cui è possibile andare a ricostruire il campo gravitazionale della Terra: una raffigurazione di questo è dato nell'immagine \ref{fig:raf_earth_field}
@@ -361,3 +362,64 @@ I momenti di multipolo della Terra sono stati determinati attraverso lo studio d
 Si osserva che il momento adimensionale $\mathcal{J}_2 = 1.083 \times 10^{-3}$ e per $l>2$ i momenti adimensionali successivi sono ancora più piccoli, all'incirca $3$ ordini di grandezza più piccoli. Le deviazioni dalla simmetria assiale sono ancora più piccole: in buona approssimazione, dunque, la terra può essere quindi considerata come un corpo sferico per la maggior parte dei fenomeni studiati; tuttavia è bene tenere presente, in eventuali applicazioni in cui è richiesto un elevato grado di precisione, che la Terra non gode né di simmetria sferica né di simmetria assiale, sebbene, anche in quest'ultimo caso, i coefficienti delle armoniche sferiche con $m \neq 0$ sono ancora più piccoli di quelli relativi alle armoniche assialmente asimmetriche. \\
 L'immagine \ref{fig:raf_earth_field}, può essere ricreata, tramite il dataset, tenendo a mente che che è stato introdotto un fattore moltiplicativo di circa $10^4$ nei coefficienti delle armoniche sferiche per evidenziare ``visivamente'' il contributo date dalle armoniche per $m \neq 0$; inoltre, viene trascurato anche il termine di quadrupolo ($l=2$), che è dominante: questo corrisponderebbe al campo gravitazionale generato da due masse poste una di fronte all'altra (in piena analogia all'elettrostatica) con la congiungiunte ortogonale all'asse di simmetria (ovvero l'asse di rotazione della Terra), quindi visivamente, ci aspetterremo un'allargamento all'equatore e uno schiacciamento ai poli. \\
 Un problema che sorge, tuttavia, nel cercare di ricreare l'immagine \ref{fig:raf_earth_field} è la computazione delle armoniche sferiche di grado $l$ elevato, a causa delle grandissime variazioni che queste subiscono in corrispondenza di $\theta = 0$ e $\theta = \pi$, che eccedono di parecchio il formato di memorizzazione definito dalla standard \emph{IEEE 754}. Un modo per risolvere questo è l'implementazione algoritmica dovuta a S.A. Holmes e W.E. Featherstone della sommatoria di Clenshaw per la computazione delle armoniche sferiche, che rende il processo numericamente stabile fino a $l=2700$: una spiegazione dell'algoritmo viene fornito nelle appendici e i più interessati trovare maggiori informazioni in \cite{Holmes2002}.
+
+\section{Decomposizione in tensori simmetrici tracefree}
+
+Un'altra decomposizione molto utile del campo gravitazionale coinvolte le combinazioni tensoriali del vettore unitario $\vec{n} \equiv \frac{\vec{x}}{r}$, piuttosto che le armoniche sferiche. Ogni tensore che costruiremo da esso avrà la proprietà di essere simmetrico sotto lo scambio di ognuno dei suoi indici e di avere traccia nulla, pertanto in letteratura sono noti come \emph{symmetric tracefree tensors} o, più brevemente, \emph{STF tensors}.
+
+Anche questi tensori, così come le armoniche sferiche, prendono come mattoncini fondamentali le rappresentazioni irridubili del gruppo delle rotazioni, andandole ad etichettare con l'indice di multipolo $l$. E' bene tenere a mente una distinzione fondamentale: le armoniche sferiche dipendono dalle coordinate sferiche, tenendo le variabili angolari $(\theta, \phi)$ separate dalla componente radiale $r$; i tensori \emph{STF} invece fanno affidamento alle coordinate cartesiane originali, che si mescolano fra di loro indistamente.
+
+Partiamo dall'espansione del potenziale esterno ad una distribuzione di massa, che è dato da
+\begin{align}
+	U(\vec{x}, t) = G \int_V \frac{\rho(\vec{x}', t)}{|\vec{x} - \vec{x}'|} d^3 x', \label{eq:pot_external}
+\end{align}
+e consideriamo un punto $\vec{x}$ che sta al di fuori della distribuzione di massa. Chiaramente, se $|\vec{x}'| \ll |\vec{x}|$ possiamo effettuare un'espansione in serie di Taylor, data da
+\begin{align}
+	\frac{1}{|\vec{x} - \vec{x}'|} = \frac{1}{r} - \sum_{j=1}^3 x^{'j} \partial_j \left( \frac{1}{r} \right) + \sum_{j=1, k=1}^3 \frac12 x^{' j} x^{' k} \partial_j \partial_k \left( \frac{1}{r} \right) + o \left(\frac{1}{r} \right)
+\end{align}
+Per facilità nella trattazione, da ora in poi useremo la convenzione di Einstein per scrivere le formule e, indicando con $x^{j_1 j_2 \ldots j_n}$ il prodotto $x^{j_1} x^{j_2} \ldots x^{j_n}$ e con $\partial_{j_1 j_2 \ldots j_n} = \partial_{j_1} \ldots \partial_{j_n}$, possiamo scrivere che
+\begin{align}
+	\frac{1}{|\vec{x} - \vec{x}'|} = \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} x^{' L} \partial_L \left( \frac{1}{r} \right),
+\end{align}
+dove con $L$ intendiamo una collezione di $l$ indici. Inserendo questo risultato nella \eqref{eq:pot_external} si ottiene che 
+\begin{align}
+	U(\vec{x}, t) &= G \int_V \rho(\vec{x}', t) \left[ \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} x^{' L}\partial_L \left( \frac{1}{r} \right) \right] \mathrm{d}^3 x' = \nonumber \\
+	&= G \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} \left( \int_V \rho(\vec{x}', t) x^{' L} \mathrm{d}^3 x' \right) \partial_L \left( \frac{1}{r} \right).
+\end{align}
+Andiamo, adesso, a calcolare le derivate di $\frac{1}{r}$: si osserva che
+\begin{align}
+	&\partial_j \left( \frac{1}{r} \right) = -\frac{n_j}{r^2}, \\
+	&\partial_{jk} \left( \frac{1}{r} \right) = \frac{3 n_j n_k - \delta_{jk}}{r^3}, \\
+	&\partial_{jkn} \left( \frac{1}{r} \right) = -\frac{15 n_j n_k n_n - 3(n_j \delta_{kn} + n_k \delta_{jn} + n_n \delta_{jk})}{r^4},
+\end{align}
+e così via. Si osserva che tutti i tensori che abbiamo sulla destra sono simmetrici per scambio di indici e prendendo la traccia di due qualunque degli indici, si annullano fra loro: questi sono degli esempi di tensori STF. Si può facilmente mostrare quanto detto osservando il lato sinistro di queste equazioni qua sopra: si ha, infatti, che le derivate parziali (per $r \neq 0$) commutano (in virtù del teorema di Schwartz, valido in quanto $\frac{1}{r}$ è $C^{\infty}$ per $r \neq 0$) ed è tracefree, in quanto
+\begin{align}
+	\delta^{j_1 j_2} \partial_{j_1 j_2 \ldots j_l} r^{-1} = \nabla^2 \partial_{j_3 \ldots j_l} r^{-1} = \partial_{j_3 \ldots j_l} \nabla^2 r^{-1} = 0, 
+\end{align}
+e il risultato si può facilmente estendere a indici generici. La formula generale per questi tensori STF è data da
+\begin{align}
+	n^{\langle j_1 j_2 \ldots j_l \rangle} = \sum_{p=0}^{\left[ \frac{l}{2} \right]} (-1)^p \frac{l!(2l-2p-1)!!}{(l-2p)!(2l-1)!!(2p)!!}\left[ \delta^{j_1 j_2} \ldots \delta^{j_{2p-1} \, j_{2p}} n^{j_{2p+1}} n^{j_{2p+2}} \ldots n^{j_l} + \text{sym}(q) \right],
+\end{align}
+dove $\text{sym}(q)$ sono i termini che otteniamo attraverso permutazioni simmetriche degli indici e con $\left[ \frac{l}{2} \right]$ intendiamo l'intero più piccolo $\leq \frac{l}{2}$. Osserviamo che, in generale, la contrazione di $L$ indici di un tensore $A^{L}$ con un tensore $B_{\langle L \rangle}$ soddisfa la seguente identità
+\begin{align}
+	A^{L} B_{\langle L \rangle} = A^{\langle L \rangle} B_{\langle L \rangle},
+\end{align}
+la cui dimostrazione, per semplicità, viene fatta nel caso di tensore a $2$ indici, ma può essere generalizzata, con qualche accortezza, anche al caso di tensori ad $l$ indici: prendendo $A_{ij}$ sappiamo che
+\begin{align}
+	A_{(ij)} = \frac{1}{2}(A_{ij} + A_{ji}), \implies A_{\langle ij \rangle} = A_{(ij)} - \delta^{ij} A_{aa},
+\end{align}
+dunque
+\begin{align}
+	A^{ij} B_{\langle ij \rangle} = (A^{\langle ij \rangle} + \delta^{ij} A_{aa} + A^{[ij]}) B_{\langle ij \rangle} = A^{\langle ij \rangle} B_{\langle ij \rangle} + \delta^{ij} A_{aa} B_{\langle ij \rangle} + A^{[ij]} B_{\langle ij \rangle}.
+\end{align}
+Si ha che il secondo termine è nullo poiché $B_{\langle ij \rangle}$ ha traccia nulla e il terzo termine invece è nullo per antisimmetria di $A^{[ij]}$. Quindi, se ne conclude, visto che $\partial_L r^{-1}$ è simmetrico per scambio degli indici, ovvero $\partial_L \left( \frac{1}{r} \right) = \partial_{\langle L \rangle} \left(\frac{1}{r} \right)$, che
+\begin{align}
+	I^{L} \partial_{\langle L \rangle} \left( \frac{1}{r} \right) = I^{\langle L \rangle} \partial_{\langle L \rangle} \left( \frac{1}{r} \right).
+\end{align}
+Si ottiene, quindi, che
+\begin{align}
+	U(\vec{x}, t) = G \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} I^{\langle L \rangle} \partial_{\langle L \rangle} \left( \frac{1}{r} \right).
+\end{align}
+\subsection{Corrispondenza con le armoniche sferiche}
+
+Si osserva che preso un tensore STF ad $l$ indici, il numero di tensori indipendenti è dato da 

@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-ondulazioni_geoide = np.loadtxt('geoide_risoluzione_alta.csv', delimiter=',')
+ondulazioni_geoide = np.loadtxt('geoide_risoluzione_alta_quadrupolo.csv', delimiter=',')
 n_punti = ondulazioni_geoide.shape[0]
 R_base = 6378137.0
 esagerazione = 15000
@@ -29,7 +29,7 @@ vmax_assoluto = 85.0
 Altezza_norm = np.clip((ondulazioni_geoide - vmin_assoluto) / (vmax_assoluto - vmin_assoluto), 0, 1)
 colori = cmap_geoide(Altezza_norm)
 # Campionamento dinamico per impedire il blocco del rendering su griglie 5000x5000
-stride_visivo = max(1, n_punti // 300)
+stride_visivo = max(1, n_punti // 100)
 
 surf = ax.plot_surface(X, Y, Z, facecolors=colori, rstride=stride_visivo, cstride=stride_visivo, antialiased=False, shade=True)
 surf.set_edgecolors('none')
