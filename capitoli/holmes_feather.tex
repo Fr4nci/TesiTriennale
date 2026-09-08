@@ -1,0 +1,45 @@
+\chapter{Calcolo Ricorsivo delle Funzioni di Legendre Associate ad alto ordine}
+
+Nella geodesia, le espansioni troncate in armoniche sferiche di una funzione (come il potenziale gravitazionale) o delle sue derivate si riducono al calcolo di somme totali $S^{(d)}$. La notazione $d=0$ indica la funzione non derivata, mentre $d=1$ indica la derivata prima rispetto alla distanza polare $\theta$. La somma $S^{(d)}$ è definita come la somma dei contributi associati a ciascun ordine $m$:
+\begin{equation}
+S^{(d)} = c \sum_{m=0}^{M} \Omega_m^{(d)} \label{eq:somma_totale}
+\end{equation}
+dove $c$ è una costante e $M$ è il grado massimo dell'espansione. Il termine $\Omega_m^{(d)}$ raccoglie al suo interno le dipendenze dalla longitudine e la sommatoria, per il grado $n$, del prodotto tra i coefficienti geopotenziali normalizzati $\bar{E}_{nm\alpha}$ e le Funzioni di Legendre Associate (ALF) completamente normalizzate $\bar{P}_{nm}^{(d)}(\theta)$.
+
+Il problema computazionale emerge nel calcolo di $\bar{P}_{nm}(\theta)$ per modelli ad altissimo grado (es. $M=2700$). Avvicinandosi ai poli ($\theta \rightarrow 0$ oppure $\theta \rightarrow \pi$), il valore assoluto $|\bar{P}_{nm}(\theta)|$ copre un intervallo di circa 5000 ordini di grandezza. Tale range viola i limiti dell'aritmetica a doppia precisione IEEE 754 (che ammette valori tra $\sim 10^{-310}$ e $\sim 10^{310}$) e i valori calcolati subiscono \textit{underflow} (troncamento a zero) o \textit{overflow} (errore di limite superato), invalidando le componenti $\Omega_m^{(d)}$ e impedendo il calcolo di $S^{(d)}$. Spiegheremo, dunque, rifacendosi a \cite{Holmes2002}, l'origine di questa instabilità numerica e come sia possibile recuperare la stabilità numerica ad alti valori di $l$.
+
+\section{Origine dell'Instabilità nella Ricorsione Standard e risoluzione}
+
+I valori di $\bar{P}_{nm}(\theta)$ vengono calcolati tramite equazioni ricorsive: il metodo più comune è la ricorsione "in avanti per colonna" (\textit{standard forward column recursion}), che incrementa il grado $n$ mantenendo costante l'ordine $m$
+\begin{equation}
+\bar{P}_{nm}(\theta) = a_{nm} t \bar{P}_{n-1,m}(\theta) - b_{nm} \bar{P}_{n-2,m}(\theta), \quad \forall n > m \label{eq:standard_col}
+\end{equation}
+dove $t = \cos \theta$, mentre $a_{nm}$ e $b_{nm}$ sono coefficienti indipendenti dalla latitudine.
+
+La ricorsione necessita di "semi" iniziali: i valori settoriali dove $n=m$ e sono definiti come:
+\begin{equation}
+\bar{P}_{mm}(\theta) = u^m \Pi_m, \quad \forall m \ge 1
+\end{equation}
+dove $u = \sin \theta$ e $\Pi_m$ è un prodotto numericamente stabile. L'instabilità è dovuta esclusivamente al fattore $u^m$: in prossimità dei poli $u \rightarrow 0$ e per $m=2700$, il termine $u^m$ è infinitesimo e va istantaneamente in underflow, precludendo l'avvio della ricorsione.
+
+Per aggirare l'underflow, l'algoritmo modificato rinuncia al calcolo diretto di $\bar{P}_{nm}(\theta)$ a favore della quantità normalizzata $\frac{\bar{P}_{nm}(\theta)}{u^m}$.
+La validità algebrica di questa operazione si basa sull'architettura della ricorsione stessa: osservando l'equazione (\ref{eq:standard_col}), il calcolo itera esclusivamente sul grado $n$, mantenendo invariato l'ordine $m$ lungo l'intera "colonna". Poiché $m$ è costante durante questa fase, il termine $u^m = \sin^m \theta$ funge da mera costante moltiplicativa. 
+
+Dividendo ambo i membri dell'Equazione (\ref{eq:standard_col}) per tale costante, le proprietà invariantive assicurano che la forma della legge ricorsiva non venga alterata:
+\begin{equation}
+\frac{\bar{P}_{nm}(\theta)}{u^m} = a_{nm} t \frac{\bar{P}_{n-1,m}(\theta)}{u^m} - b_{nm} \frac{\bar{P}_{n-2,m}(\theta)}{u^m}, \quad \forall n > m \label{eq:mod_col}
+\end{equation}
+In questo modo, la macchina itera su grandezze da cui è stato tolto il termine di decadimento esponenziale, il quale garantisce la totale stabilità senza distorcere la validità dell'algoritmo originario. 
+
+\section{Scala Globale e la Reintroduzione tramite Schema di Horner}
+
+La rimozione di $u^m$ salva i calcoli dall'underflow, ma spalanca le porte al rischio opposto (overflow) nei gradi estremi: infatti, per trovare il valore dell'armonica, siamo costretti a moltiplicare per $u^m$ nuovamente, il quale può essere gigantesco. Per arginare questo problema, le funzioni iniziali vengono moltiplicate per una costante di scala globale pari a $10^{-280}$. Essendo la ricorsione (\ref{eq:mod_col}) lineare, questo scalamento si trasmette a tutti i termini senza alterarne le proporzioni.
+
+Una volta calcolate tutte le funzioni scalate, esse vengono moltiplicate per i coefficienti $\bar{E}_{nm\alpha}$ e sommate su $n$ per ottenere le componenti scalate dell'ordine $m$, che definiamo formalmente come $\frac{\Omega_m^{(d)}}{u^m}$ (sempre decurtate del fattore $10^{-280}$).
+
+A questo punto è necessario calcolare la somma totale $S^{(d)}$ dell'equazione (\ref{eq:somma_totale}). Come già anticipato, occorrerebbe calcolare $\sum_{m=0}^{M} \left( \frac{\Omega_m^{(d)}}{u^m} \cdot u^m \right)$, ma il calcolo esplicito di $u^m$ per $m$ elevati genererebbe un overflow numrico: per evitare ciò, possiamo implementare lo \emph{Schema di Horner}. Tale algoritmo valuta i polinomi riducendo il calcolo delle potenze a una serie di moltiplicazioni a cascata; esplicitamente possiamo riscrivere la somma totale in base alla variabile $u$, l'espressione diventa:
+\begin{equation}
+S^{(d)} = c \left[ \left\{ \dots \left( \left[ \left\{ \frac{\Omega_M^{(d)}}{u^M} \right\} u + \frac{\Omega_{M-1}^{(d)}}{u^{M-1}} \right] u + \dots \right) u + \frac{\Omega_1^{(d)}}{u^1} \right\} u + c\Omega_0^{(d)} \right] \label{eq:horner}
+\end{equation}
+Questo algoritmo ripristina la variabile $u$ ``progressivamente'': partendo dal termine di grado massimo $M$, la somma viene accumulata e moltiplicata per $u$ \textit{step by step} ad ogni passaggio verso il grado inferiore. La dipendenza trigonometrica viene così reintegrata un "gradino" alla volta, garantendo che le somme parziali risiedano stabilmente nei limiti della doppia precisione. Al termine del ciclo, è sufficiente moltiplicare il risultato per $10^{280}$ (invertendo il fattore di scala iniziale) per giungere al valore esatto della somma $S^{(d)}$.
+

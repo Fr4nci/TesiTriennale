@@ -418,8 +418,90 @@ Si ha che il secondo termine è nullo poiché $B_{\langle ij \rangle}$ ha tracci
 \end{align}
 Si ottiene, quindi, che
 \begin{align}
-	U(\vec{x}, t) = G \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} I^{\langle L \rangle} \partial_{\langle L \rangle} \left( \frac{1}{r} \right).
+	U(\vec{x}, t) = G \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} I^{\langle L \rangle} \partial_{\langle L \rangle} \left( \frac{1}{r} \right) = G \sum_{l=0}^{\infty} \frac{(2l-1)!!}{l!} I^{\langle L \rangle} \frac{n_{\langle L \rangle}}{r^{l+1}},
 \end{align}
+dove nell'ultimo passaggio abbiamo sostituito i tensori STF di $n_{\langle L \rangle}$ che abbiamo costruito.
+
 \subsection{Corrispondenza con le armoniche sferiche}
 
-Si osserva che preso un tensore STF ad $l$ indici, il numero di tensori indipendenti è dato da 
+Il numero di tensori simmetrici tracefree indipendenti dato un certo numero di indici $l$ che agiscono su uno spazio $n-$dimensionale è dato da $\binom{n+l-1}{l} - \frac{l(l-1)}{2}$. Nel caso $3-$dimensionale come il nostro si osserva che
+\begin{align}
+	\binom{3+l-1}{l} - \frac{l(l-1)}{2} &= \frac{(l + 2)!}{2!l!} - \frac{l(l-1)}{2} = \frac{(l+2)(l+1)}{2} - \frac{l(l-1)}{2} = \\
+	&= \frac{l^2 + 3l + 2 - l^2 + l}{2} = \frac{4l + 2}{2} = 2l+1  
+\end{align}
+da cui vediamo che abbiamo $2l+1$ tensori STF indipendenti, numero che coincide esattamente col numero di armoniche sferiche indipendenti ad un dato $l$, il che ci porta a pensare che ci sia un legame fra queste due. Esprimendo $\hat{n}$ in funzione delle coordinate angolari, ovvero
+\begin{align}
+	\hat{n} = \begin{pmatrix} \sin{\theta} \cos{\phi}, \sin{\theta} \sin{\phi}, \cos{\theta} \end{pmatrix},
+\end{align}
+si può concludere che $n^{\langle L \rangle}$ è un insieme di funzioni della variabile $\theta$ e $\phi$, quindi decomponibile in armoniche sferiche (che rappresentano una base delle funzioni $f: S^2 \to \mathbb{C}$). Questa decomposizione, tuttavia, include un singolo valore di $l$: questo si può facilmente dedurre dal fatto che $n^{\langle L \rangle}$ è un'autofunzione della parte angolare dell'operatore laplaciano, ovvero
+\begin{align}
+	r^2 \nabla^2 n^{\langle L \rangle} = -l(l+1)n^{\langle L \rangle},
+\end{align}
+dunque si deve avere che $n^{\langle L \rangle}$ sia una combinazione lineare di armoniche sferiche di ordine $l$, ma c'è piena libertà sui valori possibili dell'$m$. Esplicitamente, la decomposizione dev'essere
+\begin{align} \label{eq:stf_decomposition}
+	n^{\langle L \rangle} = N_l \sum_{m=-l}^{l} \mathcal{Y}_{lm}^{\langle L \rangle} Y_{lm}(\theta, \phi),
+\end{align}
+con $N_l = \frac{4 \pi l!}{(2l+1)!!}$ costante di normalizzazione e $\mathcal{Y}_{lm}^{\langle L \rangle}$ è un tensore STF tale per cui $\mathcal{Y}_{lm}^{\langle L \rangle} = (-1)^m \mathcal{Y}^{* \langle L \rangle}_{lm}$ (per garantire che il tensore sia reale). \\
+Mostriamo adesso che $n^{\langle L \rangle}$ sia un'autofunzione della parte angolare del laplaciano: con una computazione esplicita si ha che $x^{\langle L \rangle} = n^{\langle L \rangle} r^l$ e $\Delta x^{\langle L \rangle} = 0$
+\begin{align}
+	\frac{\partial}{\partial r} \left[ r^2 \frac{\partial (r^{l} n^{\langle L \rangle})}{\partial r} \right] = -\Delta_\Omega (r^l n^{\langle L \rangle}),  
+\end{align}
+dove abbiamo posto $\Delta_\Omega = \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta}(\sin{\theta} \frac{\partial}{\partial \theta}) + \frac{1}{\sin^2{\theta}} \frac{\partial^2}{\partial \phi^2}$e si osserva che, visto che $n^{\langle L \rangle}$ dipende solo dalla variabili angolari, allora l'elemento dentro le prime parentesi è dato da
+\begin{align}
+	l(l+1) r^{l} n^{\langle L \rangle} = -r^l \Delta_\Omega n^{\langle L \rangle}, 
+\end{align}
+da cui si vede che
+\begin{align}
+	-l(l+1) n^{\langle L \rangle} = \Delta_\Omega n^{\langle L \rangle},
+\end{align}
+da cui si vede che
+\begin{align}
+	r^2 \nabla^2 n^{\langle L \rangle} = \frac{\partial}{\partial r} \left( r^2 \frac{\partial n^{\langle L \rangle}}{\partial r} \right) + \Delta_\Omega n^{\langle L \rangle} = 0 - l(l+1) n^{\langle L \rangle}.
+\end{align}
+\begin{prop}
+Si ha che
+\begin{align}
+	n'_{\langle L \rangle} n^{\langle L \rangle} = \frac{l!}{(2l-1)!!}P_l(\mu).
+\end{align}
+\end{prop}
+\begin{proof}
+	Si consideri lo scalare $S = n'_{\langle L \rangle}n^{\langle L \rangle}$, dove consideriamo fisso $\hat{\mathbf{n}}'$ e osserviamo, in quanto scalare, che questo prodotto può dipendere unicamente dall'angolo fra i due versori, più precisamente dipenderà esclusivamente da $\mu = \cos{\gamma} = \hat{\mathbf{n}'} \cdot \hat{\mathbf{n}}$. Se applichiamo $\Delta_\Omega$ si ha che
+	\begin{align}
+		\Delta_\Omega S(\mu) = n'_{\langle L \rangle} \Delta_\Omega n^{\langle L \rangle} = -L(L+1) n'_{\langle L \rangle} n^{\langle L \rangle} = -L(L+1) S(\mu),
+	\end{align}
+	d'altra parte, se orientiamo il nostro sistema facendo in modo che $\hat{\mathbf{n}}' \parallel \hat{z}$ si ha che $\Delta_\Omega$ si riduce semplicemente, visto che $\gamma = \theta$, all'operatore 
+	\begin{align}
+		\frac{d}{d\mu} \left[ (1-\mu^2) \frac{dS}{d\mu} \right],
+	\end{align}
+	dove abbiamo semplicemente riscritto il termine $\frac{1}{\sin{\theta}}(\sin{\theta} \frac{dS}{d\theta})$ in funzione di $\mu$. Segue allora che
+	\begin{align}
+		\frac{dS}{d\mu}\left[ (1-\mu^2) \frac{dS}{d\mu} \right] + L(L+1)S(\mu) = 0,
+	\end{align}
+	che è esattamente l'equazione differenziale che definisce i polinomi di Legendre. Segue che
+	\begin{align}
+		S(\mu) = C_L P_L(\mu),
+	\end{align}
+	con $C_L$ che va determinata: per farlo si ha, per quanto dimostrato prima, che
+	\begin{align}
+		n'_{\langle L \rangle} n^{\langle L \rangle} = n'_{L} n^{\langle L \rangle},
+	\end{align}
+	ma l'ultima quantità, usando la definizione di $n^{\langle L \rangle} = n^{i_1} \ldots n^{i_l} - (\text{termini con contrazioni di } \delta)$, si vede che il primo termine, se contratto, restituisce semplicemente $(\hat{\mathbf{n}}' \cdot \hat{\mathbf{n}})^L = \mu^L$, conseguentemente si deve avere che il coefficiente che moltiplica $\mu^L$ nella $S(\mu)$ sia uguale ad $1$, quindi, ricordando che $P_L(\mu) = \frac{(2L-1)!!}{L!} \mu^L + O(\mu^{L-2})$, si deve avere che $C_L = \frac{L!}{(2L-1)!!}$.
+\end{proof}
+Si osserva che se moltiplichiamo l'equazione \eqref{eq:stf_decomposition} per $Y_{lm'}^*$ e integriamo su $S^2$ per ortogonalità si ottiene
+\begin{align}
+	\mathcal{Y}_{lm}^{\langle L \rangle} = \frac{1}{N_l} \int_{S^2} n^{\langle L \rangle} Y_{lm}^*(\theta, \phi) \mathrm{d}\Omega,
+\end{align}
+da cui, moltiplicando per $n'_{\langle L \rangle}$ si ottiene che
+\begin{align}
+	\mathcal{Y}_{lm}^{\langle L \rangle} n'_{\langle L \rangle} = \frac{1}{N_l} \int_{S^2} n^{\langle L \rangle}n'_{\langle L \rangle} Y^*_{lm}(\theta,\phi) \mathrm{d\Omega} = \frac{2l+1}{4 \pi} \int_{S^2} P_l(\mu) Y_{lm}^*(\theta, \phi) \mathrm{d}\Omega,
+\end{align}
+e usando il teorema di addizione per le armoniche sferiche si ottiene che
+\begin{align}
+	\mathcal{Y}_{lm}^{\langle L \rangle} n'_{\langle L \rangle} = \int_{S^2} \sum_{m'=-l}^l Y_{lm'}^*(\theta', \phi') Y_{lm'}(\theta, \phi) Y^{lm}(\theta, \phi) = Y_{lm}^{\langle L \rangle}, 
+\end{align}
+ricavando quindi una decomposizione delle armoniche sferiche in termini dei tensori STF. In virtù di questo legame, possiamo scrivere, quindi, che
+\begin{align}
+	I_{lm} &= \mathcal{Y}_{lm}^{\langle L \rangle} I_{\langle L \rangle}, \\
+	I^{\langle L \rangle} &= \frac{4 \pi l!}{(2l+1)!!} \sum_{m=-l}^l \mathcal{Y}_{lm}^{* \langle L \rangle} I_{lm},
+\end{align}
+ottenendo così i legami fra i momenti di multipolo in termini dei tensori STF e delle armoniche sferiche.

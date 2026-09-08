@@ -1,0 +1,61 @@
+\chapter{Deformazioni mareali}
+
+Uno dei fenomeni di maggiore interesse che viene studiato tramite l'espansione in multipoli è la deformazione mareale di un corpo soggetto ad un campo di marea esterno (come quello fra la Luna ela Terra).
+
+\section{Deformazioni mareali in Gravità Newtoniana}
+
+Per un oggetto stazionario, isolato sappiamo che la soluzione è data dalla \eqref{eq:pot_convolution} e lontano dalla sorgente possiamo utilizzare l'espansione multipolare in termini dei tensori STF, per cui risulta che
+\begin{align}
+	\frac{1}{|\vec{x} - \vec{x}'|} = \frac{1}{r} + \frac{n_i x^{'i}}{r^2} + \frac{3n_i n_j - \delta_{ij}}{2r^3} x^{' i} x^{' j} + o \left( \frac{1}{r^3} \right),
+\end{align}
+da cui il potenziale risulta essere pari a
+\begin{align}
+	\Phi(\vec{x}) &= - \frac{1}{r} \int_V \rho(\vec{x}') \mathrm{d}^3 x' - \frac{n_i}{r^2} \int_V \rho(\vec{x}') x^{' i} \mathrm{d}^3 x' - \frac{3}{2} \frac{n_{\langle i} n_{j \rangle}}{r^3} \int \rho(\vec{x}') x^{' i} x^{' j} \mathrm{d}^3 x' + o \left( \frac{1}{r^3} \right) = \\
+		      &= - \frac{M}{r} - \frac{3}{2} \frac{Q_{ij} n^{\langle i} n^{j \rangle}}{r^3} + o \left( \frac{1}{r^4} \right),
+\end{align}
+dove abbiamo riconosciuto che il primo integrale è semplicemente la massa totale del corpo, il secondo integrale, invece, è nullo nel sistema del centro di massa e $Q_{ij}$ è semplicemente il momento di quadrupolo del corpo. Consideriamo adesso un campo stazionario esterno $\Phi_{\text{ext}}$ che espandiamo in serie di Taylor attorno al centro di massa del corpo, posizionato in $\vec{x} = \vec{0}$
+\begin{align}
+	\Phi_{\text{ext}}(\vec{x}) = \text{const.} + \frac{\partial \Phi_{\text{ext}}}{\partial x^i}\Bigg|_{\vec{x}=\vec{0}} + \frac{1}{2} E_{ij} x^i x^j + o(r^2),
+\end{align}
+dove $E_{ij}$ è la matrice hessiana del potenziale calcolata in $\vec{x}=\vec{0}$, esplicitamente
+\begin{align}
+	E_{ij} = \frac{\partial^2 \Phi_{\text{ext}}}{\partial x^i \partial x^j} \Bigg|_{\vec{x}=\vec{0}},
+\end{align}
+che chiamiamo \emph{tensore tidiale} del campo gravitazionale: questo è il contributo che determina le maree, per esempio, indotte dalla Luna sulla Terra. Se la forza esercitata al centro di massa del corpo sparisce, ovvero $\frac{\partial \Phi_{\text{ext}}}{\partial x^i} = 0$ per $\vec{x}=\vec{0}$, allora il campo esterno è detto campo tidiale, in quanto l'ordine dominate è dato dal tensore tidiale $E_{ij}$.
+
+Si osservi che le due espansioni che abbiamo fatto sono valide esclusivamente se $R \ll r \ll \mathcal{R}$, dove $R$ è la lunghezza caratteristica del corpo e $\mathcal{R}$ è la lunghezza caratteristica del corpo che genera il campo gravitazionale tidiale: chiameremo questa regione \emph{buffer region}, in cui la sorgente del campo gravitazionale mareale è esterna a tale regione, pertanto abbiamo che (tenendo solo il secondo ordine che dà contributo non nullo)
+\begin{align}
+	\nabla^2 \Phi_{\text{ext}} &= \delta_{j}^i \partial_{i} \partial_j(\frac{1}{2} E_{ab} x^a x^b) = \delta_j^i \partial_i ( \frac12 E_{ab} \delta_j^a x^b + \frac12 E_{ab} x^a \delta_j^b ) = \nonumber \\
+	&= \delta_j^i \partial_i ( \frac12 E_{jb} x^b + \frac12 E_{aj} x^a) = \delta_j^i \partial_i (E_{aj} x^a) = \delta_j^i E_{aj} \delta_i^a = E_{ii} = 0,
+\end{align}
+ovvero si ha che $E_{ij}$ è un tensore simmetrico (per il teorema di Schwartz) e senza traccia. Per linearità dell'equazione di Poisson, abbiamo che il potenziale gravitazionale nella regione di accrescimento è dato semplicemente dalla somma dei due potenziali, ovvero
+\begin{align} \label{eq:expansion_buffer}
+	\Phi_{\text{tot}}(\vec{x}) = - \frac{M}{r} - \frac32 \frac{Q_{ij} n^{\langle i} n^{j \rangle}}{r^3} + o \left( \frac{R^3}{r^3} \right) + \frac12 E_{ij} r^2 n_{\langle i} n^{j \rangle} + o \left( \frac{r^3}{\mathcal{R}^3} \right), 
+\end{align}
+dove si osservi che $x^{i} x^j = \frac{x^i x^j}{r^2} r^2 = n^i n^j r^2$, ma poiché $E_{ij}$ è tracefree, allora si ha che $E_{ij} n^i n^j r^2 = E_{ij} n^{\langle i} n^{j \rangle}$.
+
+Questa espansione si rompe vicino al corpo (in cui $r \sim R$), dove i termini di alto ordine nell'espansione in multipoli in $\frac{R}{r}$ non sono trascurabili; inoltre lontano dal corpo, in cui $r \sim \mathcal{R}$, il campo esterno non può essere descritto solo in termini del tensore tidiale e gli altri termini dell'espansioni di alto grado sono anch'essi non trascurabili. Per trattare gli effetti che il campo mareale esercita sul corpo si rivela necessario andare a risolvere l'equazione non solo nel vuoto, ma anche all'interno del corpo, includendo il campo esterno tramite delle accurate condizioni al contorno: facendo questo, si ricava che il corpo acquista un momento di quadrupolo che è proporzionale al campo mareale; esplicitamente
+\begin{align}
+	Q_{ij} = - \lambda E_{ij},
+\end{align}
+dove la costante di proporzionalità $\lambda$ è noto in letteratura come la deformabilità mareale quadrupolare, che dipende dalla composizione interna del corpo. Questo problema fu studiato all'inizio del ventesimo secolo da A. Love, il quale notò che la deformabilità mareale quadrupolare ha le dimensioni $[L]^5$ ed è proporzionale a $R^5$ di una stella e definì una quantità adimensionale, nota come \emph{numero di Love} di una stella:
+\begin{align}
+	\kappa_2 = \frac32 \frac{\lambda}{R^5},
+\end{align}
+che per le stelle di neutroni assume un valore compreso fra $10^{-2}$ e $10^{-1}$, a seconda dell'equazione di stato di essa e sulla sua compattezza.
+
+\section{Deformazioni mareali in Relatività Generale}
+
+Consideriamo il caso, adesso, di un oggetto descritto dalla Relatività Generale (ovvero con un campo gravitazionale ``forte'', ovvero $\frac{GM}{Rc^2} \gtrsim 1$ con $R$ scala caratteristica delle lunghezze del corpo): lontano da esso, ovvero per $r \gg R$ abbiamo che il campo gravitazionale è debole e segue che
+\begin{align}
+	g_{00} = -1 - \frac{2 \Phi}{c^2},
+\end{align}
+pertanto, ci aspettiamo nella regione di buffer che l'espansione in equazione \eqref{eq:expansion_buffer} sia ancora valida, quindi si ha che la componente temporale del tensore metrico è data da
+\begin{align}
+	g_{00}(\vec{x}) = -1 + \frac{2M}{r} + \frac{3}{r^3} Q^{ij} n^{\langle i} n^{j \rangle} + o \left( \frac{R^3}{r^3} \right) - E_{ij} r^2 n^{\langle i} n^{j \rangle} + o \left( \frac{r^3}{\mathcal{R}^3} \right) + o \left( \frac{M^2}{r^2} \right),
+\end{align}
+in cui si noti che stiamo anche trascurando i termini di alto grado dell'espansione di campo debole, che sono dell'ordine di $\frac{M^2}{r^2}$. In questo caso, inoltre, segue che
+\begin{align}
+	E_{ij} = -\frac{1}{2} \frac{\partial^2 g_{00}}{\partial x^i \partial x^j} = R_{0i0j},
+\end{align}
+in quanto, 

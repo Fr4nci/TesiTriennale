@@ -82,10 +82,10 @@ GravityModel parse_gfc(const std::string& filepath, int target_max_degree) {
             iss >> L >> M >> C_val >> S_val;
             
             // Azzeramento forzato del quadrupolo se L=2, M=0 per esaltare le anomalie continentali
-            /* if (L == 2 && M == 0) {
+            if (L == 2 && M == 0) {
                 C_val = 0.0; 
                 S_val = 0.0;
-            } */
+            }
 
             if (L <= target_max_degree && M <= L) {
                 model.C[L][M] = C_val;
@@ -158,7 +158,7 @@ int main() {
     const int n_punti = 5000; // Risoluzione griglia (alzata a 300 per maggiore dettaglio)
     
     std::cout << "Avvio parser per EIGEN-6C4.gfc..." << std::endl;
-    GravityModel eigen6c4 = parse_gfc("EIGEN-6C4.gfc", l_max_calcolo);
+    GravityModel eigen6c4 = parse_gfc("../EIGEN-6C4.gfc", l_max_calcolo);
     
     if (eigen6c4.radius == 0.0) {
         std::cerr << "Caricamento fallito. Assicurati che il file 'EIGEN-6C4.gfc' sia presente." << std::endl;
@@ -213,7 +213,7 @@ int main() {
         }
     }
 
-    std::ofstream file("geoide_risoluzione_alta_quadrupolo.csv");
+    std::ofstream file("geoide_risoluzione_alta.csv");
     for (int i = 0; i < n_punti; ++i) {
         for (int j = 0; j < n_punti; ++j) {
             file << std::fixed << std::setprecision(5) << ondulazioni[i][j];

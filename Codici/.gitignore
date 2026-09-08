@@ -2,4 +2,5 @@ CSV/*
 EIGEN-6C4.gfc
 geoide_stabile
 geoide_risoluzione_alta.csv
+geoide_risoluzione_alta_cuda.csv
 terra.pdf

@@ -79,21 +79,26 @@
 	%%\end{tikzpicture}
 	%\vfill	
 	%\end{titlepage}
-    \maketitle
-    \thispagestyle{empty}
-    \vspace*{8cm}
-    \begin{flushright}
-    \begin{minipage}{0.6\textwidth}
-        \itshape\small
-        \noindent A mia mamma, che mi ha cresciuto senza mai dubitare delle mie capacità. \\
-    \end{minipage}
-\end{flushright}
-    \vfill
-    \newpage
-    \tableofcontents
-    \input{capitoli/introduction.tex}
-    \input{capitoli/gravity.tex}
-	\input{capitoli/acknowledgments.tex}
-    \bibliographystyle{plain}
-    \bibliography{bibliography.bib}
+    	\maketitle
+    	\thispagestyle{empty}
+    	\vspace*{8cm}
+    	\begin{flushright}
+    	\begin{minipage}{0.6\textwidth}
+        	\itshape\small
+        	\noindent A mia mamma, che mi ha cresciuto senza mai dubitare delle mie capacità. \\
+    		\end{minipage}
+	\end{flushright}
+    	\vfill
+    	\newpage
+    	\tableofcontents
+    	\input{capitoli/introduction.tex}
+	\input{capitoli/gravity.tex}
+	\input{capitoli/deformazioni_mareali.tex}	
+    	\input{capitoli/acknowledgments.tex}
+    	\appendix
+	\input{capitoli/holmes_feather.tex}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Bibliografia}
+	\bibliographystyle{plain}
+	\bibliography{bibliography.bib}
     \end{document}

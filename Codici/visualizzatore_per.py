@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # 1. Carica il CSV
 print("Caricamento CSV in corso...")
 # Aggiunti header=None per non perdere dati e .values per estrarre la matrice NumPy
-ondulazioni_geoide = pd.read_csv('geoide_risoluzione_alta_cuda.csv', header=None).values
+ondulazioni_geoide = pd.read_csv('CSV/geoide_risoluzione_alta_cuda.csv', header=None).values
 
 # Estrazione esplicita di righe (latitudini) e colonne (longitudini)
 n_lat, n_lon = ondulazioni_geoide.shape
