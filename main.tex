@@ -4,8 +4,9 @@
 \input{preamble/macros}
 \usepackage{fancyhdr}
 \usepackage{titlesec}  % Opzionale, per controllo avanzato sui titoli
+\pdfmapline{+rtitillium Titillium-Bold <Titillium-Regular.ttf}
 \pagestyle{fancy}
-
+\newcommand{\titillium}{\fontfamily{rtitillium}\selectfont}
 % Definizione dell'intestazione per pagine dispari (Odd)
 \fancyhead[LO]{\textbf{\thepage}}  % Numero di pagina in grassetto a sinistra
 \fancyhead[RO]{\nouppercase\rightmark}         % Capitolo e sezione a destra
@@ -23,7 +24,7 @@
 \renewcommand{\footrulewidth}{0pt}
 
 \pgfplotsset{compat=newest}
-\title{Espansione in multipoli della gravità}
+\title{Momenti di multipolo del campo gravitazionale}
 \author{Francesco Sermi}
 \date{\today}
 \pgfplotsset{
@@ -34,58 +35,62 @@
 \renewcommand{\appendixpage}{}
 \begin{document}
 \nocite{*}
-	%\begin{titlepage}
-	%\centering
-	%\vspace*{3cm}
-	%{\huge\bfseries Espansione in multipolo del campo gravitazionale newtoniano \par}
-	%\vspace{2cm}
-	%{\Large\itshape Francesco Sermi\par}
-	%\vfill
-    %%	\begin{figure}[H]
-    %%    \centering
-    %%		\includegraphics[width=0.65\textwidth]{immagini/dejong.png}
-    %%	\end{figure}
-    %	%\begin{tikzpicture}
-	%% Definisco lo stile dei vettori
-    %	%\tikzset{vector/.style={-stealth, thick, color=black}}
-%
-    %% Parametri per il punto di contatto
-    %	%\def\xo{1}
-    %	%\def\yo{2}
-    %	%\def\zo{5} % Calcola z0 = f(x0, y0)
-%
-    %% Derivate parziali della funzione f(x, y) = x^2 + y^2 nel punto (x0, y0)
-    %	%\def\fx{2*\xo} % = 2
-    %	%\def\fy{2*\yo} % = 4
-%
-    %% Disegno la superficie
-    %	%\begin{axis}[
-    %	%    width=12cm,
-    %	%    view={60}{30}, % Angolazione impostata
-    %	%    axis lines=middle,
-    %	%    zlabel={$f(x,y)$},
-    %	%    clip=false,
-    %	%    domain=-5:5,
-    %	%    y domain=-5:5,
-    %	%    samples=30,
-    %	%    colormap/viridis,
-    %	%    z buffer=sort
-    %	%]
-%
-    %% Grafico della superficie con colore visibile
-    %	%\addplot3[surf, opacity=0.8, shader=interp]
-    %	%    {x^2 - y^2}; % Superficie f(x, y) = x^2 + y^2
-    %	%\end{axis}
-	%%\end{tikzpicture}
-	%\vfill	
-	%\end{titlepage}
-    	\maketitle
-    	\thispagestyle{empty}
+	\begin{titlepage}
+    \centering
+    
+    % Intestazione Università e Dipartimento
+    \vspace{0.6cm}
+    \vspace{1.2cm}
+    
+    % Logo istituzionale Unipi
+    % Assicurati di avere il file del cherubino/stemma nella stessa cartella
+    \includegraphics[width=0.28\textwidth]{Immagini/marchio_unipi.png}\par
+    
+    \vspace{1.4cm}
+    {\large\titillium \large\textbf{DIPARTIMENTO DI FISICA}\par}
+    \vspace{0.3cm}
+    {\normalsize Corso di Laurea Triennale in Fisica\par}
+    
+
+    % Tipologia documento
+    \vspace{0.6cm}
+    
+    % Titolo della Tesi
+    {\LARGE \textbf{Momenti di multipolo del campo gravitazionale}\par}
+    
+    \vfill % Spinge le firme e la data verso il basso mantenendo le proporzioni
+    
+    % Firme su due colonne
+    \begin{minipage}[t]{0.48\textwidth}
+        \textbf{Relatore:}\\
+        Prof.~Leonardo Gualtieri\\[0.4cm]
+        \textbf{Corelatori:} \\ % Rimuovi o commenta se non presente
+        Ismaele Bartoluccio \\
+	Davide Labrosciano
+	\end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \begin{flushright}
+            \textbf{Candidato:}\\
+            Francesco Sermi\\
+            Matricola 677094
+        \end{flushright}
+    \end{minipage}
+    
+    \vspace{1.8cm}
+    
+    % Anno Accademico
+    \hrule height 0.5pt
+    \vspace{0.4cm}
+    {\small Anno Accademico 2025/2026\par}
+    
+\end{titlepage}
+	\thispagestyle{empty}
     	\vspace*{8cm}
     	\begin{flushright}
     	\begin{minipage}{0.6\textwidth}
         	\itshape\small
-        	\noindent A mia mamma, che mi ha cresciuto senza mai dubitare delle mie capacità. \\
+        	\noindent Alla mamma, che mi ha cresciuto senza mai dubitare delle mie capacità. \\
     		\end{minipage}
 	\end{flushright}
     	\vfill
@@ -93,8 +98,9 @@
     	\tableofcontents
     	\input{capitoli/introduction.tex}
 	\input{capitoli/gravity.tex}
-	\input{capitoli/deformazioni_mareali.tex}	
-    	\input{capitoli/acknowledgments.tex}
+	\input{capitoli/deformazioni_mareali.tex}
+	\input{capitoli/conclusion.tex}
+	%\input{capitoli/acknowledgments.tex}
     	\appendix
 	\input{capitoli/holmes_feather.tex}
 	\phantomsection

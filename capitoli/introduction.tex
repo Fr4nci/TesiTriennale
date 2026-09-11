@@ -1,70 +1,71 @@
 \chapter{Introduzione}
 Il campo gravitazionale generato da un corpo racchiude informazioni fondamentali sulla sua struttura interna. Risulta quindi essenziale studiare i contributi derivanti dalle deviazioni dalla simmetria sferica, i quali permettono di rispondere a numerosi interrogativi sulle caratteristiche del pianeta osservato. 
 In questa breve dissertazione descriveremo l'espansione in multipoli nella gravità newtoniana, strumento cardine per lo studio di tali perturbazioni, applicandone i risultati a un sistema soggetto a interazioni mareali. Illustreremo infine come queste stesse configurazioni vengano modellate nel formalismo della Relatività Generale, in cui la gravità perde lo status di forza per divenire espressione della curvatura dello spaziotempo.
-È lecito domandarsi perché affrontare l'argomento in regime newtoniano. Sebbene da un secolo sia noto che non rappresenti la teoria definitiva della gravità, essa costituisce ancora oggi un'approssimazione eccellente in una grande varietà di contesti pratici e astrofisici. Descrive con accuratezza la struttura terrestre e le maree provocate dal Sole e dalla Luna; persino le simulazioni numeriche che tracciano l'evoluzione degli ammassi galattici, la cui formazione è dominata dall'influenza della materia oscura, si basano sulla gravitazione newtoniana. I limiti di questo approccio classico emergono solo quando ci si scontra con la sua incapacità di spiegare la precessione del perielio di Mercurio o la deflessione della luce, fenomeni confermati sperimentalmente e perfettamente coerenti con le previsioni della Relatività Generale. 
-Il criterio fondamentale per stabilire quando sia valido ricorrere all'approssimazione newtoniana è dettato dal fattore di correzione relativistico:
+È lecito domandarsi perché affrontare l'argomento in regime newtoniano. Sebbene da un secolo sia noto che non rappresenti la teoria definitiva della gravità, essa costituisce ancora oggi un'approssimazione eccellente in una grande varietà di contesti pratici e astrofisici. Descrive con accuratezza la struttura terrestre e le maree provocate dal Sole e dalla Luna; persino le simulazioni numeriche che tracciano l'evoluzione degli ammassi galattici, la cui formazione è dominata dall'influenza della materia oscura, si basano sulla gravitazione newtoniana. I limiti di questo approccio classico emergono solo quando ci si scontra con la sua incapacità di spiegare la precessione del perielio di Mercurio o la deflessione della luce, fenomeni confermati sperimentalmente e perfettamente coerenti con le previsioni della Relatività Generale: in generale, la gravità newtoniana, nel limite di $v \ll c$ e in assenza di campi gravitazionali ``forti'', è in grado di predire accuratamente la gravitazione di oggetti massivi: risulta ragionevole quindi introdurre il fattore di correzione relativistico
 \begin{align}
-    \epsilon \sim \frac{GM}{rc^2} \sim \frac{v^2}{c^2},
+	&\epsilon = \frac{GM}{rc^2} & &\text{ oppure } & &\epsilon = \frac{v^2}{c^2},
 \end{align}
-dove $G$ è la costante di gravitazione universale, $c$ è la velocità della luce, mentre $M$, $r$ e $v$ rappresentano rispettivamente la massa caratteristica, la dimensione (o distanza di separazione) e la velocità del sistema studiato.
+che ci permette di stabilire se è possibile ricorrere alla gravità newtoniana o meno, dove $G$ è la costante di gravitazione universale, $c$ è la velocità della luce, mentre $M$, $r$ e $v$ rappresentano rispettivamente la massa caratteristica, la dimensione (o distanza di separazione) e la velocità del sistema studiato.
 \section{Gravitazione newtoniana}
 Muoviamo i nostri primi passi nella teoria newtoniana partendo dal secondo principio della dinamica e dalla legge di gravitazione universale:
+\begin{equation}
+	\begin{split}
+    	&m_I \vec{a} = \vec{F} \label{eq:inertial_mass_motion_law}, \\
+    	&\vec{F} = - G m_G M \frac{\vec{r}(t)}{|\vec{r}(t)|^3}.
+	\end{split}
+\end{equation}
+Nella prima equazione, $\vec{F}$ è la forza agente sul corpo di massa inerziale $m_I$ situato in posizione $\vec{r}(t)$ e $\vec{a} = \frac{d^2\vec{r}}{dt^2}$ è la sua accelerazione. Nella seconda equazione, la forza $\vec{F}$ è di natura gravitazionale ed è diretta lungo la congiungente dei due corpi. Queste rappresentano le equazioni del moto di un corpo in $\vec{r}(t)$ soggetto al campo di una massa $M$ posta nell'origine del sistema di riferimento. La quantità $G$ è la costante di gravitazione universale, il cui valore misurato è circa:
 \begin{align}
-    &m_I \vec{a} = \vec{F} \label{eq:inertial_mass_motion_law}, \\
-    &\vec{F} = - G m_G M \frac{\vec{r}(t)}{|\vec{r}(t)|^3}.
-\end{align}
-Nella prima equazione, $\vec{F}$ è la forza agente sul corpo di massa inerziale $m_I$ situato in posizione $\vec{r}(t)$ e $\vec{a} = \frac{d^2\vec{r}}{dt^2}$ è la sua accelerazione. Nella seconda equazione, la forza $\vec{F}$ è di natura gravitazionale ed è diretta lungo la retta che congiunge i due corpi. Queste rappresentano le equazioni del moto di un corpo in $\vec{r}(t)$ soggetto al campo di una massa $M$ posta nell'origine del sistema di riferimento. La quantità $G$ è la costante di gravitazione universale, il cui valore misurato è circa:
-\begin{align}
-    G = (6.6743 \pm 0.0001) \times 10^{-11} , \text{m}^3 \text{kg}^{-1} \text{s}^{-2}.\end{align}
+    G = (6.6743 \pm 0.0001) \times 10^{-11} \, \text{m}^3 \text{kg}^{-1} \text{s}^{-2}.\end{align}
 Si noti come l'intensità di questa forza decresca col quadrato della distanza e sia sempre attrattiva.
 
 Una formulazione equivalente di queste leggi si ottiene esprimendo la forza come gradiente di una funzione scalare, il \emph{potenziale newtoniano}, definito come:
 \begin{align}
-    U = \frac{GM}{r}.\end{align}
+    U = -\frac{GM}{r}.\end{align}
 Calcolandone il gradiente, sfruttando il fatto che $\frac{\partial r}{\partial x_i} = \frac{x_i}{r}$, risulta banalmente che
 \begin{align}
-    (\nabla U)_i = \frac{\partial U}{\partial r} \frac{\partial r}{\partial x_i} = - \frac{GM}{r^2} \frac{x_i}{r} = - \frac{GM}{r^3} x_i,
+    (\nabla U)_i = \frac{\partial U}{\partial r} \frac{\partial r}{\partial x_i} = \frac{GM}{r^2} \frac{x_i}{r} = \frac{GM}{r^3} x_i,
 \end{align}
 da cui, riscrivendo l'espressione in forma vettoriale, si ottiene che
 \begin{align}
-    \vec{F} = m_G \nabla U.
+    \vec{F} = -m_G \nabla U.
 \end{align}
 Sostituendo nella \eqref{eq:inertial_mass_motion_law} otteniamo
 \begin{align}
-    m_I \vec{a} = m_G \nabla U.
+    m_I \vec{a} = -m_G \nabla U.
 \end{align}
 Nel caso in cui $m_I = m_G$, l'equazione si semplifica in
 \begin{align}
-    \label{eq:acc_gravity}\vec{a} = \nabla U.
+    \label{eq:acc_gravity}\vec{a} = -\nabla U.
 \end{align}
-L'assunzione che la massa gravitazionale e la massa inerziale coincidano prende il nome di \emph{principio di equivalenza debole}. Come conseguenza diretta, evidente nella \eqref{eq:acc_gravity}, l'accelerazione subita da un corpo in un campo gravitazionale è indipendente dalla sua massa. Nel corso della trattazione assumeremo la validità di questo principio\footnote{Recenti test sperimentali, come la missione satellitare MICROSCOPE, hanno verificato l'uguaglianza tra massa inerziale e gravitazionale con una precisione di una parte su $10^{15}$.}, il quale rappresenta il fondamento logico che ha condotto Einstein alla formulazione della Relatività Generale.
+L'assunzione che la massa gravitazionale e la massa inerziale coincidano prende il nome di \emph{principio di equivalenza debole}. Come conseguenza diretta, evidente nella \eqref{eq:acc_gravity}, l'accelerazione subita da un corpo in un campo gravitazionale è indipendente dalla sua massa. Nel corso della trattazione assumeremo la validità di questo principio\footnote{Recenti test sperimentali, come la missione satellitare MICROOSCOPE, hanno verificato l'uguaglianza tra massa inerziale e gravitazionale con una precisione di una parte su $10^{-15}$.}, il quale rappresenta il fondamento logico che ha condotto Einstein alla formulazione della Relatività Generale.
 Allo stato attuale, le leggi che governano il moto di un corpo in un campo gravitazionale newtoniano si riassumono nel sistema
 \begin{align}
-    &\vec{a} = \nabla U, \\
-    &U = \frac{GM}{r}.
+    &\vec{a} = -\nabla U, \\
+    &U = -\frac{GM}{r}.
 \end{align}
 Tuttavia, queste equazioni descrivono esclusivamente l'interazione tra punti materiali. Per i nostri scopi è necessario generalizzare la teoria a corpi estesi: distribuzioni continue di materia (solidi, liquidi o gas) di forma e dimensioni arbitrarie, capaci di evolvere dinamicamente. Un sistema del genere è descritto da un campo di densità $\rho(\vec{x}, t)$, un campo di pressione $p(\vec{x}, t)$ e un campo di velocità $\vec{v}(\vec{x}, t)$, vincolati dalle seguenti equazioni della fluidodinamica
 \begin{enumerate}[label=\protect\circled{\arabic*}]
     \item $\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = 0$ \quad (Equazione di continuità);
-    \item $\rho \frac{D \vec{v}}{Dt} = \rho \nabla U - \nabla p$ \quad (Equazione di Eulero, con $\frac{D}{Dt}$ derivata materiale).
+    \item $\rho \frac{D \vec{v}}{Dt} = -\rho \nabla U - \nabla p$ \quad (Equazione di Eulero, con $\frac{D}{Dt}$ derivata materiale).
 \end{enumerate}
 L'equazione che lega il campo gravitazionale alla distribuzione spaziale della massa è l'equazione di Poisson
 \begin{align}
-    \nabla^2 U = - 4 \pi G \rho.
+    \nabla^2 U = 4 \pi G \rho.
 \end{align}
 In questa sede non deriveremo le equazioni di continuità e di Eulero; ci concentreremo esclusivamente sulla deduzione dell'equazione di Poisson. Assumeremo pertanto di lavorare con configurazioni fisicamente sensate, in cui $\rho$ e $\vec{v}$ soddisfino le suddette leggi di conservazione.
 \subsection{Deduzione dell'equazione di Poisson}
 Uno dei principi cardine della meccanica newtoniana è la sovrapposizione degli effetti. Assumendo la validità di tale principio per il campo gravitazionale, il potenziale generato da un sistema discreto di $N$ masse puntiformi nel punto $\vec{x}$ è la somma dei singoli contributi
 \begin{align}
-    U(\vec{x}) = \sum_{i=1}^N U_i = G \sum_{i=1}^N \frac{M_i}{|\vec{x} - \vec{x_i}|},
+    U(\vec{x}) = \sum_{i=1}^N U_i = -G \sum_{i=1}^N \frac{M_i}{|\vec{x} - \vec{x_i}|},
 \end{align}
 dove $\vec{x_i}$ indica la posizione della massa $i$-esima. La generalizzazione al continuo è immediata: data una distribuzione di massa $\rho(\vec{x'}, t)$, l'elemento infinitesimo di volume $d^3x'$ situato in $\vec{x'}$ produce il potenziale di una massa puntiforme
 \begin{align}
-    dU(\vec{x}, t) = G \frac{dm}{|\vec{x}-\vec{x}'|} = G \frac{\rho(\vec{x}', t)}{|\vec{x}-\vec{x}'|} d^3 x'.
+    dU(\vec{x}, t) = -G \frac{dm}{|\vec{x}-\vec{x}'|} = -G \frac{\rho(\vec{x}', t)}{|\vec{x}-\vec{x}'|} d^3 x'.
 \end{align}
 Integrando su tutto il dominio occupato dalla massa, si ottiene:
 \begin{align} \label{eq:pot_convolution}
-    U(\vec{x}, t) = G \int \frac{\rho(\vec{x'}, t)}{|\vec{x}-\vec{x'}|} d^3 x'.
+    U(\vec{x}, t) = -G \int \frac{\rho(\vec{x'}, t)}{|\vec{x}-\vec{x'}|} d^3 x'.
 \end{align}
 La \eqref{eq:pot_convolution} esprime il potenziale $U$ come funzionale della densità $\rho$: essendo formulata come equazione integrale, il calcolo diretto del potenziale può risultare ostico. Possiamo tuttavia trasformarla in un'equazione differenziale sfruttando la seguente identità nel senso delle distribuzioni:
 \begin{align}
@@ -72,22 +73,22 @@ La \eqref{eq:pot_convolution} esprime il potenziale $U$ come funzionale della de
 \end{align}
 che dimostreremo nella prossima sezione. Applicando l'operatore laplaciano ad ambo i membri della \eqref{eq:pot_convolution} e portandolo sotto il segno di integrale, ricaviamo istantaneamente l'equazione di Poisson
 \begin{align}
-    \nabla^2 U = G \int \rho(\vec{x}', t) \nabla^2 \left(\frac{1}{|\vec{x}-\vec{x}'|}\right) d^3 x' = G \int \rho(\vec{x}', t) \left[-4 \pi \delta^3 (\vec{x}-\vec{x}')\right] d^3 x' = -4 \pi G \rho(\vec{x}, t).
+    \nabla^2 U = -G \int \rho(\vec{x}', t) \nabla^2 \left(\frac{1}{|\vec{x}-\vec{x}'|}\right) d^3 x' = -G \int \rho(\vec{x}', t) \left[-4 \pi \delta^3 (\vec{x}-\vec{x}')\right] d^3 x' = 4 \pi G \rho(\vec{x}, t).
 \end{align}
-Inversamente, usando il formalismo delle funzioni di Green, è immediato verificare che la \eqref{eq:pot_convolution} è la soluzione dell'equazione di Poisson: sappiamo infatti che $\nabla^2 U = -4 \pi G \rho$ ammette soluzione nella forma
+Inversamente, usando il formalismo delle funzioni di Green, è immediato verificare che la \eqref{eq:pot_convolution} è la soluzione dell'equazione di Poisson: sappiamo infatti che $\nabla^2 U = 4 \pi G \rho$ ammette soluzione nella forma
 \begin{align}
-    U(\vec{x}, t) = \int \mathcal{G}(\vec{x}-\vec{x}') \rho(\vec{x}') d^3 x',
+    U(\vec{x}, t) = -G \int \mathcal{G}(\vec{x}-\vec{x}') \rho(\vec{x}') d^3 x',
 \end{align}
-dove il nucleo risolvente $\mathcal{G}(\vec{x})$ soddisfa $\nabla^2 \mathcal{G}(\vec{x}) = - 4 \pi G \delta^3(\vec{x})$. Confrontando con la \eqref{eq:green_delta}, si identifica banalmente $\mathcal{G}(\vec{x}-\vec{x}') = \frac{1}{\vert{}\vec{x}-\vec{x}'\vert{}}$.
+dove il nucleo risolvente $\mathcal{G}(\vec{x})$ soddisfa $\nabla^2 \mathcal{G}(\vec{x}) = - 4 \pi \delta^3(\vec{x})$. Confrontando con la \eqref{eq:green_delta}, si identifica banalmente $\mathcal{G}(\vec{x}-\vec{x}') = \frac{1}{\vert{}\vec{x}-\vec{x}'\vert{}}$.
 \subsubsection{Dimostrazione della \eqref{eq:green_delta}}
 Per dimostrare l'identità \eqref{eq:green_delta}, occorre premettere i teoremi di Green.
 \begin{lemma}[Identità di Green] \hspace{1cm} \\
-    Sia $V \subset \mathbb{R}^3$ un dominio compatto con frontiera sufficientemente regolare $\partial V$. Siano $\varphi \in C^2(V)$ e $\psi \in C^1(V)$. Allora valgono
+    Sia $V \subset \mathbb{R}^3$ un dominio compatto con frontiera sufficientemente regolare $\partial V$ e siano $\varphi, \psi \in C^2(V)$. Allora valgono
     \begin{enumerate}[label=\protect\circled{\arabic*}]
         \item \begin{align}
             \int_V (\psi \nabla^2 \varphi + \nabla \varphi \cdot \nabla \psi) d^3x = \oint_{\partial V} \psi \frac{\partial \varphi}{\partial n} dS,
         \end{align}
-        dove $\frac{\partial}{\partial n} = \hat{n} \cdot \nabla$ denota la derivata direzionale normale e $\hat{n}$ è il versore normale uscente dalla superficie.
+	dove $\hat{n}$ rappresenta, per ogni punto della superficie, il versore normale uscente dalla stessa superficie. Definiamo, quindi, per comodità di notazione $\frac{\partial}{\partial n} = \hat{n} \cdot \nabla$.
         \item \begin{align}
             \int_V \left[ \psi \nabla^2 \varphi - \varphi \nabla^2 \psi \right] d^3x = \oint_{\partial V} \left(\psi \frac{\partial \varphi}{\partial n} - \varphi \frac{\partial \psi}{\partial n}\right) dS.
         \end{align}
@@ -109,7 +110,7 @@ Per $\vec{x} \neq \vec{x}'$, la funzione $f(\vec{x}) = \frac{1}{\vert{}\vec{x}-\
 $$
 \sum_{i=1}^3 \frac{\partial}{\partial x_i} \left( -\frac{x_i - x'_i}{\vert{}\vec{x}-\vec{x'}\vert{}^3} \right) = \sum_{i=1}^3 \left[ -\frac{1}{\vert{}\vec{x}-\vec{x'}\vert{}^3} + \frac{3(x_i - x_i')^2}{\vert{}\vec{x}-\vec{x'}\vert{}^5} \right] = 0
 $$
-Poiché nell'origine ($\vec{x} = \vec{x'}$) la funzione diverge, non possiamo calcolare il laplaciano classicamente. Valutiamolo nel senso delle distribuzioni applicandolo a una funzione di test $\phi(\vec{x})$ a decadimento rapido, ovvero $\phi(\vec{x}) \in S(\mathbb{R}^3)$. 
+Poiché nell'origine ($\vec{x} = \vec{x'}$) la funzione diverge, non possiamo calcolare il laplaciano direttamente. Valutiamolo nel senso delle distribuzioni applicandolo a una funzione di test $\phi(\vec{x})$ a decadimento rapido, ovvero $\phi(\vec{x}) \in S(\mathbb{R}^3)$. 
 L'azione del laplaciano distribuzionale è definita da:
 $$
 \left\langle \nabla^2 \frac{1}{\vert{}\vec{x}-\vec{x'}\vert{}}, \phi \right\rangle = \int_{\mathbb{R}^3} \frac{1}{\vert{}\vec{x}-\vec{x'}\vert{}} \nabla^2 \phi(\vec{x}) \, d^3 x

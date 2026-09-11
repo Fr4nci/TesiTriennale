@@ -1,0 +1,76 @@
+\documentclass[8pt, aspectratio=169]{beamer}
+\include{preamble}
+\usepackage{amsmath,amssymb}
+
+\setbeamertemplate{frame numbering}{}
+\definecolor{accent}{HTML}{2E5EAA}
+\setbeamercolor{palette primary}{bg=accent,fg=white}
+\setbeamercolor{frametitle}{bg=accent,fg=white}
+\setbeamercolor{progress bar}{fg=accent,bg=accent!20}
+
+\title{Espansione in multipoli della gravità}
+\author{Francesco Sermi}
+\institute{Relatore: Prof. Leonardo Gualtieri}
+\date{Anno Accademico 2025/2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Equazioni della gravità newtoniana}
+	Le equazioni del moto situato in $\vec{r}(t)$ di un corpo massivo con massa inerziale $m_I$ e massa gravitazionale $m_G$ soggetto alla forza gravitazionale generata da un altro corpo con massa $M$ posto nell'origine del nostro sistema di riferimento sono date da
+$$
+m_I \, \vec{a}(t) = -G\, m_G M \, \frac{\vec{r}(t)}{|\vec{r}(t)|^3},
+$$
+dove $G$ è la costante di gravitazione universale. Introducendo il \emph{potenziale gravitazionale}
+$$
+	U(\vec{r}) = -\frac{GM}{|\vec{r}(t)|} \implies m_I \vec{a}(t) = -m_G \vec{\nabla} U(\vec{r})
+$$
+e supponendo che
+\begin{enumerate}
+	\item valga il \textbf{principio di equivalenza debole}, ovvero $m_I = m_G$;
+	\item valga il \textbf{principio di sovrapposizione}, ossia il potenziale in un punto è dato dalla sovrapposizione lineare dei potenziali gravitazionali generati dagli altri corpi presenti nel sistema studiato
+	$$
+		U(\vec{x}) = \sum_i^N U_i(\vec{x})
+	$$
+\end{enumerate}
+\end{frame}
+\begin{frame}{Sviluppo in multipoli}
+Usando il principio di sovrapposizione, è facile dimostrare che per una distribuzione continua di massa caratterizzato da una certa distribuzione volumica di massa $\rho(\vec{x},t)$, allora il potenziale in un punto è dato da
+\begin{align*}
+	U = -G\int_V \frac{\rho(\vec{x}', t)}{|\vec{x} - \vec{x}'|} \mathrm{d}^3 x \mathrm{d}^3 x'
+\end{align*}
+e usando la ben nota identità $\nabla^2 \frac{1}{|\vec{x} - \vec{x}'|} = -4 \pi \delta^3(\vec{x} - \vec{x}')$ si ricava che il potenziale gravitazionale soddisfa l'equazione di Poisson
+\begin{align*}
+	\nabla^2 U = 4 \pi G \rho(\vec{x}, t)
+\end{align*}
+Per corpi 
+\end{frame}
+
+\begin{frame}{Definizione dei Momenti di Massa}
+I momenti di massa e di corrente racchiudono tutte le proprietà fisiche della sorgente estesa.
+
+\bigskip
+Nel formalismo STF, il momento di massa di ordine $l$ è definito come l'integrale della densità di massa pesata sui prodotti tensoriali delle coordinate spaziali.
+\end{frame}
+
+\begin{frame}{La Deformabilità Mareale}
+La deformabilità mareale quantifica la risposta strutturale di un corpo esteso all'influenza di un campo gravitazionale esterno.
+
+\bigskip
+Nel limite di campo debole, il momento di quadripolo indotto è linearmente proporzionale al campo di marea esterno applicato, tramite una costante definita deformabilità mareale (strettamente legata al numero di Love di ordine 2).
+\end{frame}
+
+\begin{frame}{Approccio Classico vs. Modellizzazione Relativistica}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\textbf{Gravità Newtoniana}\\[0.5em]
+In ambito classico, l'analisi si semplifica notevolmente. Il problema fisico si riduce alla risoluzione dell'equazione di Poisson per il potenziale perturbato.
+
+\column{0.48\textwidth}
+\textbf{Relatività Generale}\\[0.5em]
+La determinazione della deformabilità richiede la complessa integrazione delle equazioni di Einstein perturbate, accoppiando in modo coerente la metrica dello spaziotempo all'equazione di stato della materia interna.
+\end{columns}
+\end{frame}
+
+\end{document}

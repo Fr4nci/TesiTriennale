@@ -2,39 +2,42 @@
 
 Nel capitolo precedente abbiamo visto che un sistema caratterizzato da una densità $\rho(\vec{x}, t)$ soddisfa l'equazione di Poisson
 \begin{align}
-	\nabla^2 U(\vec{x}, t) = -4 \pi G \rho(\vec{x}, t)
+	\nabla^2 U(\vec{x}, t) = 4 \pi G \rho(\vec{x}, t)
 \end{align}
 che in questo capitolo ci prefiggiamo di risolvere nel caso in cui vi siano deviazioni dalla simmetria sferica. È istruttivo studiare inizialmente il caso con simmetria sferica perfetta per poi passare al caso più generale.
 \section{Sistema a simmetria sferica}
 Riscriviamo il laplaciano in coordinate sferiche e lo inseriamo nell'equazione di Poisson:
 \begin{align}
-\left[ \frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}\left(\sin{\theta} \frac{\partial}{\partial \theta}\right) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] U = - 4 \pi G \rho.
+\left[ \frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}\left(\sin{\theta} \frac{\partial}{\partial \theta}\right) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] U = 4 \pi G \rho.
 \end{align}
 Se il sistema gode di simmetria sferica, il potenziale dipende esclusivamente dalla coordinata radiale $r$; pertanto l'equazione si riduce a
 \begin{align}
-    \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial U}{\partial r} \right) = -4 \pi G \rho(r, t),
+    \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial U}{\partial r} \right) = 4 \pi G \rho(r, t),
 \end{align}
 da cui si ottiene
 \begin{align}
-    \frac{\partial U}{\partial r} = -\frac{4 \pi G}{r^2} \int_0^r \rho(r', t) (r')^2 dr' + \frac{C(t)}{r^2}.
+    \frac{\partial U}{\partial r} = \frac{4 \pi G}{r^2} \int_0^r \rho(r', t) (r')^2 dr' + \frac{C(t)}{r^2}.
 \end{align}
 La costante di integrazione $C(t)$ va posta a zero. Fisicamente, infatti, $\frac{\partial U}{\partial r}$ rappresenta il campo gravitazionale radiale. Nell'origine ($r=0$) la direzione radiale non è definita: una forza netta non nulla in quel punto punterebbe in una direzione preferenziale, rompendo la simmetria sferica del sistema. Inoltre, se $C(t)$ fosse diversa da zero, il termine divergerebbe. In definitiva si ha:
 \begin{align}
-    \frac{\partial U}{\partial r} = - \frac{4 \pi G m(r, t)}{r^2},
+    \frac{\partial U}{\partial r} = \frac{G m(r, t)}{r^2},
 \end{align}
-dove abbiamo definito la massa contenuta entro il raggio $r$:\begin{align}m(r, t) = \int_0^r \rho(r', t) (r')^2 dr'.\end{align}
+dove abbiamo definito la massa contenuta entro il raggio $r$:
+\begin{align}
+	m(r, t) = 4 \pi \int_0^r \rho(r', t) (r')^2 dr'.
+\end{align}
 Assumendo che il corpo sia confinato nello spazio, esiste un raggio $R$ tale per cui $\rho(r) = 0$ per ogni $r > R$. Pertanto, la massa totale
 \begin{align}
-    M \equiv m(R, t) = \int_0^R \rho(r', t) (r')^2 dr'
+    M \equiv m(R, t) = 4 \pi \int_0^R \rho(r', t) (r')^2 dr'
 \end{align}
 è una costante nel tempo. Lo si dimostra facilmente:
 \begin{align}
-    \frac{\mathrm{d} M}{\mathrm{d}t} = \int_0^R \frac{\partial \rho(r', t)}{\partial t} (r')^2 dr' = \int_0^R -\frac{1}{(r')^2} \nabla_r (\rho(r', t) v_r)(r')^2 dr' = 0,
+    \frac{\mathrm{d} M}{\mathrm{d}t} = 4 \pi \int_0^R \frac{\partial \rho(r', t)}{\partial t} (r')^2 dr' = 4 \pi \int_0^R -\frac{1}{(r')^2} \nabla_r (\rho(r', t) v_r)(r')^2 dr' = 0,
 \end{align}
 dove abbiamo usato l'equazione di continuità in coordinate sferiche e il fatto che la densità e la velocità radiale $v_r$ siano nulle sul bordo del volume di integrazione. 
 Abbiamo quindi mostrato che la massa totale del sistema si conserva. Inoltre, poiché per $r > R$ la densità si annulla, il campo gravitazionale all'esterno del corpo è dato da:
 \begin{align}
-    \frac{\partial U}{\partial r} = - \frac{4 \pi G M}{r^2} \implies U(r) = \frac{4 \pi G M}{r}.
+    \frac{\partial U}{\partial r} = \frac{G M}{r^2} \implies U(r) = -\frac{G M}{r}.
 \end{align}
 Il potenziale all'esterno coincide con quello generato da una massa puntiforme $M$ posta nel centro del sistema: integrando l'equazione di Poisson abbiamo ottenuto una dimostrazione molto più diretta del teorema del guscio sferico di Newton.
 
@@ -46,10 +49,13 @@ Nel caso della Terra, la misurazione dei momenti di multipolo fino a $l = 360$ (
 Ricordiamo che le armoniche sferiche $Y_{lm}$ sono autofunzioni dell'operatore differenziale angolare:
 \begin{align}
     \left[ \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta} \left( \sin{\theta} \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] Y_{lm} = -l(l+1) Y_{lm},
-\end{align}con $l$ intero non negativo e $m \in \{-l, \dots, l\}$ e riconosciamo, nel termine a sinistra, la parte angolare del laplaciano.
+\end{align}con $l$ intero non negativo e $m \in \{-l, \dots, l\}$ e riconosciamo, nel termine a sinistra, la parte angolare del laplaciano. Un'altra proprietà di cui godono, che non dimostreremo, è la seguente
+\begin{align}
+	(Y_{l-m})^*(\theta, \phi) = (-1)^m Y_{lm}(\theta, \phi).
+\end{align}
 Dalla teoria di Sturm-Liouville sappiamo che queste funzioni costituiscono una base ortogonale e completa per lo spazio $L^2(S^2)$, ossia lo spazio delle funzioni a quadrato integrabile definite sulla sfera. Pertanto, vale la relazione di ortonormalità:
 \begin{align}
-    \int_{S^2} Y_{lm}^(\theta, \phi) Y_{l'm'}(\theta, \phi) \mathrm{d}\Omega = \delta_{ll'} \delta_{mm'},
+    \int_{S^2} Y_{lm}^*(\theta, \phi) Y_{l'm'}(\theta, \phi) \mathrm{d}\Omega = \delta_{ll'} \delta_{mm'},
 \end{align}
 e per ogni funzione $f \in L^2(S^2)$ si ha:
 \begin{align}
@@ -72,21 +78,21 @@ dove i coefficienti dipendono da $r$ e $t$, poiché la proiezione viene effettua
 Inserendo questi sviluppi nell'equazione di Poisson si ottiene:
 \begin{align}
     &\left[ \frac{1}{r^2} \frac{\partial}{\partial r}\left(r^2 \frac{\partial}{\partial r}\right) + \frac{1}{r^2 \sin{\theta}} \frac{\partial}{\partial \theta}\left(\sin{\theta} \frac{\partial}{\partial \theta}\right) + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial^2}{\partial \phi^2} \right] \sum_{l=0}^{+\infty} \sum_{m=-l}^l U_{lm} Y_{lm} = \nonumber \\
-    &= -4 \pi G \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm} Y_{lm}.\end{align}
+    &= 4 \pi G \sum_{l=0}^{+\infty} \sum_{m=-l}^l \rho_{lm} Y_{lm}.\end{align}
 Poiché le $Y_{lm}$ sono linearmente indipendenti, l'uguaglianza deve valere termine a termine per ogni coppia $(l, m)$, portando a:
 \begin{align}
-    \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial}{\partial r} \right) - l(l+1) \right] U_{lm}(r, t) = - 4 \pi G r^2 \rho_{lm}(r, t).
+    \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial}{\partial r} \right) - l(l+1) \right] U_{lm}(r, t) = 4 \pi G r^2 \rho_{lm}(r, t).
 \end{align}
 In questo modo abbiamo ricondotto un'equazione alle derivate parziali a un sistema infinito di equazioni differenziali ordinarie disaccoppiate. Per risolvere queste equazioni utilizziamo il metodo delle funzioni di Green, definendo l'operatore differenziale
 \begin{align}
     \mathcal{L} = \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} - l(l+1),
 \end{align}cerchiamo una funzione $g_l(r, r')$ che soddisfi
 \begin{align}
-    \mathcal{L} g_l(r, r') = - 4 \pi \delta(r-r').
+    \mathcal{L} g_l(r, r') = -4 \pi \delta(r-r').
 \end{align}
 Una volta determinata $g_l$, ogni coefficiente $U_{lm}$ potrà essere calcolato come
 \begin{align} \label{eq:u_lm_green}
-    U_{lm}(r, t) = G \int_0^\infty g_l(r, r') \rho_{lm}(r', t) (r')^2 dr'.
+    U_{lm}(r, t) = -G \int_0^\infty g_l(r, r') \rho_{lm}(r', t) (r')^2 dr'.
 \end{align}
 L'operatore $\mathcal{L}$ e, di conseguenza, la funzione di Green dipendono dall'indice $l$ ma non da $m$. Per $r \neq r'$, l'equazione per $g_l$ si riduce a quella omogenea:
 \begin{align}
@@ -114,15 +120,15 @@ dunque possiamo riscrivere nella seguente forma
 \end{align}
 ed integrando l'equazione differenziale fra $[r'-\varepsilon, r'+\varepsilon]$ con $\varepsilon \to 0$ si ottiene che
 \begin{align}
-    \int_{r'-\varepsilon}^{r'+\varepsilon} \left[ \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} \right] g_l(r, r') = - 4 \pi.
+	\int_{r'-\varepsilon}^{r'+\varepsilon} \left[ \frac{\partial}{\partial r} r^2 \frac{\partial}{\partial r} \right] g_l(r, r') \mathrm{d}r = -4 \pi.
 \end{align} 
 Si noti che il termine proporzionale all'integrale di $g_l(r, r')$ si annulla per continuità nel limite di $\varepsilon \to 0$: rimane dunque
 \begin{align}
-    \int_{r'-\varepsilon}^{r'+\varepsilon} \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial g_l(r, r')}{\partial r} \right) \right] = - 4 \pi,
+	\int_{r'-\varepsilon}^{r'+\varepsilon} \left[ \frac{\partial}{\partial r} \left( r^2 \frac{\partial g_l(r, r')}{\partial r} \right) \right] \mathrm{d}r = -4 \pi,
 \end{align}
 in cui si ottiene che
 \begin{align}
-    C(r')[(-l+1)(r') - (l+2)(r')] = -4 \pi \implies C(r') = \frac{4 \pi}{2l+1} \frac{1}{r'}.
+    C(r')[-(l+1)(r') - l(r')] = -4 \pi \implies C(r') = \frac{4 \pi}{2l+1} \frac{1}{r'}.
 \end{align}
 La funzione di Green dell'operatore $\mathcal{L}$ risulta, dunque, essere
 \begin{align}
@@ -134,12 +140,12 @@ che può essere riscritta in forma più compatta introducendo $r_> = \max\{r, r'
 \end{align}
 Sostituendo nella \eqref{eq:u_lm_green} si ottiene che
 \begin{align} \label{eq:u_lm_sol}
-    U_{lm}(r, t) &= \frac{4 \pi G}{2l+1} \int_{0}^{+\infty} \frac{r^l_<}{r_>^{l+1}} \rho_{lm}(r', t) \mathrm{d}r' = \nonumber \\
-    &= \frac{4 \pi G}{2l+1} \left[ r^l \int_r^{+\infty} \frac{\rho_{lm}(r', t)}{(r')^{l+1}} (r')^2 dr' + \frac{1}{r^{l+1}} \int_0^r (r')^l \rho_{lm}(r', t)(r')^2 \mathrm{d}r' \right].
+    U_{lm}(r, t) &= -\frac{4 \pi G}{2l+1} \int_{0}^{+\infty} \frac{r^l_<}{r_>^{l+1}} \rho_{lm}(r', t) \mathrm{d}r' = \nonumber \\
+    &= -\frac{4 \pi G}{2l+1} \left[ r^l \int_r^{+\infty} \frac{\rho_{lm}(r', t)}{(r')^{l+1}} (r')^2 dr' + \frac{1}{r^{l+1}} \int_0^r (r')^l \rho_{lm}(r', t)(r')^2 \mathrm{d}r' \right].
 \end{align}
-Risulta quindi che il potenziale newtoniano è quindi dato da
+Risulta quindi che il potenziale newtoniano è dato da
 \begin{align}
-	U(r, t, \theta, \phi) = G \sum_{l, m} \frac{4 \pi}{2l+1} \left[q_{lm}(r,t) \frac{Y_{lm}(\theta, \phi)}{r^{l+1}} + p_{lm}(r,t) r^l Y_{lm}(\theta, \phi) \right],
+	U(r, t, \theta, \phi) = -G \sum_{l, m} \frac{4 \pi}{2l+1} \left[q_{lm}(r,t) \frac{Y_{lm}(\theta, \phi)}{r^{l+1}} + p_{lm}(r,t) r^l Y_{lm}(\theta, \phi) \right],
 \end{align}
 dove abbiamo posto
 \begin{align}
@@ -149,18 +155,18 @@ e
 \begin{align}
 	p_{lm}(r, t) \equiv \int_r^R \frac{\rho_{lm}(t, r')}{(r')^{l+1}} (r')^2 dr'.
 \end{align}
-All'interno del corpo, abbiamo che $\rho_{lm}(r, t) \neq 0$, dunque nella definizione di $p_{lm}(t,r)$ abbiamo troncato il risultato fino a quello di una sfera di raggio $R$ che circonda tutta la distribuzione di massa. Per quanto riguarda l'esterno del corpo, invece, abbiamo che $p_{lm} = 0$, in quanto per $r > R$ abbiamo che $\rho_{lm}(r, t) = 0$, pertanto
+All'interno del corpo, $\rho_{lm}(r, t) \neq 0$, dunque nella definizione di $p_{lm}(t,r)$ abbiamo troncato il risultato fino a quello di una sfera di raggio $R$ che circonda tutta la distribuzione di massa. Per quanto riguarda l'esterno del corpo, invece, abbiamo che $p_{lm} = 0$, in quanto per $r > R, \rho_{lm}(r, t) = 0$, pertanto
 \begin{align}
-	U_{\text{ext}}(r, t, \theta, \phi) = G \sum_{lm} \frac{4 \pi}{2l+1} q_{lm}(R, t) \frac{Y_{lm}(\theta, \phi)}{r^{l+1}},
+	U_{\text{ext}}(r, t, \theta, \phi) = -G \sum_{lm} \frac{4 \pi}{2l+1} q_{lm}(R, t) \frac{Y_{lm}(\theta, \phi)}{r^{l+1}},
 \end{align}
 dove l'integrale di $q_{lm}$ viene troncato fino ad $R$ sempre per le ragioni esposte sopra. \newline
 
 \subsection{Sviluppo dalla soluzione integrale}
 
 Tutti questi risultati potevano, in realtà, essere ottenuti direttamente dalla soluzione integrale \eqref{eq:pot_convolution}, esprimendo $\frac{1}{|\vec{x} - \vec{x}'|}$ in termini delle armoniche sferiche: per farlo, si osserva che la decomposizione rispetto ad una base ortogonale e completa di funzioni è unica; pertanto possiamo utilizzare la conoscenza del potenziale newtoniano in una regione limitata (dove qua si intende che non è tutto lo spazio $\mathbb{R}^3$, ma può essere anche una regione illimitata) in cui sappiamo esprimere esattamente il potenziale per ricostruire la forma esatta in tutto il resto dello spazio. 
-Se indichiamo con $\vec{x}'$ la posizione della massa, allora su tutto l'asse identificato da $\hat{x}'$ sappiamo scrivere il potenziale, che assume una forma molto semplice, ponendo con $x'$ la distanza radiale dall'origine, allora nel punto $x \hat{x}'$ abbiamo che
+Se indichiamo con $\vec{x}'$ la posizione della massa, allora su tutto l'asse identificato da $\hat{x}'$ sappiamo scrivere il potenziale, che assume una forma molto semplice, ponendo con $x'$ la distanza radiale dall'origine, allora nel punto $x \hat{x}$ abbiamo che
 \begin{align}
-	U(\vec{x}, t) = \frac{1}{|\vec{x} - \vec{x}'|} = \frac{1}{|x-x'|}, 
+	\frac{1}{|\vec{x} - \vec{x}'|} = \frac{1}{|x-x'|}, 
 \end{align}
 da cui, distinguendo i casi
 \begin{enumerate}[label=\protect\circled{\arabic*}]
@@ -183,7 +189,7 @@ poiché lungo l'asse $\hat{x}'$ abbiamo simmetria azimutale, ci aspettiamo che l
 \end{align}
 da cui, confrontando la forma della \eqref{eq:sol_guess} con la \eqref{eq:sol_obtained}, si ottiene che
 \begin{align}
-	\frac{1}{|\vec{x}-\vec{x}'|} = \sum_{l=0}^\infty \frac{r_<^l}{r_>^l} P_l(\cos{\gamma}),
+	\frac{1}{|\vec{x}-\vec{x}'|} = \sum_{l=0}^\infty \frac{r_<^l}{r_>^{l+1}} P_l(\cos{\gamma}),
 \end{align}
 dove $\gamma$ è l'angolo fra $\vec{x}$ e $\vec{x}'$: abbiamo che
 \begin{align}
@@ -211,7 +217,7 @@ dove ricordiamo che
 	\cos{\gamma} = \cos{\theta} \cos{\theta'} + \sin{\theta} \sin{\theta'} \cos{\phi - \phi'},
 \end{align}
 e rappresenta l'angolo fra il vettore $\vec{x}$ e il vettore $\vec{x}'$. \\
-Per fare questa dimostrazione supporremo che $\vec{x}'$ sia fissato nello spazio: vediamo che se tramite una rotazione andiamo ad allineare i nostri assi in maniera tale che $\vec{x}' \parallel \hat{z}$, allora abbiamo che $\gamma = \theta$, ovvero l'angolo $\gamma$ diventa semplicemente l'angolo polare a cui siamo abituati. 
+Per fare questa dimostrazione supporremo che $\vec{x}'$ sia fissato nello spazio: vediamo che se tramite una rotazione andiamo ad allineare i nostri assi in maniera tale che $\vec{x}' \parallel \hat{z}$, allora abbiamo che $\gamma = \theta$, ossia l'angolo $\gamma$ diventa semplicemente l'angolo polare a cui siamo abituati. 
 Conseguentemente, ricordando che $\nabla^2$ è invariante rispetto a rotazioni: si può vedere facilmente osservando che
 \begin{align}
 	\frac{\partial}{\partial x_i} = \sum_{j=1}^3 \frac{\partial}{\partial x_j'} \frac{\partial x_j'}{\partial x_i} = \sum_j (R)_{ji} \frac{\partial}{\partial x_j'},
@@ -232,7 +238,7 @@ Ne consegue, allora, che il polinomio di Legendre $P_l(\cos{\gamma})$ soddisfa l
 \begin{align}
 	(\nabla')^2 P_l(\cos{\gamma}) + \frac{l(l+1)}{r^2} P_l(\cos{\gamma}) = 0,
 \end{align}
-in quanto se prendiamo $\vec{x}' \parallel \hat{z}$ (con una rotazione), allora, nelle nuove coordinate, solamente il termine con le derivate in $\frac{\partial}{\partial \theta}$ andrà ad ``interagire'' con il polinomio di Legendre, ma in virtù dell'invarianza sotto rotazioni, questa equazione differenziale sarà vera anche se $\vec{x}' \not\parallel \hat{z}$. Supponendo, allora, che
+dato che se prendiamo $\vec{x}' \parallel \hat{z}$ (con una rotazione), allora, nelle nuove coordinate, solamente il termine con le derivate in $\frac{\partial}{\partial \theta}$ andranno ad ``interagire'' con il polinomio di Legendre, ma in virtù dell'invarianza sotto rotazioni, questa equazione differenziale sarà vera anche se $\vec{x}' \not\parallel \hat{z}$. Supponendo, allora, che
 \begin{align}
 	P_l(\cos{\gamma}) = \sum_{l=0}^\infty \sum_{m=-l}^l A_{l' m}(\theta', \phi') Y_{l'm}(\theta, \phi),
 \end{align}
@@ -258,18 +264,18 @@ Le quantità $q_{lm}(R,t)$ vengono chiamate \emph{momenti di multipolo} della di
 \end{align}
 dove il volume di integrazione $V$ si estende oltre il volume occupato dalla materia. Abbiamo, dunque, che il potenziale fuori dalla distribuzione di massa è dunque dato da
 \begin{align}
-	U_{\text{ext}}(\vec{x}, t) = G \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4 \pi}{2l + 1} I_{lm}(t) \frac{Y_{lm}(\theta, \phi)}{r^{l+1}}.
+	U_{\text{ext}}(\vec{x}, t) = -G \sum_{l=0}^\infty \sum_{m=-l}^l \frac{4 \pi}{2l + 1} I_{lm}(t) \frac{Y_{lm}(\theta, \phi)}{r^{l+1}}.
 \end{align}
 
 Il momento corrispondente a $l=m=0$ è il momento di monopolo, legato alla massa del corpo, in quanto
 \begin{align}
 	I_{00} = \int_V \rho Y_{00} d^3 x = \frac{M}{\sqrt{4\pi}},
 \end{align}
-mentre per $l=1$ e $m=-1, 0, 1$ prendono il nome di momenti di dipolo. Questi sono tutti nulli se piazziamo l'origine del nostro sistema di coordinate nel centro di massa della distribuzione di massa che stiamo studiando, in quanto per un tale sistema abbiamo che
+mentre per $l=1$ e $m=-1, 0, 1$ prendono il nome di momenti di dipolo. Questi sono tutti nulli se piazziamo l'origine del nostro sistema di coordinate nel centro di massa della distribuzione di massa che stiamo studiando, siccome per un tale sistema abbiamo che
 \begin{align}
-	\vec{x}_{\text{CM}} = \int_V \rho(\vec{x}) \vec{x} d^3 x = \vec{0},
+	\vec{x}_{\text{CM}} = \frac{1}{M} \int_V \rho(\vec{x}) \vec{x} d^3 x = \vec{0},
 \end{align}
-ovvero, in maniera più esplicita, si ha che
+poiché $M \neq 0$ si ha che
 \begin{align}
 	\int_V \rho(\vec{x}) (\vec{x})_i \, d^3 x = 0.
 \end{align}
@@ -294,17 +300,17 @@ e poiché
 \end{align}
 si conclude che i momenti di multipolo di un corpo assialmente simmetrico sono tutti nulli per $m \neq 0$. In questo caso, il potenziale gravitazionale esterno si riduce a
 \begin{align}
-	U_{\text{ext}}(r, \theta) = G \sum_{l=0}^\infty \frac{4 \pi}{2l + 1} I_{l0} \frac{Y_{l0}(\theta)}{r^{l+1}}.
+	U_{\text{ext}}(r, \theta) = -G \sum_{l=0}^\infty \frac{4 \pi}{2l + 1} I_{l0} \frac{Y_{l0}(\theta)}{r^{l+1}}.
 \end{align}
 Oltre a questo, per i corpi a simmetria assiale, è conveniente introdurre le seguenti quantità adimensionali, dette \emph{momenti di multipolo adimensionali}, così definite:
 \begin{align}
 	\mathcal{J}_l \equiv -\sqrt{\frac{4 \pi}{2l+1}} \frac{I_{l0}}{M R^l},
 \end{align}
-In questo moto, possiamo riscrivere il potenziale osservando che per $l=1$, se posiziamo l'origine nel centro di massa, abbiamo che $I_{10} = 0$, quindi il primo termine non nullo dopo $l=0$ è ovviamente quello per $l=2$, dunque
+In questo modo, possiamo riscrivere il potenziale osservando che per $l=1$, se posizioniamo l'origine nel centro di massa, abbiamo che $I_{10} = 0$, quindi il primo termine non nullo dopo $l=0$ è ovviamente quello per $l=2$, dunque
 \begin{align}
 	U_{\text{ext}}(r, \theta) = -\frac{GM}{r} \left[ 1 - \sum_{l=2}^\infty \mathcal{J}_l \left( \frac{R}{r} \right)^l P_l(\cos{\theta}) \right].
 \end{align}
-Si osservi che il momento di multipolo adimensionale per $l=2$ può essere espresso in termini dei momenti principali di inerzia: prima di procedere a vedere come questo possa essere fatto, richiamiamo alcuni fatti sui momenti di ienrzia di un corpo. Ricordiamo che, in generale, i momenti di inerzia di un corpo rispetto al centro di massa sono dati da
+Si osservi che il momento di multipolo adimensionale per $l=2$ può essere espresso in termini dei momenti principali di inerzia: prima di procedere a vedere come questo possa essere fatto, richiamiamo alcuni fatti sui momenti di inerzia di un corpo. Ricordiamo che, in generale, i momenti di inerzia di un corpo rispetto al centro di massa sono dati da
 \begin{align}
 	I_{ij}(t) = \int_V \rho(\vec{x}', t)(\vec{r}^2 \delta_{ij} - x_i'x_j') d^3 x', 
 \end{align}
@@ -321,7 +327,7 @@ e in virtù della simmetria si conclude che la matrice di un corpo assialmente s
 	&I_{yy} = \int_V \rho(\vec{x}', t)((x')^2 + (z')^2) \mathrm{d}^3 x', \\
 	&I_{zz} = \int_V \rho(\vec{x}', t)((x')^2 + (y')^2) \mathrm{d}^3 x'. \nonumber
 \end{align}
-Si osservi che $I_{xx} = I_{yy}$, in quanto
+Si osservi che $I_{xx} = I_{yy}$, visto che
 \begin{align}
 	I_{xx} &= \int_V \rho(\vec{x}', t)((y')^2 + (z')^2) \mathrm{d}^3 x' = \nonumber \\
 	&= \int_V \rho(r', \theta', t)((r')^2 \sin^2{\theta'} \sin^2{\phi'} + (r')^2 \cos^2{\theta'}) (r')^2 \sin{\theta'} \mathrm{d}r' \mathrm{d} \theta' \mathrm{d} \phi' \nonumber \\
@@ -345,33 +351,38 @@ dunque
 		      &=\frac{1}{MR^2} \int_V \rho(r', \theta', t) \left[ (x')^2 + (y')^2 - \frac{1}{2}((x')^2 + (z')^2) - \frac{1}{2}((y')^2 + (z')^2 \right] \mathrm{d}^3 x' = \nonumber \\
 	&= \frac{I_{zz} - \frac{1}{2}\left( I_{xx} + I_{yy} \right)}{MR^2} =\frac{I_{zz} - I}{MR^2},
 \end{align}
-dove abbiamo usato il fatto che $I_{xx} = I_{yy} = I$. Nel caso di un corpo non assialmente simmetrico, sebbene compaiano anche le armoniche sferiche con $m \neq 0$, il momento di multipolo adimensionale è comunqu
+dove abbiamo usato il fatto che $I_{xx} = I_{yy} = I$. Nel caso di un corpo non assialmente simmetrico, sebbene compaiano anche le armoniche sferiche con $m \neq 0$, il momento di multipolo adimensionale è comunque dominante rispetto alle asimmetrie.
 
 
 \subsubsection{Momenti di multipolo del campo gravitazionale terrestre}
 
 I momenti di multipolo della Terra quantificano quanto questa devia dalla simmetria sferica. In maniera generale, i pianeti e le stelle ruotano così lentamente che le loro deviazioni sono molto piccole e, tendenzialmente, le altre sorgenti di asimmetria sono ancora più piccole. \\
-I momenti di multipolo della Terra sono stati determinati attraverso lo studio del modo dei satelliti che orbitano attorno ad essa: i coefficienti delle armoniche sferiche misurati indirettamente sono stati poi raccolti all'interno di un grandissimo \emph{dataset} con cui è possibile andare a ricostruire il campo gravitazionale della Terra: una raffigurazione di questo è dato nell'immagine \ref{fig:raf_earth_field}
+I momenti di multipolo della Terra sono stati determinati attraverso lo studio del moto dei satelliti che orbitano attorno ad essa: i coefficienti delle armoniche sferiche misurati indirettamente sono stati poi raccolti all'interno di un grandissimo \emph{dataset} con cui è possibile andare a ricostruire il campo gravitazionale della Terra: una raffigurazione di questo è data nell'immagine \ref{fig:raf_earth_field}
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.60\textwidth]{Immagini/gravitational_field.jpg}
-	\caption{Raffigurazione del campo gravitazionale terrestre. Le differenze di esso fra le diverse regione del globo sono evidenziate tramite il colore e l'elevazione}
+	\caption{Raffigurazione del campo gravitazionale terrestre. Le differenze di esso fra le diverse regioni del globo sono evidenziate tramite il colore e l'elevazione}
 	\label{fig:raf_earth_field}
 \end{figure}
-Si osserva che il momento adimensionale $\mathcal{J}_2 = 1.083 \times 10^{-3}$ e per $l>2$ i momenti adimensionali successivi sono ancora più piccoli, all'incirca $3$ ordini di grandezza più piccoli. Le deviazioni dalla simmetria assiale sono ancora più piccole: in buona approssimazione, dunque, la terra può essere quindi considerata come un corpo sferico per la maggior parte dei fenomeni studiati; tuttavia è bene tenere presente, in eventuali applicazioni in cui è richiesto un elevato grado di precisione, che la Terra non gode né di simmetria sferica né di simmetria assiale, sebbene, anche in quest'ultimo caso, i coefficienti delle armoniche sferiche con $m \neq 0$ sono ancora più piccoli di quelli relativi alle armoniche assialmente asimmetriche. \\
-L'immagine \ref{fig:raf_earth_field}, può essere ricreata, tramite il dataset, tenendo a mente che che è stato introdotto un fattore moltiplicativo di circa $10^4$ nei coefficienti delle armoniche sferiche per evidenziare ``visivamente'' il contributo date dalle armoniche per $m \neq 0$; inoltre, viene trascurato anche il termine di quadrupolo ($l=2$), che è dominante: questo corrisponderebbe al campo gravitazionale generato da due masse poste una di fronte all'altra (in piena analogia all'elettrostatica) con la congiungiunte ortogonale all'asse di simmetria (ovvero l'asse di rotazione della Terra), quindi visivamente, ci aspetterremo un'allargamento all'equatore e uno schiacciamento ai poli. \\
-Un problema che sorge, tuttavia, nel cercare di ricreare l'immagine \ref{fig:raf_earth_field} è la computazione delle armoniche sferiche di grado $l$ elevato, a causa delle grandissime variazioni che queste subiscono in corrispondenza di $\theta = 0$ e $\theta = \pi$, che eccedono di parecchio il formato di memorizzazione definito dalla standard \emph{IEEE 754}. Un modo per risolvere questo è l'implementazione algoritmica dovuta a S.A. Holmes e W.E. Featherstone della sommatoria di Clenshaw per la computazione delle armoniche sferiche, che rende il processo numericamente stabile fino a $l=2700$: una spiegazione dell'algoritmo viene fornito nelle appendici e i più interessati trovare maggiori informazioni in \cite{Holmes2002}.
+Si osserva che il momento adimensionale $\mathcal{J}_2 = 1.083 \times 10^{-3}$ e per $l>2$ i momenti adimensionali successivi sono ancora più piccoli, all'incirca $3$ ordini di grandezza più piccoli. Le deviazioni dalla simmetria assiale sono ancora più piccole: in buona approssimazione, dunque, la terra può essere considerata come un corpo sferico per la maggior parte dei fenomeni studiati; tuttavia è bene tenere presente, in eventuali applicazioni in cui è richiesto un elevato grado di precisione, che la Terra non gode né di simmetria sferica né di simmetria assiale, sebbene, anche in quest'ultimo caso, i coefficienti delle armoniche sferiche con $m \neq 0$ sono ancora più piccoli di quelli relativi alle armoniche assialmente asimmetriche. \\
+L'immagine \ref{fig:raf_earth_field}, può essere ricreata, tramite il dataset, tenendo a mente che che è stato introdotto un fattore moltiplicativo di circa $10^4$ nei coefficienti delle armoniche sferiche con per evidenziare ``visivamente'' il contributo dato dalle armoniche per $l > 2$; il termine di quadrupolo non è moltiplicato per alcun fattore di scala, in quanto è dominante: questo corrisponderebbe al campo gravitazionale generato da una distribuzione ellissoidale. \\
+Un problema che sorge, tuttavia, nel cercare di ricreare l'immagine \ref{fig:raf_earth_field} è la computazione delle armoniche sferiche di grado $l$ elevato, a causa delle grandissime variazioni che queste subiscono in corrispondenza di $\theta = 0$ e $\theta = \pi$, che eccedono di parecchio il formato di memorizzazione definito dallo standard \emph{IEEE 754}. Un modo per risolvere questo è l'implementazione algoritmica dovuta a S.A. Holmes e W.E. Featherstone della sommatoria di Clenshaw per la computazione delle armoniche sferiche, che rende il processo numericamente stabile fino a $l=2700$: una spiegazione dell'algoritmo viene fornita nelle appendici e i più interessati trovare maggiori informazioni in \cite{Holmes2002}.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Codici/terra.png}
+	\caption{Ricostruzione dell'immagine ottenuta tramite il dataset EIGEN-6C4}
+\end{figure}
 
 \section{Decomposizione in tensori simmetrici tracefree}
 
-Un'altra decomposizione molto utile del campo gravitazionale coinvolte le combinazioni tensoriali del vettore unitario $\vec{n} \equiv \frac{\vec{x}}{r}$, piuttosto che le armoniche sferiche. Ogni tensore che costruiremo da esso avrà la proprietà di essere simmetrico sotto lo scambio di ognuno dei suoi indici e di avere traccia nulla, pertanto in letteratura sono noti come \emph{symmetric tracefree tensors} o, più brevemente, \emph{STF tensors}.
+Un'altra decomposizione molto utile del campo gravitazionale coinvolge le combinazioni tensoriali del vettore unitario $\vec{n} \equiv \frac{\vec{x}}{r}$, piuttosto che le armoniche sferiche. Ogni tensore che costruiremo da esso avrà la proprietà di essere simmetrico sotto lo scambio di ognuno dei suoi indici e di avere traccia nulla, pertanto in letteratura sono noti come \emph{symmetric tracefree tensors} o, più brevemente, \emph{STF tensors}.
 
-Anche questi tensori, così come le armoniche sferiche, prendono come mattoncini fondamentali le rappresentazioni irridubili del gruppo delle rotazioni, andandole ad etichettare con l'indice di multipolo $l$. E' bene tenere a mente una distinzione fondamentale: le armoniche sferiche dipendono dalle coordinate sferiche, tenendo le variabili angolari $(\theta, \phi)$ separate dalla componente radiale $r$; i tensori \emph{STF} invece fanno affidamento alle coordinate cartesiane originali, che si mescolano fra di loro indistamente.
+Anche questi tensori, così come le armoniche sferiche, prendono come mattoncini fondamentali le rappresentazioni irriducibili del gruppo delle rotazioni, andandole ad etichettare con l'indice di multipolo $l$. E' bene tenere a mente una distinzione fondamentale: le armoniche sferiche dipendono dalle coordinate sferiche, facendo sì che le variabili angolari $(\theta, \phi)$ separate dalla componente radiale $r$; i tensori \emph{STF} invece fanno affidamento alle coordinate cartesiane originali.
 
 Partiamo dall'espansione del potenziale esterno ad una distribuzione di massa, che è dato da
 \begin{align}
-	U(\vec{x}, t) = G \int_V \frac{\rho(\vec{x}', t)}{|\vec{x} - \vec{x}'|} d^3 x', \label{eq:pot_external}
+	U(\vec{x}, t) = -G \int_V \frac{\rho(\vec{x}', t)}{|\vec{x} - \vec{x}'|} d^3 x', \label{eq:pot_external}
 \end{align}
 e consideriamo un punto $\vec{x}$ che sta al di fuori della distribuzione di massa. Chiaramente, se $|\vec{x}'| \ll |\vec{x}|$ possiamo effettuare un'espansione in serie di Taylor, data da
 \begin{align}
@@ -383,8 +394,8 @@ Per facilità nella trattazione, da ora in poi useremo la convenzione di Einstei
 \end{align}
 dove con $L$ intendiamo una collezione di $l$ indici. Inserendo questo risultato nella \eqref{eq:pot_external} si ottiene che 
 \begin{align}
-	U(\vec{x}, t) &= G \int_V \rho(\vec{x}', t) \left[ \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} x^{' L}\partial_L \left( \frac{1}{r} \right) \right] \mathrm{d}^3 x' = \nonumber \\
-	&= G \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} \left( \int_V \rho(\vec{x}', t) x^{' L} \mathrm{d}^3 x' \right) \partial_L \left( \frac{1}{r} \right).
+	U(\vec{x}, t) &= -G \int_V \rho(\vec{x}', t) \left[ \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} x^{' L}\partial_L \left( \frac{1}{r} \right) \right] \mathrm{d}^3 x' = \nonumber \\
+		      &= G \sum_{l=0}^{\infty} \frac{(-1)^{l+1}}{l!} \left( \int_V \rho(\vec{x}', t) x^{' L} \mathrm{d}^3 x' \right) \partial_L \left( \frac{1}{r} \right).
 \end{align}
 Andiamo, adesso, a calcolare le derivate di $\frac{1}{r}$: si osserva che
 \begin{align}
@@ -392,25 +403,25 @@ Andiamo, adesso, a calcolare le derivate di $\frac{1}{r}$: si osserva che
 	&\partial_{jk} \left( \frac{1}{r} \right) = \frac{3 n_j n_k - \delta_{jk}}{r^3}, \\
 	&\partial_{jkn} \left( \frac{1}{r} \right) = -\frac{15 n_j n_k n_n - 3(n_j \delta_{kn} + n_k \delta_{jn} + n_n \delta_{jk})}{r^4},
 \end{align}
-e così via. Si osserva che tutti i tensori che abbiamo sulla destra sono simmetrici per scambio di indici e prendendo la traccia di due qualunque degli indici, si annullano fra loro: questi sono degli esempi di tensori STF. Si può facilmente mostrare quanto detto osservando il lato sinistro di queste equazioni qua sopra: si ha, infatti, che le derivate parziali (per $r \neq 0$) commutano (in virtù del teorema di Schwartz, valido in quanto $\frac{1}{r}$ è $C^{\infty}$ per $r \neq 0$) ed è tracefree, in quanto
+e così via. Si osserva che tutti i tensori che abbiamo sulla destra sono simmetrici per scambio di indici e prendendo la traccia di due qualunque degli indici, si annullano fra loro: questi sono degli esempi di tensori STF. Si può facilmente mostrare quanto detto osservando il lato sinistro di queste equazioni qua sopra: si ha, infatti, che le derivate parziali (per $r \neq 0$) commutano (in virtù del teorema di Schwarz, valido in quanto $\frac{1}{r}$ è $C^{\infty}$ per $r \neq 0$) ed è tracefree, siccome
 \begin{align}
 	\delta^{j_1 j_2} \partial_{j_1 j_2 \ldots j_l} r^{-1} = \nabla^2 \partial_{j_3 \ldots j_l} r^{-1} = \partial_{j_3 \ldots j_l} \nabla^2 r^{-1} = 0, 
 \end{align}
-e il risultato si può facilmente estendere a indici generici. La formula generale per questi tensori STF è data da
+e il risultato si può facilmente estendere anche alla traccia calcolata contraendo $j_i$ con $j_l$ usando la commutatività delle derivate. La formula generale per questi tensori STF è data da
 \begin{align}
 	n^{\langle j_1 j_2 \ldots j_l \rangle} = \sum_{p=0}^{\left[ \frac{l}{2} \right]} (-1)^p \frac{l!(2l-2p-1)!!}{(l-2p)!(2l-1)!!(2p)!!}\left[ \delta^{j_1 j_2} \ldots \delta^{j_{2p-1} \, j_{2p}} n^{j_{2p+1}} n^{j_{2p+2}} \ldots n^{j_l} + \text{sym}(q) \right],
 \end{align}
-dove $\text{sym}(q)$ sono i termini che otteniamo attraverso permutazioni simmetriche degli indici e con $\left[ \frac{l}{2} \right]$ intendiamo l'intero più piccolo $\leq \frac{l}{2}$. Osserviamo che, in generale, la contrazione di $L$ indici di un tensore $A^{L}$ con un tensore $B_{\langle L \rangle}$ soddisfa la seguente identità
+dove $\text{sym}(q)$ sono i termini che otteniamo attraverso permutazioni simmetriche degli indici e con $\left[ \frac{l}{2} \right]$ intendiamo l'intero più grande $\leq \frac{l}{2}$. Osserviamo che, in generale, la contrazione di $L$ indici di un tensore $A^{L}$ con un tensore $B_{\langle L \rangle}$ soddisfa la seguente identità
 \begin{align}
 	A^{L} B_{\langle L \rangle} = A^{\langle L \rangle} B_{\langle L \rangle},
 \end{align}
 la cui dimostrazione, per semplicità, viene fatta nel caso di tensore a $2$ indici, ma può essere generalizzata, con qualche accortezza, anche al caso di tensori ad $l$ indici: prendendo $A_{ij}$ sappiamo che
 \begin{align}
-	A_{(ij)} = \frac{1}{2}(A_{ij} + A_{ji}), \implies A_{\langle ij \rangle} = A_{(ij)} - \delta^{ij} A_{aa},
+	A_{(ij)} = \frac{1}{2}(A_{ij} + A_{ji}), \implies A_{\langle ij \rangle} = A_{(ij)} - \frac13 \delta_{ij} \delta^{kl} A_{kl},
 \end{align}
 dunque
 \begin{align}
-	A^{ij} B_{\langle ij \rangle} = (A^{\langle ij \rangle} + \delta^{ij} A_{aa} + A^{[ij]}) B_{\langle ij \rangle} = A^{\langle ij \rangle} B_{\langle ij \rangle} + \delta^{ij} A_{aa} B_{\langle ij \rangle} + A^{[ij]} B_{\langle ij \rangle}.
+	A^{ij} B_{\langle ij \rangle} = (A^{\langle ij \rangle} + \frac13 \delta_{ij} \delta^{kl} A_{kl} + A^{[ij]}) B_{\langle ij \rangle} = A^{\langle ij \rangle} B_{\langle ij \rangle} + \frac{1}{3} \delta_{ij} \delta^{kl} A_{kl} B_{\langle ij \rangle} + A^{[ij]} B_{\langle ij \rangle}.
 \end{align}
 Si ha che il secondo termine è nullo poiché $B_{\langle ij \rangle}$ ha traccia nulla e il terzo termine invece è nullo per antisimmetria di $A^{[ij]}$. Quindi, se ne conclude, visto che $\partial_L r^{-1}$ è simmetrico per scambio degli indici, ovvero $\partial_L \left( \frac{1}{r} \right) = \partial_{\langle L \rangle} \left(\frac{1}{r} \right)$, che
 \begin{align}
@@ -418,22 +429,22 @@ Si ha che il secondo termine è nullo poiché $B_{\langle ij \rangle}$ ha tracci
 \end{align}
 Si ottiene, quindi, che
 \begin{align}
-	U(\vec{x}, t) = G \sum_{l=0}^{\infty} \frac{(-1)^l}{l!} I^{\langle L \rangle} \partial_{\langle L \rangle} \left( \frac{1}{r} \right) = G \sum_{l=0}^{\infty} \frac{(2l-1)!!}{l!} I^{\langle L \rangle} \frac{n_{\langle L \rangle}}{r^{l+1}},
+	U(\vec{x}, t) = -G \sum_{l=0}^{\infty} \frac{(-1)^{l}}{l!} I^{\langle L \rangle} \partial_{\langle L \rangle} \left( \frac{1}{r} \right) = -G \sum_{l=0}^{\infty} \frac{(2l-1)!!}{l!} I^{\langle L \rangle} \frac{n_{\langle L \rangle}}{r^{l+1}},
 \end{align}
 dove nell'ultimo passaggio abbiamo sostituito i tensori STF di $n_{\langle L \rangle}$ che abbiamo costruito.
 
 \subsection{Corrispondenza con le armoniche sferiche}
 
-Il numero di tensori simmetrici tracefree indipendenti dato un certo numero di indici $l$ che agiscono su uno spazio $n-$dimensionale è dato da $\binom{n+l-1}{l} - \frac{l(l-1)}{2}$. Nel caso $3-$dimensionale come il nostro si osserva che
+Il numero di tensori simmetrici tracefree indipendenti dato un certo numero di indici $l$ che agiscono su uno spazio $n-$dimensionale è dato da $\binom{n+l-1}{l} - \binom{n+(l-2)-1}{l-2}$. Nel caso $3-$dimensionale come il nostro si osserva che
 \begin{align}
-	\binom{3+l-1}{l} - \frac{l(l-1)}{2} &= \frac{(l + 2)!}{2!l!} - \frac{l(l-1)}{2} = \frac{(l+2)(l+1)}{2} - \frac{l(l-1)}{2} = \\
+	\binom{3+l-1}{l} - \binom{n+(l-2)-1}{l-2} &= \frac{(l + 2)!}{2!l!} - \frac{l!}{2!(l-2)!} = \frac{(l+2)(l+1)}{2} - \frac{l(l-1)}{2} = \\
 	&= \frac{l^2 + 3l + 2 - l^2 + l}{2} = \frac{4l + 2}{2} = 2l+1  
 \end{align}
 da cui vediamo che abbiamo $2l+1$ tensori STF indipendenti, numero che coincide esattamente col numero di armoniche sferiche indipendenti ad un dato $l$, il che ci porta a pensare che ci sia un legame fra queste due. Esprimendo $\hat{n}$ in funzione delle coordinate angolari, ovvero
 \begin{align}
 	\hat{n} = \begin{pmatrix} \sin{\theta} \cos{\phi}, \sin{\theta} \sin{\phi}, \cos{\theta} \end{pmatrix},
 \end{align}
-si può concludere che $n^{\langle L \rangle}$ è un insieme di funzioni della variabile $\theta$ e $\phi$, quindi decomponibile in armoniche sferiche (che rappresentano una base delle funzioni $f: S^2 \to \mathbb{C}$). Questa decomposizione, tuttavia, include un singolo valore di $l$: questo si può facilmente dedurre dal fatto che $n^{\langle L \rangle}$ è un'autofunzione della parte angolare dell'operatore laplaciano, ovvero
+si può concludere che $n^{\langle L \rangle}$ è un insieme di funzioni della variabile $\theta$ e $\phi$, quindi decomponibile in armoniche sferiche (che rappresentano una base delle funzioni $f: S^2 \to \mathbb{C}$). Questa decomposizione, tuttavia, include un singolo valore di $l$: questo si può facilmente dedurre dal fatto che $n^{\langle L \rangle}$ è un'autofunzione della parte angolare dell'operatore laplaciano, ossia
 \begin{align}
 	r^2 \nabla^2 n^{\langle L \rangle} = -l(l+1)n^{\langle L \rangle},
 \end{align}
@@ -446,7 +457,7 @@ Mostriamo adesso che $n^{\langle L \rangle}$ sia un'autofunzione della parte ang
 \begin{align}
 	\frac{\partial}{\partial r} \left[ r^2 \frac{\partial (r^{l} n^{\langle L \rangle})}{\partial r} \right] = -\Delta_\Omega (r^l n^{\langle L \rangle}),  
 \end{align}
-dove abbiamo posto $\Delta_\Omega = \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta}(\sin{\theta} \frac{\partial}{\partial \theta}) + \frac{1}{\sin^2{\theta}} \frac{\partial^2}{\partial \phi^2}$e si osserva che, visto che $n^{\langle L \rangle}$ dipende solo dalla variabili angolari, allora l'elemento dentro le prime parentesi è dato da
+dove abbiamo posto $\Delta_\Omega = \frac{1}{\sin{\theta}} \frac{\partial}{\partial \theta}(\sin{\theta} \frac{\partial}{\partial \theta}) + \frac{1}{\sin^2{\theta}} \frac{\partial^2}{\partial \phi^2}$e si osserva che, visto che $n^{\langle L \rangle}$ dipende solo dalle variabili angolari, allora l'elemento dentro le prime parentesi è dato da
 \begin{align}
 	l(l+1) r^{l} n^{\langle L \rangle} = -r^l \Delta_\Omega n^{\langle L \rangle}, 
 \end{align}
@@ -475,7 +486,7 @@ Si ha che
 	\end{align}
 	dove abbiamo semplicemente riscritto il termine $\frac{1}{\sin{\theta}}(\sin{\theta} \frac{dS}{d\theta})$ in funzione di $\mu$. Segue allora che
 	\begin{align}
-		\frac{dS}{d\mu}\left[ (1-\mu^2) \frac{dS}{d\mu} \right] + L(L+1)S(\mu) = 0,
+		\frac{d}{d\mu}\left[ (1-\mu^2) \frac{dS}{d\mu} \right] + L(L+1)S(\mu) = 0,
 	\end{align}
 	che è esattamente l'equazione differenziale che definisce i polinomi di Legendre. Segue che
 	\begin{align}
