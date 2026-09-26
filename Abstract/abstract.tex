@@ -1,7 +1,7 @@
 \documentclass[10pt]{article}
 \input{preamble/preamble}
-\input{preamble/letterfonts}
-\input{preamble/macros}
+% \input{preamble/letterfonts}
+% \input{preamble/macros}
 %\usepackage{fancyhdr}
 %\usepackage{titlesec}  % Opzionale, per controllo avanzato sui titoli
 %\pagestyle{fancy}
@@ -26,25 +26,52 @@
 \author{Francesco Sermi}
 \date{\today}
 \begin{document}
-\nocite{*}
+\bibliographystyle{unsrt}
+\nocite{poisson, gualtieri, Cardoso_2016}
 \begin{titlepage}
 	\centering
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=0.6\textwidth]{../Immagini/marchio_unipi.png}
-	\end{figure}
-	\begin{center}
-	{Dipartimento di Fisica Enrico Fermi} \\
-	{Università di Pisa} \\
-	{A.A. 2025/2026} \\
-	\vspace{1cm}
-	{\huge \textbf{Momenti di multipolo del campo gravitazionale}} \\
-	\vspace{0.4cm}
-	{\large Relatore: Prof. Leonardo Gualtieri} \\
-	\vspace{0.2cm}
-	{\large Candidato: Francesco Sermi} \\
+	\vspace{0.6cm}
+	\vspace{1.2cm}
+	\vspace{1.4cm}
+	 \includegraphics[width=0.4\textwidth]{../Immagini/marchio_unipi.png}\par
+	 \vspace{1.4cm}
+    {\large \large\textbf{DIPARTIMENTO DI FISICA}\par}
+    \vspace{0.3cm}
+    {\normalsize Corso di Laurea Triennale in Fisica\par}
+    
 
-\end{center}
+    % Tipologia documento
+    \vspace{0.6cm}
+    
+    % Titolo della Tesi
+    {\LARGE \textbf{Momenti di multipolo del campo gravitazionale}\par}
+    
+    \vfill % Spinge le firme e la data verso il basso mantenendo le proporzioni
+    \vspace{-1cm}
+    % Firme su due colonne
+    \begin{minipage}[t]{0.48\textwidth}
+        \textbf{Relatore:}\\
+        Prof.~Leonardo Gualtieri\\[0.4cm]
+        %\textbf{Correlatori:} \\ % Rimuovi o commenta se non presente
+        %Ismaele Bartoluccio \\
+	%Davide Labrosciano
+	\end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \begin{flushright}
+            \textbf{Candidato:}\\
+            Francesco Sermi\\
+            Matricola 677094
+        \end{flushright}
+    \end{minipage}
+    
+    \vspace{1.8cm}
+    
+    % Anno Accademico
+    \hrule height 0.5pt
+    \vspace{0.4cm}
+    {\small Anno Accademico 2025/2026\par}
+    	
 \end{titlepage}
 
 \section*{Long abstract}
@@ -54,9 +81,9 @@ Successivamente viene analizzato il legame tra i contributi multipolari e le sim
 
 L’approccio teorico viene successivamente applicato al caso della Terra per mostrare come le irregolarità gravitazionali riflettano la distribuzione non uniforme della massa planetaria. In particolare, viene esaminato il modello di geopotenziale EIGEN-6C4, ricavato dalle osservazioni dei satelliti in orbita, che spinge l’espansione multipolare fino all'ordine 2190. L’analisi di questi contributi permette di mappare le anomalie gravitazionali nelle diverse regioni del globo, collegandole a variazioni di densità nella crosta e nel mantello terrestre, e dimostrando l'efficacia del metodo su un sistema fisico reale. \\
 
-Nella parte conclusiva viene affrontato il problema della deformabilità mareale, considerando la risposta di un corpo celeste all’attrazione gravitazionale di una stella o di un pianeta vicino. Il fenomeno viene descritto nell'ambito newtoniano ed esteso, nel limite di campo debole, alla Relatività Generale. Si dimostra come il campo esterno induca una distorsione della massa quantificabile tramite un coefficiente di deformabilità mareale. Viene infine analizzato il caso dei buchi neri statici e rotanti, evidenziando il notevole risultato teorico per cui tale coefficiente risulta nullo. \\
+Nella parte conclusiva viene affrontato il problema della deformabilità mareale, considerando la risposta di un corpo celeste all’attrazione gravitazionale di una stella o di un pianeta vicino. Il fenomeno viene descritto nell'ambito newtoniano ed esteso, nel limite di campo debole, alla Relatività Generale. Si dimostra come il campo esterno induca una distorsione della massa quantificabile tramite un coefficiente di deformabilità mareale. \\
 
 Nel complesso, questa tesi illustra l'espansione in multipoli come un ponte tra la teoria del potenziale e l'interpretazione fisica delle proprietà dei corpi celesti. Il percorso sviluppato ne evidenzia l'utilità operativa: dalla comprensione delle simmetrie fondamentali alla geofisica terrestre, fino alla risposta mareale di oggetti compatti, mostrando come ogni ordine multipolare arricchisca progressivamente il quadro descrittivo del sistema.
-\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{Bibliografia}
 \bibliography{bibliography.bib}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.16)  10 SEP 2026 15:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.8.16)  17 SEP 2026 00:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1501,8 +1501,7 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
 (/usr/share/texmf-dist/tex/latex/doublestroke/dsfont.sty
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
-))
-(./preamble/letterfonts.tex) (./preamble/macros.tex) (./abstract.aux)
+)) (./abstract.aux)
 \openout1 = `abstract.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 28.
@@ -1652,8 +1651,13 @@ your preamble.
 <../Immagini/marchio_unipi.png, id=43, 564.4287pt x 300.6432pt>
 File: ../Immagini/marchio_unipi.png Graphic file (type png)
 <use ../Immagini/marchio_unipi.png>
-Package pdftex.def Info: ../Immagini/marchio_unipi.png  used on input line 34.
-(pdftex.def)             Requested size: 284.7917pt x 151.69745pt.
+Package pdftex.def Info: ../Immagini/marchio_unipi.png  used on input line 36.
+(pdftex.def)             Requested size: 189.8563pt x 101.12552pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--58
+
+ []
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Immagini/marchio_unipi.
@@ -1662,22 +1666,22 @@ png
 pdfTeX warning: pdflatex (file ../Immagini/marchio_unipi.png): large interlaced
  PNG might cause out of memory (use non-interlaced PNG to fix this)
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
@@ -1686,7 +1690,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.62 \end{document}
+l.89 \end{document}
                     [1{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-
 ts1.enc}] (./abstract.aux)
  ***********
@@ -1695,22 +1699,22 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 49779 strings out of 469504
- 1118954 string characters out of 5470379
- 3871372 words of memory out of 8437616
- 77622 multiletter control sequences out of 15000+600000
- 629911 words of font info for 47 fonts, out of 8000000 for 9000
+ 49426 strings out of 469504
+ 1117559 string characters out of 5470379
+ 3871370 words of memory out of 8437614
+ 77273 multiletter control sequences out of 15000+600000
+ 630825 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 122i,6n,124p,785b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1
-000.pfb>
-Output written on abstract.pdf (2 pages, 172311 bytes).
+ 122i,5n,124p,785b,517s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on abstract.pdf (2 pages, 184901 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  7 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

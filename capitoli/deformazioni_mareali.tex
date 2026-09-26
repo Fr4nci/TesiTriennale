@@ -25,10 +25,10 @@ che chiamiamo \emph{tensore mareale} del campo gravitazionale: questo è il cont
 
 Si osservi che le due espansioni che abbiamo fatto sono valide esclusivamente se $R \ll r \ll \mathcal{R}$, dove $R$ è la lunghezza caratteristica del corpo e $\mathcal{R}$ è la lunghezza caratteristica del corpo che genera il campo gravitazionale tidiale: chiameremo questa regione \emph{buffer region}, in cui la sorgente del campo gravitazionale mareale è esterna a tale regione, pertanto abbiamo che (tenendo solo il secondo ordine che dà contributo non nullo)
 \begin{align}
-	\nabla^2 \Phi_{\text{ext}} &= \delta_{j}^i \partial_{i} \partial_j(\frac{1}{2} E_{ab} x^a x^b) = \delta_j^i \partial_i ( \frac12 E_{ab} \delta_j^a x^b + \frac12 E_{ab} x^a \delta_j^b ) = \nonumber \\
+	\nabla^2 \Phi_{\text{ext}} &= \delta_{j}^i \partial_{i} \partial_j \left( \frac{1}{2} E_{ab} x^a x^b \right) = \delta_j^i \partial_i \left( \frac12 E_{ab} \delta_j^a x^b + \frac12 E_{ab} x^a \delta_j^b \right) = \nonumber \\
 	&= \delta_j^i \partial_i ( \frac12 E_{jb} x^b + \frac12 E_{aj} x^a) = \delta_j^i \partial_i (E_{aj} x^a) = \delta_j^i E_{aj} \delta_i^a = E_{ii} = 0,
 \end{align}
-ossia si ha che $E_{ij}$ è un tensore simmetrico (per il teorema di Schwartz) e senza traccia. Per linearità dell'equazione di Poisson, abbiamo che il potenziale gravitazionale nella regione di buffer è dato semplicemente dalla somma dei due potenziali, ossia
+ossia si ha che $E_{ij}$ è un tensore simmetrico (per il teorema di Schwarz) e senza traccia. Per linearità dell'equazione di Poisson, abbiamo che il potenziale gravitazionale nella regione di buffer è dato semplicemente dalla somma dei due potenziali, ossia
 \begin{align} \label{eq:expansion_buffer}
 	\Phi_{\text{tot}}(\vec{x}) = - \frac{M}{r} - \frac32 \frac{Q_{ij} n^{\langle i} n^{j \rangle}}{r^3} + o \left( \frac{R^3}{r^3} \right) + \frac12 E_{ij} r^2 n^{\langle i} n^{j \rangle} + o \left( \frac{r^3}{\mathcal{R}^3} \right), 
 \end{align}

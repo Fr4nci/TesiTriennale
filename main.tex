@@ -34,7 +34,7 @@
 	}
 \renewcommand{\appendixpage}{}
 \begin{document}
-\nocite{*}
+\nocite{poisson, gualtieri, jackson, Holmes2002, Cardoso_2016}
 	\begin{titlepage}
     \centering
     
@@ -64,7 +64,7 @@
     \begin{minipage}[t]{0.48\textwidth}
         \textbf{Relatore:}\\
         Prof.~Leonardo Gualtieri\\[0.4cm]
-        \textbf{Corelatori:} \\ % Rimuovi o commenta se non presente
+        \textbf{Correlatori:} \\ % Rimuovi o commenta se non presente
         Ismaele Bartoluccio \\
 	Davide Labrosciano
 	\end{minipage}
@@ -100,11 +100,11 @@
 	\input{capitoli/gravity.tex}
 	\input{capitoli/deformazioni_mareali.tex}
 	\input{capitoli/conclusion.tex}
-	%\input{capitoli/acknowledgments.tex}
+	\input{capitoli/acknowledgments.tex}
     	\appendix
 	\input{capitoli/holmes_feather.tex}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Bibliografia}
-	\bibliographystyle{plain}
+	\bibliographystyle{unsrt}
 	\bibliography{bibliography.bib}
     \end{document}
