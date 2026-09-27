@@ -95,16 +95,28 @@
 	\end{flushright}
     	\vfill
     	\newpage
-    	\tableofcontents
+	\chapter*{Long abstract}
+In questa tesi si analizza l’espansione in multipoli della gravità come strumento per lo studio del campo gravitazionale dei corpi celesti e delle possibili deviazioni dalla simmetria sferica. Nei modelli di base, pianeti e stelle vengono spesso descritti come sfere perfette e omogenee; nella realtà fisica, la rotazione e le eterogeneità interne generano continue asimmetrie. L’espansione in multipoli consente di superare questa semplificazione, scomponendo il potenziale gravitazionale in una serie di contributi associati a configurazioni geometriche elementari e ben definite. In questo modo è possibile collegare direttamente la geometria del campo gravitazionale alla reale distribuzione della massa all’interno del corpo celeste. \\
+
+Successivamente viene analizzato il legame tra i contributi multipolari e le simmetrie del sistema. Si illustra come per una sfera ideale sopravviva solo il termine di monopolo, pari alla massa totale, mentre nei corpi in rotazione la simmetria assiale selezioni componenti specifiche associate allo schiacciamento ai poli e al rigonfiamento equatoriale. Nei casi asimmetrici più generali intervengono termini di ordine superiore che catturano i dettagli locali. Questa trattazione consente di chiarire il significato fisico dei momenti di multipolo e di utilizzarli come parametri quantitativi per descrivere la struttura del corpo. \\
+
+L’approccio teorico viene successivamente applicato al caso della Terra per mostrare come le irregolarità gravitazionali riflettano la distribuzione non uniforme della massa planetaria. In particolare, viene esaminato il modello di geopotenziale EIGEN-6C4, ricavato dalle osservazioni dei satelliti in orbita, che spinge l’espansione multipolare fino all'ordine 2190. L’analisi di questi contributi permette di mappare le anomalie gravitazionali nelle diverse regioni del globo, collegandole a variazioni di densità nella crosta e nel mantello terrestre, e dimostrando l'efficacia del metodo su un sistema fisico reale. \\
+
+Nella parte conclusiva viene affrontato il problema della deformabilità mareale, considerando la risposta di un corpo celeste all’attrazione gravitazionale di una stella o di un pianeta vicino. Il fenomeno viene descritto nell'ambito newtoniano ed esteso, nel limite di campo debole, alla Relatività Generale. Si dimostra come il campo esterno induca una distorsione della massa quantificabile tramite un coefficiente di deformabilità mareale. \\
+
+Nel complesso, questa tesi illustra l'espansione in multipoli come un ponte tra la teoria del potenziale e l'interpretazione fisica delle proprietà dei corpi celesti. Il percorso sviluppato ne evidenzia l'utilità operativa: dalla comprensione delle simmetrie fondamentali alla geofisica terrestre, fino alla risposta mareale di oggetti compatti, mostrando come ogni ordine multipolare arricchisca progressivamente il quadro descrittivo del sistema.
+
+	\tableofcontents
     	\input{capitoli/introduction.tex}
 	\input{capitoli/gravity.tex}
 	\input{capitoli/deformazioni_mareali.tex}
 	\input{capitoli/conclusion.tex}
-	\input{capitoli/acknowledgments.tex}
-    	\appendix
+	\appendix
 	\input{capitoli/holmes_feather.tex}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Bibliografia}
 	\bibliographystyle{unsrt}
 	\bibliography{bibliography.bib}
-    \end{document}
+	\addcontentsline{toc}{chapter}{Ringraziamenti}
+	\input{capitoli/acknowledgments.tex}
+	\end{document}
